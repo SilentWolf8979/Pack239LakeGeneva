@@ -1,0 +1,72 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab');
+
+$sctg-red: #CE1126;
+$sctg-gold: #FDC116;
+$sctg-blue: #003F87;
+$sctg-blue-pale: #9AB3D5;
+$sctg-blue-dark: #003366;
+$sctg-tan: #D6CEBD;
+$sctg-tan-light: #E9E9E4;
+$sctg-tan-dark: #AD9D7B;
+$sctg-gray: #515354;
+$sctg-gray-pale: #858787;
+$sctg-gray-dark: #232528;
+
+$sctg-font-primary: 'Roboto Slab', serif;
+$sctg-font-secondary: 'Roboto Condensed', sans-serif;
+$sctg-font-tertiary: 'Roboto Condensed', sans-serif;
+
+
+body {
+  background-color: $sctg-blue;
+  font-family: $sctg-font-primary;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar {
+  background-color: $sctg-blue-dark;
+
+  .navbar-brand {
+    height: 75px;
+
+    p {
+      color: $sctg-gold;
+      font-size: 12px;
+      left: 42px;
+      position: relative;
+      top: -12px;
+    }
+  }
+}
+
+/* Carousel */
+.carousel-caption p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+  width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+  margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+  /* Hide captions */
+  .carousel-caption {
+    display: none;
+  }
+}
