@@ -1,5 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab');
 
+$sctg-white: #FFFFFF;
 $sctg-red: #CE1126;
 $sctg-gold: #FDC116;
 $sctg-blue: #003F87;
@@ -19,6 +20,7 @@ $sctg-font-tertiary: 'Roboto Condensed', sans-serif;
 
 body {
   background-color: $sctg-blue;
+  color: $sctg-white;
   font-family: $sctg-font-primary;
   padding-top: 50px;
   padding-bottom: 20px;
@@ -45,6 +47,18 @@ body {
       top: -12px;
     }
   }
+
+  .navbar-collapse {
+    padding-top: 10px;
+  }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: $sctg-white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: $sctg-gold;
 }
 
 /* Carousel */

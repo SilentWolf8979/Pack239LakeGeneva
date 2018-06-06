@@ -1,6 +1,7 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab");
 body {
   background-color: #003F87;
+  color: #FFFFFF;
   font-family: "Roboto Slab", serif;
   padding-top: 50px;
   padding-bottom: 20px; }
@@ -21,6 +22,14 @@ body {
       left: 42px;
       position: relative;
       top: -12px; }
+  .navbar .navbar-collapse {
+    padding-top: 10px; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #FFFFFF; }
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #FDC116; }
 
 /* Carousel */
 .carousel-caption p {
