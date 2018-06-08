@@ -1,4 +1,4 @@
-﻿/// <binding AfterBuild='copy-bootstrap, copy-jquery' />
+﻿/// <binding AfterBuild='copy-bootstrap, copy-jquery, copy-fontawesome' />
 var gulp = require('gulp')
 
 gulp.task('copy-bootstrap', function ()
@@ -26,6 +26,20 @@ gulp.task('copy-jquery', function () {
   }
   catch (e)
   {
+    return -1;
+  }
+  return 0;
+});
+
+gulp.task('copy-fontawesome', function () {
+  try {
+    gulp.src('wwwroot/css/fontawesome/*.css')
+      .pipe(gulp.dest('wwwroot/lib/css/fontawesome'));
+
+    gulp.src('wwwroot/js/fontawesome/*.js')
+      .pipe(gulp.dest('wwwroot/lib/js/fontawesome'));
+  }
+  catch (e) {
     return -1;
   }
   return 0;
