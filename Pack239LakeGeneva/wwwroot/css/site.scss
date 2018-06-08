@@ -20,10 +20,9 @@ $sctg-font-tertiary: 'Roboto Condensed', sans-serif;
 
 body {
   background-color: $sctg-blue;
+  background-image: url('../images/wallpapers/black-linen.png');
   color: $sctg-white;
   font-family: $sctg-font-primary;
-  padding-top: 50px;
-  padding-bottom: 20px;
 }
 
 /* Wrapping element */
@@ -65,6 +64,65 @@ body {
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color: $sctg-gold;
+}
+
+.header-ribbon {
+  background-color: $sctg-gold;
+  display: flex;
+
+  p {
+    font-size: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $sctg-blue-dark;
+    position: relative;
+    top: 2px;
+  }
+
+  a:hover {
+    color: $sctg-white;
+  }
+
+  .contact-icons a {
+    top: 0;
+  }
+
+  .svg-inline--fa {
+    margin: 0 0.5rem;
+  }
+}
+
+hr {
+  background-color: $sctg-white;
+}
+
+footer {
+  background-color: $sctg-blue;
+  display: flex;
+
+  p {
+    color: $sctg-gold;
+    font-size: 0.6rem;
+  }
+
+  .contact-icons {
+    position: relative;
+    top: -5px;
+  }
+
+  a {
+    color: $sctg-white;
+  }
+
+  a:hover {
+    color: $sctg-gold;
+  }
+
+  .svg-inline--fa {
+    margin: 0.5rem;
+  }
 }
 
 /* Carousel */

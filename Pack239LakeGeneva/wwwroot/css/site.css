@@ -1,10 +1,9 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab");
 body {
   background-color: #003F87;
+  background-image: url("../images/wallpapers/black-linen.png");
   color: #FFFFFF;
-  font-family: "Roboto Slab", serif;
-  padding-top: 50px;
-  padding-bottom: 20px; }
+  font-family: "Roboto Slab", serif; }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
@@ -34,6 +33,42 @@ body {
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #FDC116; }
+
+.header-ribbon {
+  background-color: #FDC116;
+  display: flex; }
+  .header-ribbon p {
+    font-size: 0.75rem;
+    margin-bottom: 0; }
+  .header-ribbon a {
+    color: #003366;
+    position: relative;
+    top: 2px; }
+  .header-ribbon a:hover {
+    color: #FFFFFF; }
+  .header-ribbon .contact-icons a {
+    top: 0; }
+  .header-ribbon .svg-inline--fa {
+    margin: 0 0.5rem; }
+
+hr {
+  background-color: #FFFFFF; }
+
+footer {
+  background-color: #003F87;
+  display: flex; }
+  footer p {
+    color: #FDC116;
+    font-size: 0.6rem; }
+  footer .contact-icons {
+    position: relative;
+    top: -5px; }
+  footer a {
+    color: #FFFFFF; }
+  footer a:hover {
+    color: #FDC116; }
+  footer .svg-inline--fa {
+    margin: 0.5rem; }
 
 /* Carousel */
 .carousel-caption p {
