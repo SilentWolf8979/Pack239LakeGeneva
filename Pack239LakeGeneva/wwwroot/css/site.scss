@@ -23,6 +23,7 @@ body {
   background-image: url('../images/wallpapers/black-linen.png');
   color: $sctg-white;
   font-family: $sctg-font-primary;
+  min-height: 100vh;
 }
 
 /* Wrapping element */

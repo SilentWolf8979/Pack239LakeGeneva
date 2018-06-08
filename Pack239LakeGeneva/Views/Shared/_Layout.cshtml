@@ -20,12 +20,13 @@
       <script defer src="~/lib/js/fontawesome/fontawesome.js"></script>
     </environment>
 </head>
-<body>
+<body class="d-flex flex-column">
   @await Html.PartialAsync("Components/Header/Default")
   <!--div class="partialContents" data-url="Components/Header"></div-->
-  <div class="container body-content">
+
+  <section class="container-fluid body-content flex-grow-1">
     @RenderBody()
-  </div>
+  </section>
 
   @await Html.PartialAsync("Components/Footer/Default")
   <!--div class="partialContents" data-url="Components/Footer"></div-->
