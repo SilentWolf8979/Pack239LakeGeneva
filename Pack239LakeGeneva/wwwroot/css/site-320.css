@@ -1,0 +1,142 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab");
+body {
+  background-color: #003F87;
+  background-image: url("../images/wallpapers/black-linen.png");
+  color: #FFFFFF;
+  font-family: "Roboto Slab", serif;
+  min-height: 100vh;
+  overflow-x: hidden; }
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+hr {
+  background-color: #FFFFFF; }
+
+/* Header Ribbon */
+.header-ribbon {
+  background-color: #FDC116;
+  display: flex; }
+  .header-ribbon p {
+    font-size: 0.75rem;
+    margin-bottom: 0; }
+  .header-ribbon a {
+    color: #003F87;
+    position: relative;
+    top: 2px; }
+  .header-ribbon a:hover {
+    color: #FFFFFF; }
+  .header-ribbon .contact-icons a {
+    top: 0; }
+  .header-ribbon a.fluer-de-lis {
+    background-image: url("../images/bsa/logos/fleur de lis_blue_transparent.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    margin: 0 0.25rem;
+    position: relative;
+    width: 1.75rem; }
+  .header-ribbon a.fluer-de-lis:hover {
+    background-image: url("../images/bsa/logos/fleur de lis_white_transparent.png");
+    text-decoration: none; }
+  .header-ribbon .svg-inline--fa {
+    margin: 0 0.5rem; }
+
+/* Header Navbar */
+.navbar {
+  background-color: #003F87; }
+  .navbar .navbar-toggler {
+    border-color: #FDC116;
+    position: relative;
+    top: 10px; }
+  .navbar .fa-bars {
+    color: #FDC116; }
+  .navbar .navbar-brand {
+    height: 50px;
+    margin-right: 0; }
+    .navbar .navbar-brand img {
+      height: 2rem; }
+    .navbar .navbar-brand p {
+      color: #FDC116;
+      font-size: 10px;
+      left: 42px;
+      position: relative;
+      top: -10px; }
+  .navbar .navbar-nav li {
+    margin: 10px; }
+  .navbar .navbar-collapse {
+    padding-top: 10px; }
+  .navbar .btn-link {
+    color: #FFFFFF;
+    padding: 0; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #FFFFFF; }
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #FDC116; }
+
+/* Footer */
+footer {
+  background-color: #003F87;
+  display: flex;
+  font-family: "Roboto Condensed", sans-serif; }
+  footer p {
+    color: #FDC116;
+    font-size: 0.6rem;
+    margin-top: 0.25rem; }
+  footer .contact-icons {
+    position: relative;
+    top: -5px; }
+  footer a {
+    color: #FFFFFF; }
+  footer a:hover {
+    color: #FDC116; }
+  footer a.fluer-de-lis {
+    background-image: url("../images/bsa/logos/fleur de lis_white_transparent.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    margin: 0 0.5rem;
+    position: relative;
+    top: -10px;
+    width: 1.75rem; }
+  footer a.fluer-de-lis:hover {
+    background-image: url("../images/bsa/logos/fleur de lis_gold_transparent.png");
+    text-decoration: none; }
+  footer .svg-inline--fa {
+    margin: 0.5rem; }
+
+address {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 0.85rem; }
+  address strong {
+    color: #FDC116;
+    font-family: "Roboto Slab", serif;
+    font-size: 1rem;
+    text-decoration: underline; }
+  address a {
+    color: #FFFFFF; }
+  address a:hover {
+    color: #FDC116; }
+
+/* Carousel */
+.carousel-caption p {
+  font-size: 20px;
+  line-height: 1.4; }
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+  width: 100%; }
+
+/* QR code generator */
+#qrCode {
+  margin: 15px; }
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+  /* Hide captions */
+  .carousel-caption {
+    display: none; } }
+

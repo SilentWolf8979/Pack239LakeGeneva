@@ -5,6 +5,7 @@
     </p>
 
     <div class="float-right contact-icons">
+      <a href="/" class="fluer-de-lis">&nbsp;</a>
       <a href="mailto:Pack239LakeGeneva@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="https://www.facebook.com/Pack239LakeGeneva"><i class="fab fa-facebook-f"></i></a>
     </div>
@@ -13,14 +14,12 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-dark navbar-expand-md">
   <div class="container">
-    <div class="navbar-header">
+    <div class="navbar-header w-100">
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <i class="fa fa-bars"></i>
       </button>
-      <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+      <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand float-right float-md-left">
         <img src="~/images/BSA/Logos/bsa-logo_transparent.png" />
         <p>Pack 239 - Lake Geneva, WI</p>
       </a>
@@ -31,6 +30,7 @@
         <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
       </ul>
+      <hr />
       @await Html.PartialAsync("_LoginPartial")
     </div>
   </div>
