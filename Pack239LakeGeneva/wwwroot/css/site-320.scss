@@ -12,7 +12,7 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-  padding: 15px;
+  padding: 15px 0;
 }
 
 hr {
@@ -162,12 +162,13 @@ footer {
   }
 
   a.fluer-de-lis {
-    background-image: url('../images/bsa/logos/fleur de lis_white_transparent.png');
+    background-color: $sctg-blue-pale;
+    background-image: url('../images/bsa/logos/fleur de lis_blue_transparent.png');
     background-size: 100% 100%;
     display: inline-block;
     margin: 0 0.5rem;
     position: relative;
-    top: -10px;
+    top: -9px;
     width: 1.75rem;
   }
 
@@ -180,6 +181,15 @@ footer {
       margin: 0.5rem;
     }
 }
+
+
+
+
+
+
+
+
+
 
   address {
     font-family: $sctg-font-secondary;
@@ -220,3 +230,7 @@ footer {
       display: none;
     }
   }
+
+
+
+

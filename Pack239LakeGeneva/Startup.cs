@@ -14,57 +14,67 @@ using Pack239LakeGeneva.Services;
 
 namespace Pack239LakeGeneva
 {
-    public class Startup
+  public class Startup
+  {
+    public Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+      Configuration = configuration;
+    }
 
-        public IConfiguration Configuration { get; }
+    public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+      services.AddDbContext<ApplicationDbContext>(options =>
+          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+          .AddEntityFrameworkStores<ApplicationDbContext>()
+          .AddDefaultTokenProviders();
 
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
+      // Add application services.
+      services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
-        }
+      services.AddMvc();
+    }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseBrowserLink();
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+      if (env.IsDevelopment())
+      {
+        app.UseBrowserLink();
+        app.UseDeveloperExceptionPage();
+        app.UseDatabaseErrorPage();
+      }
+      else
+      {
+        app.UseExceptionHandler("/Home/Error");
+      }
 
-            app.UseStaticFiles();
+      app.UseStaticFiles();
 
-            app.UseAuthentication();
+      app.UseAuthentication();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+      app.UseMvc(routes =>
+      {
+        routes.MapRoute(
+          name: "About",
+          template: "About",
+          defaults: new { controller = "Home", action = "About" });
+
+        routes.MapRoute(
+          name: "Contact",
+          template: "Contact",
+          defaults: new { controller = "Home", action = "Contact" });
+
+        routes.MapRoute(
+          name: "default",
+          template: "{controller=Home}/{action=Index}/{id?}");
+      });
 
       //await Initializer.initialize(roleManager);
-        }
     }
+  }
 }

@@ -10,7 +10,7 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-  padding: 15px; }
+  padding: 15px 0; }
 
 hr {
   background-color: #FFFFFF; }
@@ -107,12 +107,13 @@ footer {
   footer a:hover {
     color: #FDC116; }
   footer a.fluer-de-lis {
-    background-image: url("../images/bsa/logos/fleur de lis_white_transparent.png");
+    background-color: #9AB3D5;
+    background-image: url("../images/bsa/logos/fleur de lis_blue_transparent.png");
     background-size: 100% 100%;
     display: inline-block;
     margin: 0 0.5rem;
     position: relative;
-    top: -10px;
+    top: -9px;
     width: 1.75rem; }
   footer a.fluer-de-lis:hover {
     background-image: url("../images/bsa/logos/fleur de lis_gold_transparent.png");

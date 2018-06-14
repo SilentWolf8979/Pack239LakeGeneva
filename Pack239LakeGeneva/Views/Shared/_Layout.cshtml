@@ -8,6 +8,9 @@
     <environment include="Development">
       <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.css" />
       <link rel="stylesheet" href="~/css/site-320.css" />
+      <link rel="stylesheet" href="~/css/site-576.css" media="screen and (min-width: 576px)"  />
+      <link rel="stylesheet" href="~/css/site-768.css" media="screen and (min-width: 768px)"  />
+      <link rel="stylesheet" href="~/css/site-992.css" media="screen and (min-width: 992px)"  />
 
       <script defer src="~/lib/js/fontawesome/fontawesome-all.js"></script>
     </environment>
@@ -16,6 +19,9 @@
             asp-fallback-href="~/lib/css/bootstrap/bootstrap.min.css"
             asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
       <link rel="stylesheet" href="~/css/site-320.min.css" asp-append-version="true" />
+      <link rel="stylesheet" href="~/css/site-576.css" asp-append-version="true" media="screen and (min-width: 576px)" />
+      <link rel="stylesheet" href="~/css/site-768.css" asp-append-version="true" media="screen and (min-width: 768px)" />
+      <link rel="stylesheet" href="~/css/site-992.css" asp-append-version="true" media="screen and (min-width: 992px)" />
 
       <script defer src="~/lib/js/fontawesome/fontawesome.js"></script>
     </environment>
@@ -24,8 +30,10 @@
   @await Html.PartialAsync("Components/Header/Default")
   <!--div class="partialContents" data-url="Components/Header"></div-->
 
-  <section class="container-fluid body-content flex-grow-1">
-    @RenderBody()
+  <section class="body-content flex-grow-1">
+    <div class="container">
+      @RenderBody()
+    </div>
   </section>
 
   @await Html.PartialAsync("Components/Footer/Default")

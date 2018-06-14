@@ -10,5 +10,17 @@
   {
     "outputFile": "wwwroot/css/_site.css",
     "inputFile": "wwwroot/css/_site.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/site-768.css",
+    "inputFile": "wwwroot/css/site-768.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/site-576.css",
+    "inputFile": "wwwroot/css/site-576.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/site-992.css",
+    "inputFile": "wwwroot/css/site-992.scss"
   }
 ]
