@@ -1,30 +1,38 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Pack239LakeGeneva</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - Pack239LakeGeneva</title>
 
-    <environment include="Development">
-      <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.css" />
-      <link rel="stylesheet" href="~/css/site-320.css" />
-      <link rel="stylesheet" href="~/css/site-576.css" media="screen and (min-width: 576px)"  />
-      <link rel="stylesheet" href="~/css/site-768.css" media="screen and (min-width: 768px)"  />
-      <link rel="stylesheet" href="~/css/site-992.css" media="screen and (min-width: 992px)"  />
+  <environment include="Development">
+    <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site-320.css" />
+    <link rel="stylesheet" href="~/css/site-576.css" media="screen and (min-width: 576px)" />
+    <link rel="stylesheet" href="~/css/site-768.css" media="screen and (min-width: 768px)" />
+    <link rel="stylesheet" href="~/css/site-992.css" media="screen and (min-width: 992px)" />
 
-      <script defer src="~/lib/js/fontawesome/fontawesome-all.js"></script>
-    </environment>
-    <environment exclude="Development">
-      <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-            asp-fallback-href="~/lib/css/bootstrap/bootstrap.min.css"
-            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-      <link rel="stylesheet" href="~/css/site-320.min.css" asp-append-version="true" />
-      <link rel="stylesheet" href="~/css/site-576.css" asp-append-version="true" media="screen and (min-width: 576px)" />
-      <link rel="stylesheet" href="~/css/site-768.css" asp-append-version="true" media="screen and (min-width: 768px)" />
-      <link rel="stylesheet" href="~/css/site-992.css" asp-append-version="true" media="screen and (min-width: 992px)" />
+    <script defer src="~/lib/js/fontawesome/fontawesome-all.js"></script>
+  </environment>
+  <environment exclude="Development">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+          asp-fallback-href="~/lib/css/bootstrap/bootstrap.min.css"
+          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    <link rel="stylesheet" href="~/css/site-320.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-576.css" asp-append-version="true" media="screen and (min-width: 576px)" />
+    <link rel="stylesheet" href="~/css/site-768.css" asp-append-version="true" media="screen and (min-width: 768px)" />
+    <link rel="stylesheet" href="~/css/site-992.css" asp-append-version="true" media="screen and (min-width: 992px)" />
 
-      <script defer src="~/lib/js/fontawesome/fontawesome.js"></script>
-    </environment>
+    <script defer src="~/lib/js/fontawesome/fontawesome.js"></script>
+  </environment>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#003F87">
+  <meta name="theme-color" content="#003F87">
 </head>
 <body class="d-flex flex-column">
   @await Html.PartialAsync("Components/Header/Default")

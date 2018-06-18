@@ -82,8 +82,14 @@ hr {
 
 
 /* Header Navbar */
-.navbar {
+.navbar, .dropdown-menu {
   background-color: $sctg-blue;
+  border: 0;
+  flex-direction: column;
+
+  .navbar-header {
+    width: 100%;
+  }
 
   .navbar-toggler {
     border-color: $sctg-gold;
@@ -126,11 +132,17 @@ hr {
   }
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.dropdown-menu.show {
+  display: flex;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.dropdown-menu > li > a {
   color: $sctg-white;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover {
+.navbar-inverse .navbar-nav > li > a:hover,
+.dropdown-menu > li > a:hover {
   color: $sctg-gold;
 }
 

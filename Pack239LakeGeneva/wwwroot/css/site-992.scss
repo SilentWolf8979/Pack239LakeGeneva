@@ -1,2 +1,18 @@
-﻿body {
+﻿@import 'site.scss';
+
+.navbar {
+  .navbar-header {
+    margin-right: 2em;
+    width: auto;
+  }
+
+  .justify-content-center .dropdown-menu {
+    background-color: $sctg-blue-pale;
+    flex-direction: row;
+    height: 60px;
+    left: 50%;
+    top: 42px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
 }

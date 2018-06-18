@@ -13,24 +13,31 @@
   </div>
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark navbar-expand-md">
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark navbar-expand-lg">
   <div class="container">
-    <div class="navbar-header w-100">
+    <div class="navbar-header">
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <i class="fa fa-bars"></i>
       </button>
-      <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand float-right float-md-left">
+      <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand float-right float-lg-left">
         <img src="~/images/BSA/Logos/bsa-logo_transparent.png" />
         <p>Pack 239 - Lake Geneva, WI</p>
       </a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
         <li><a asp-area="" asp-controller="About" asp-action="Index">About</a></li>
         <li><a asp-area="" asp-controller="Join" asp-action="Index">Join Us!</a></li>
-        <li><a asp-area="" asp-controller="Resources" asp-action="Index">Resources</a></li>
+        <li><a asp-area="" asp-controller="Calendar" asp-action="Index">Calendar</a></li>
+        <li class="dropdown justify-content-center">
+          <a class="dropdown-toggle" href="#" id="navbarResources" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarResources">
+            <li><a asp-area="" asp-controller="Resources" asp-action="Index">Uniforms</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+          </ul>
+        </li>
         <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a></li>
       </ul>
       <hr />
