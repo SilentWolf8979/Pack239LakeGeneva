@@ -7,7 +7,7 @@ namespace Pack239LakeGeneva.Models
 {
   public class CalendarViewModel
   {
-    public int Sequence { get; set; }
+    public int? Sequence { get; set; }
     public string Location { get; set; }
     public string Description { get; set; }
     public string Summary { get; set; }

@@ -143,6 +143,27 @@ address {
   address a:hover {
     color: #FDC116; }
 
+.calendarEvent {
+  margin-bottom: 1em; }
+  .calendarEvent .eventDate {
+    background-color: #CE1126;
+    padding: 0 0.5em;
+    width: 5em; }
+    .calendarEvent .eventDate .month {
+      font-size: .75em;
+      font-style: italic; }
+    .calendarEvent .eventDate .day {
+      font-size: 2em; }
+  .calendarEvent .eventDescription {
+    background-color: #9AB3D5;
+    padding: 0.5em;
+    width: 100%; }
+    .calendarEvent .eventDescription .summary {
+      margin-bottom: 1em; }
+    .calendarEvent .eventDescription .location {
+      font-size: 0.75em;
+      font-style: italic; }
+
 /* Carousel */
 .carousel-caption p {
   font-size: 20px;

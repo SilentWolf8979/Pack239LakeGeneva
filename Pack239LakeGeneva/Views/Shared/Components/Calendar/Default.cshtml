@@ -7,14 +7,21 @@
 @{
 }
 
-<hr />
 @if (Model != null)
 {
+  <hr />
+
   foreach (var calendarEvent in Model)
   {
-  <div>
-    @calendarEvent.Location
-    <hr />
-  </div>
+    <div class="calendarEvent d-flex">
+      <div class="eventDate text-center float-left">
+        <span class="month">@calendarEvent.Start.ToString("MMM")</span>
+        <span class="day">@calendarEvent.Start.ToString("dd")</span>
+      </div>
+      <div class="eventDescription">
+        <span class="summary d-flex">@calendarEvent.Summary</span>
+        <span class="location float-left">@calendarEvent.Location</span>
+      </div>
+    </div>
   }
 }

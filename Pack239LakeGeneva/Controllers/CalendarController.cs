@@ -36,49 +36,67 @@ namespace Pack239LakeGeneva.Controllers
       return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+
+
     public async Task<IActionResult> GetEvents()
     {
       var calendarEvents = new List<CalendarViewModel>();
 
+      UserCredential credential;
+      using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read))
+      {
+        credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+            GoogleClientSecrets.Load(stream).Secrets,
+            new[] { CalendarService.Scope.Calendar },
+            "user",
+            CancellationToken.None,
+            new FileDataStore("Pack239LakeGeneva.Controllers"));
+      }
+
+
       var service = new CalendarService(new BaseClientService.Initializer()
       {
         ApiKey = _configuration["GoogleAPIKey"],
-        ApplicationName = "Pack239LakeGeneva"
+        ApplicationName = "Pack239LakeGeneva",
+        HttpClientInitializer = credential
       });
 
-      Events events = await service.Events.List("pack239lakegeneva@gmail.com").ExecuteAsync();
-      // List events.
-      Console.WriteLine("Upcoming events:");
-      if (events.Items != null && events.Items.Count > 0)
+
+
+
+      var calendars = await service.CalendarList.List().ExecuteAsync();
+
+      foreach (var calendar in calendars.Items)
       {
-        foreach (var eventItem in events.Items)
+        if (calendar.Summary.IndexOf("Holiday", StringComparison.OrdinalIgnoreCase) < 0)
         {
-          CalendarViewModel calendarEvent = new CalendarViewModel();
+          Events events = await service.Events.List(calendar.Id).ExecuteAsync();
 
-          if (!String.IsNullOrEmpty(eventItem.Start.DateTime.ToString()))
+          foreach (var eventItem in events.Items)
           {
-            calendarEvent.Start = (DateTime)eventItem.Start.DateTime;
+            CalendarViewModel calendarEvent = new CalendarViewModel();
+
+            if (!String.IsNullOrEmpty(eventItem.Start.DateTime.ToString()))
+            {
+              calendarEvent.Start = (DateTime)eventItem.Start.DateTime;
+            }
+
+            if (!String.IsNullOrEmpty(eventItem.End.DateTime.ToString()))
+            {
+              calendarEvent.End = (DateTime)eventItem.End.DateTime;
+            }
+
+            calendarEvent.Sequence = (int)eventItem.Sequence;
+            calendarEvent.Description = eventItem.Description;
+            calendarEvent.Location = eventItem.Location;
+            calendarEvent.Summary = eventItem.Summary;
+
+            calendarEvents.Add(calendarEvent);
           }
-
-          if (!String.IsNullOrEmpty(eventItem.End.DateTime.ToString()))
-          {
-            calendarEvent.End = (DateTime)eventItem.End.DateTime;
-          }
-
-          calendarEvent.Sequence = (int)eventItem.Sequence;
-          calendarEvent.Description = eventItem.Description;
-          calendarEvent.Location = eventItem.Location;
-          calendarEvent.Summary = eventItem.Summary;
-
-          calendarEvents.Add(calendarEvent);
         }
       }
-      else
-      {
-        Console.WriteLine("No upcoming events found.");
-      }
 
-
+      calendarEvents.Sort((e1, e2) => DateTime.Compare(e1.Start, e2.Start));
 
       return PartialView("Components/Calendar/Default", calendarEvents);
     }

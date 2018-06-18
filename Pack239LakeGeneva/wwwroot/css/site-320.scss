@@ -222,6 +222,68 @@ footer {
       color: $sctg-gold;
     }
   }
+
+.calendarEvent {
+  margin-bottom: 1em;
+
+  .eventDate {
+    background-color: $sctg-red;
+    padding: 0 0.5em;
+    width: 5em;
+
+    .month {
+      font-size: .75em;
+      font-style: italic;
+    }
+
+    .day {
+      font-size: 2em;
+    }
+  }
+
+  .eventDescription {
+    background-color: $sctg-blue-pale;
+    padding: 0.5em;
+    width: 100%;
+
+    .summary {
+      margin-bottom: 1em;
+    }
+
+    .location {
+      font-size: 0.75em;
+      font-style: italic;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* Carousel */
   .carousel-caption p {
     font-size: 20px;
