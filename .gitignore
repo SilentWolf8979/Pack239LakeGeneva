@@ -153,3 +153,4 @@ FakesAssemblies/
 
 **/wwwroot/lib/*
 appsettings.json
+appsettings.*.json
