@@ -70,6 +70,11 @@ namespace Pack239LakeGeneva
           defaults: new { controller = "Home", action = "Contact" });
 
         routes.MapRoute(
+          name: "Events",
+          template: "Components/Calendar/Default",
+          defaults: new { controller = "Calendar", action = "GetEvents" });
+
+        routes.MapRoute(
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
       });

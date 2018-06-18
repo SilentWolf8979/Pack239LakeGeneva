@@ -20,6 +20,16 @@ namespace Pack239LakeGeneva.Controllers
   {
     public IActionResult Index()
     {
+      return View();
+    }
+
+    public IActionResult Error()
+    {
+      return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public async Task<IActionResult> GetEvents()
+    {
       string ClientID = "854586420351-fsk8kc7t1k6pg6vut9nh12faftodn161.apps.googleusercontent.com";
       string ClientSecret = "Q11OHXliR_3viOaQ5qZ4yMf-";
       string APIKey = "AIzaSyAWkmarUCn_q7hD-HV7LAwm8f6XVCwjCHk";
@@ -76,13 +86,16 @@ namespace Pack239LakeGeneva.Controllers
       //request.MaxResults = 10;
       //request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
+      var calendarEvents = new List<CalendarViewModel>();
+
       var service = new CalendarService(new BaseClientService.Initializer()
       {
         ApiKey = APIKey,
         ApplicationName = "Pack239LakeGeneva",
 
       });
-      var events = service.Events.List("pack239lakegeneva@gmail.com").Execute();
+
+      Events events = await service.Events.List("pack239lakegeneva@gmail.com").ExecuteAsync();
       //// List events.
       //Events events = request.Execute();
       Console.WriteLine("Upcoming events:");
@@ -90,12 +103,31 @@ namespace Pack239LakeGeneva.Controllers
       {
         foreach (var eventItem in events.Items)
         {
-          string when = eventItem.Start.DateTime.ToString();
-          if (String.IsNullOrEmpty(when))
+          CalendarViewModel calendarEvent = new CalendarViewModel();
+
+          if (!String.IsNullOrEmpty(eventItem.Start.DateTime.ToString()))
           {
-            when = eventItem.Start.Date;
+            calendarEvent.start = (DateTime)eventItem.Start.DateTime;
           }
-          Console.WriteLine("{0} ({1})", eventItem.Summary, when);
+
+          if (!String.IsNullOrEmpty(eventItem.End.DateTime.ToString()))
+          {
+            calendarEvent.end = (DateTime)eventItem.End.DateTime;
+          }
+
+          calendarEvent.sequence = (int)eventItem.Sequence;
+          calendarEvent.description = eventItem.Description;
+          calendarEvent.location = eventItem.Location;
+          calendarEvent.summary = eventItem.Summary;
+
+          calendarEvents.Add(calendarEvent);
+
+          //string when = eventItem.Start.DateTime.ToString();
+          //if (String.IsNullOrEmpty(when))
+          //{
+          //  when = eventItem.Start.Date;
+          //}
+          //Console.WriteLine("{0} ({1})", eventItem.Summary, when);
         }
       }
       else
@@ -105,13 +137,7 @@ namespace Pack239LakeGeneva.Controllers
 
 
 
-
-      return View();
-    }
-
-    public IActionResult Error()
-    {
-      return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+      return PartialView("Components/Calendar/Default", calendarEvents);
     }
   }
 }
