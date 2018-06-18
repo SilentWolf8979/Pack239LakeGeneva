@@ -152,3 +152,4 @@ FakesAssemblies/
 *.opt
 
 **/wwwroot/lib/*
+appsettings.json
