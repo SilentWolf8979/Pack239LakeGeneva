@@ -7,11 +7,11 @@ namespace Pack239LakeGeneva.Models
 {
   public class CalendarViewModel
   {
-    public int sequence { get; set; }
-    public string location { get; set; }
-    public string description { get; set; }
-    public string summary { get; set; }
-    public DateTime start { get; set; }
-    public DateTime end { get; set; }
+    public int Sequence { get; set; }
+    public string Location { get; set; }
+    public string Description { get; set; }
+    public string Summary { get; set; }
+    public DateTime Start { get; set; }
+    public DateTime End { get; set; }
   }
 }

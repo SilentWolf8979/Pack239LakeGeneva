@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="appsettings.Development.json" />
+    <Content Remove="appsettings.json" />
+    <Content Remove="client_secret.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="gulpfile.js" />
   </ItemGroup>
 
@@ -26,9 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="client_secret.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="Views\Calendar\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
