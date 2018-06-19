@@ -3,3 +3,9 @@
   height: 400px;
   width: 350px; }
 
+.calendarEvent .eventDescription .location {
+  display: block; }
+
+.calendarEvent .eventDescription .location.short {
+  display: none; }
+

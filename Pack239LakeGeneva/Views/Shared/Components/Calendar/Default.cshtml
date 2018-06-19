@@ -2,7 +2,7 @@
   For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-@model IEnumerable<CalendarViewModel>
+@model CalendarViewModel
 
 @{
 }
@@ -11,17 +11,32 @@
 {
   <hr />
 
-  foreach (var calendarEvent in Model)
+  @foreach (var calendar in Model.calendars)
   {
-    <div class="calendarEvent d-flex">
-      <div class="eventDate text-center float-left">
-        <span class="month">@calendarEvent.Start.ToString("MMM")</span>
+    <span class="calendarCheckbox"><input id="@calendar" name="@calendar" value="@calendar" type="checkbox" checked="checked" aria-label="Checkbox for @calendar"><label for="@calendar">@calendar</label></span>
+  }
+
+  <hr />
+
+  foreach (var calendarEvent in Model.calendarEvents)
+  {
+    <div class="calendarEvent d-flex @calendarEvent.Calendar">
+      <div class="eventDate text-center float-left align-content-center">
+        <span class="month w-100 float-left">@calendarEvent.Start.ToString("MMM")</span>
         <span class="day">@calendarEvent.Start.ToString("dd")</span>
       </div>
-      <div class="eventDescription">
-        <span class="summary d-flex">@calendarEvent.Summary</span>
-        <span class="location float-left">@calendarEvent.Location</span>
+      <div class="eventDescription" style="border-right-color: @calendarEvent.EventColor;">
+        <span class="summary">@calendarEvent.Summary</span>
+        <span class="time d-flex">@calendarEvent.Start.ToString("h:mm")@(calendarEvent.End != null ? " - " + @calendarEvent.End.ToString("h:mm") : "")</span>
+        <a href="@calendarEvent.MapUrl" target="_blank">
+          <span class="location short float-left">@calendarEvent.ShortLocation</span>
+          <span class="location float-left">@calendarEvent.Location</span>
+        </a>
       </div>
     </div>
   }
 }
+
+<script type="text/javascript">
+  WireCalendarEvents();
+</script>

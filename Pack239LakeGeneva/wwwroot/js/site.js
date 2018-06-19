@@ -12,5 +12,17 @@ $('.dropdown').on('hide.bs.dropdown', function (e) {
 });
 
 $(document).ready(function () {
-  $(".calendarEvents").load('Components/Calendar/Default')
+  $(".calendarEvents").load('Components/Calendar/Default');
 });
+
+function WireCalendarEvents()
+{
+  $('input[type=checkbox]').change(function () {
+    if (!this.checked) {
+      $(".calendarEvent." + this.name).css("cssText", "display: none !important;");
+    }
+    else {
+      $(".calendarEvent." + this.name).css("cssText", "");
+    }
+  });
+}
