@@ -95,7 +95,7 @@ namespace Pack239LakeGeneva.Controllers
           calendarEvent.EventColor = calendar.BackgroundColor;
           calendarEvent.MapUrl = "https://www.google.com/maps/search/?api=1&query=" + HttpUtility.UrlEncode(eventItem.Location);
 
-          if (eventItem.Location.IndexOf(",") >= 0)
+          if ((!String.IsNullOrEmpty(eventItem.Location)) && (eventItem.Location.IndexOf(",") >= 0))
           {
             calendarEvent.ShortLocation = eventItem.Location.Substring(0, eventItem.Location.IndexOf(","));
           }
@@ -110,14 +110,23 @@ namespace Pack239LakeGeneva.Controllers
           }
           else
           {
-            calendarEvent.Calendar = calendar.Summary;
+            if (calendar.Summary.Contains("-"))
+            {
+              calendarEvent.Calendar = calendar.Summary.Substring(calendar.Summary.IndexOf("-") + 1);
+            }
+            else
+            {
+              calendarEvent.Calendar = calendar.Summary;
+            }
           }
 
           calendarEvents.Add(calendarEvent);
         }
       }
 
-      calendarList = calendarList.Select(x => x.Replace("Pack239LakeGeneva@gmail.com", "Pack", StringComparison.OrdinalIgnoreCase)).ToList();
+      calendarList.RemoveAll(x => x.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase));
+      calendarList.Sort();
+      calendarList = calendarList.Select(x => x.Contains("-") ? x.Substring(x.IndexOf("-") + 1) : x).ToList();
       calendarEvents.Sort((e1, e2) => DateTime.Compare(e1.Start, e2.Start));
 
       calendarViewModel.calendars = calendarList;

@@ -145,74 +145,92 @@ address {
     color: #FDC116;
     text-decoration: none; }
 
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-  position: absolute;
-  left: -9999px; }
+.calendarCheckbox {
+  white-space: nowrap;
+  /* checkbox aspect */
+  /* checkbox aspect */
+  /* checked mark aspect */
+  /* checked mark aspect changes */ }
+  .calendarCheckbox [type="checkbox"] {
+    position: absolute;
+    left: -9999px; }
+  .calendarCheckbox label {
+    position: relative;
+    padding-left: 1.5em;
+    cursor: pointer; }
+  .calendarCheckbox label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+  .calendarCheckbox label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+  .calendarCheckbox label:after {
+    content: '✔';
+    position: absolute;
+    top: .2em;
+    left: .1em;
+    font-size: 1.4em;
+    line-height: 0.8;
+    color: #003366;
+    transition: all .2s; }
+  .calendarCheckbox [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0); }
+  .calendarCheckbox [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1); }
+  .calendarCheckbox .ArrowofLight:before {
+    background: #243E2C; }
+  .calendarCheckbox .Bears:before {
+    background: #003F87; }
+  .calendarCheckbox .Lions:before {
+    background: #FDC116; }
+  .calendarCheckbox .Pack:before {
+    background: #9AB3D5; }
+  .calendarCheckbox .Tigers:before {
+    background: #F98D2B; }
+  .calendarCheckbox .Webelos:before {
+    background: #D6CEBD; }
+  .calendarCheckbox .Wolves:before {
+    background: #CE1126; }
+  .calendarCheckbox .ArrowofLight:after, .calendarCheckbox .Bears:after, .calendarCheckbox .Wolves:after {
+    color: #FFFFFF; }
 
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
-  position: relative;
-  padding-left: 1.5em;
-  cursor: pointer; }
+.calendarEvents svg {
+  height: 15em;
+  width: 15em; }
 
-/* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1.25em;
-  height: 1.25em;
-  border: 2px solid #ccc;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
-
-/* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.15em;
-  width: 1.25em;
-  height: 1.25em;
-  border: 2px solid #ccc;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
-
-/* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: '✔';
-  position: absolute;
-  top: .2em;
-  left: .1em;
-  font-size: 1.4em;
-  line-height: 0.8;
-  color: #003366;
-  transition: all .2s; }
-
-/* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
-  opacity: 0;
-  transform: scale(0); }
-
-[type="checkbox"]:checked + label:after {
-  opacity: 1;
-  transform: scale(1); }
+.calendarEvents svg path,
+.calendarEvents svg rect {
+  fill: #FDC116; }
 
 .calendarEvents .loading {
   display: block;
-  margin: 5em 0;
+  margin: 3em 0;
   text-align: center;
   width: 100%; }
+  .calendarEvents .loading span {
+    position: relative;
+    top: -9em; }
 
-.calendarCheckbox {
-  margin-right: 1em; }
+.calendarEvents p {
+  text-decoration: underline; }
 
 .calendarEvent {
   margin-bottom: 1em;
@@ -229,7 +247,6 @@ address {
       font-size: 2em; }
   .calendarEvent .eventDescription {
     background-color: #9AB3D5;
-    border-right: 10px solid;
     padding: 0.5em;
     width: 100%; }
     .calendarEvent .eventDescription .summary {
@@ -248,6 +265,21 @@ address {
       font-style: italic; }
     .calendarEvent .eventDescription .location.short {
       display: block; }
+  .calendarEvent .calendar {
+    width: 1em; }
+  .calendarEvent [tooltip]:before {
+    border-radius: 10px;
+    color: #003366;
+    content: attr(tooltip);
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    right: -100em;
+    transition: opacity 0.25s ease-out; }
+  .calendarEvent [tooltip]:hover:before {
+    background: #FFFFFF;
+    opacity: 1;
+    right: 2em; }
 
 /* Carousel */
 .carousel-caption p {

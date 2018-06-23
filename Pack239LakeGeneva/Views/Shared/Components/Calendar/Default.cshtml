@@ -10,22 +10,27 @@
 @if (Model != null)
 {
   <hr />
-
-  @foreach (var calendar in Model.calendars)
-  {
-    <span class="calendarCheckbox"><input id="@calendar" name="@calendar" value="@calendar" type="checkbox" checked="checked" aria-label="Checkbox for @calendar"><label for="@calendar">@calendar</label></span>
-  }
+  <p class="text-center">Filter Calendars</p>
+  <div class="row">
+    @foreach (var calendar in Model.calendars)
+    {
+      <span class="calendarCheckbox col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
+        <input id="@calendar.Replace(" ", "")" name="@calendar.Replace(" ", "")" value="@calendar" type="checkbox" checked="checked" aria-label="Checkbox for @calendar">
+        <label for="@calendar.Replace(" ", "")" class="@calendar.Replace(" ", "")">@calendar</label>
+      </span>
+    }
+  </div>
 
   <hr />
 
   foreach (var calendarEvent in Model.calendarEvents)
   {
-    <div class="calendarEvent d-flex @calendarEvent.Calendar">
+    <div class="calendarEvent d-flex @calendarEvent.Calendar.Replace(" ", "")">
       <div class="eventDate text-center float-left align-content-center">
         <span class="month w-100 float-left">@calendarEvent.Start.ToString("MMM")</span>
         <span class="day">@calendarEvent.Start.ToString("dd")</span>
       </div>
-      <div class="eventDescription" style="border-right-color: @calendarEvent.EventColor;">
+      <div class="eventDescription">
         <span class="summary">@calendarEvent.Summary</span>
         <span class="time d-flex">@calendarEvent.Start.ToString("h:mm")@(calendarEvent.End != null ? " - " + @calendarEvent.End.ToString("h:mm") : "")</span>
         <a href="@calendarEvent.MapUrl" target="_blank">
@@ -33,6 +38,7 @@
           <span class="location float-left">@calendarEvent.Location</span>
         </a>
       </div>
+      <span class="calendar" tooltip="@calendarEvent.Calendar" style="background-color: @calendarEvent.EventColor;"></span>
     </div>
   }
 }
