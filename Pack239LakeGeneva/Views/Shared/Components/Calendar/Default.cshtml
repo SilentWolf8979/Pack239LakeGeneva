@@ -14,10 +14,13 @@
   <div class="row">
     @foreach (var calendar in Model.calendars)
     {
-      <span class="calendarCheckbox col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
-        <input id="@calendar.Replace(" ", "")" name="@calendar.Replace(" ", "")" value="@calendar" type="checkbox" checked="checked" aria-label="Checkbox for @calendar">
-        <label for="@calendar.Replace(" ", "")" class="@calendar.Replace(" ", "")">@calendar</label>
-      </span>
+      if (!calendar.Summary.Equals("Pack", StringComparison.OrdinalIgnoreCase))
+      {
+        <span class="calendarCheckbox col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
+          <input id="@calendar.Summary.Replace(" ", "")" name="@calendar.Summary.Replace(" ", "")" value="@calendar.Summary" type="checkbox" checked="checked" aria-label="Checkbox for @calendar.Summary">
+          <label for="@calendar.Summary.Replace(" ", "")" class="@calendar.Summary.Replace(" ", "")">@calendar.Summary</label>
+        </span>
+      }
     }
   </div>
 
@@ -42,6 +45,18 @@
     </div>
   }
 }
+
+<hr />
+
+<p class="text-center">Sync Calendars</p>
+<div class="row">
+  @foreach (var calendar in Model.calendars)
+  {
+    <span class="calendarSync col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
+      <a href="@calendar.ShareUrl" target="_blank" class="d-flex justify-content-center">@calendar.Summary</a>
+    </span>
+  }
+</div>
 
 <script type="text/javascript">
   WireCalendarEvents();

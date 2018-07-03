@@ -226,6 +226,7 @@ address {
   text-align: center;
   width: 100%; }
   .calendarEvents .loading span {
+    display: inherit;
     position: relative;
     top: -9em; }
 
@@ -267,6 +268,8 @@ address {
       display: block; }
   .calendarEvent .calendar {
     width: 1em; }
+  .calendarEvent .calendar:hover {
+    width: 0.8em; }
   .calendarEvent [tooltip]:before {
     border-radius: 10px;
     color: #003366;
@@ -278,8 +281,14 @@ address {
     transition: opacity 0.25s ease-out; }
   .calendarEvent [tooltip]:hover:before {
     background: #FFFFFF;
+    float: right;
     opacity: 1;
-    right: 2em; }
+    position: relative;
+    right: 1em;
+    white-space: nowrap; }
+
+.calendarSync a {
+  color: #FDC116; }
 
 /* Carousel */
 .carousel-caption p {

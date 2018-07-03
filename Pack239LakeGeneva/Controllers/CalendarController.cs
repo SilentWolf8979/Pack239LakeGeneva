@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Pack239LakeGeneva.Models;
+using System.Web;
 
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
-using System.IO;
-using System.Threading;
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System.Web;
+
+using Pack239LakeGeneva.Models;
 
 namespace Pack239LakeGeneva.Controllers
 {
@@ -42,7 +44,7 @@ namespace Pack239LakeGeneva.Controllers
     public async Task<IActionResult> GetEvents()
     {
       var calendarViewModel = new CalendarViewModel();
-      var calendarList = new List<string>();
+      var calendarList = new List<Models.Calendar>();
       var calendarEvents = new List<CalendarEvent>();
 
       UserCredential credential;
@@ -67,16 +69,39 @@ namespace Pack239LakeGeneva.Controllers
 
       foreach (var calendar in calendars.Items)
       {
-        Events events = await service.Events.List(calendar.Id).ExecuteAsync();
+        var cal = service.Events.List(calendar.Id);
+
+        Models.Calendar currentCal = new Models.Calendar();
+
+        if (calendar.Summary.IndexOf("-") >= 0)
+        {
+          currentCal.Sequence = Int32.Parse(calendar.Summary.Substring(0, calendar.Summary.IndexOf("-")));
+          currentCal.Summary = calendar.Summary.Substring(calendar.Summary.IndexOf("-") + 1);
+        }
+        else if (calendar.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
+        {
+          currentCal.Sequence = 99;
+          currentCal.Summary = "Pack";
+        }
+        else
+        {
+          currentCal.Sequence = 98;
+          currentCal.Summary = calendar.Summary;
+        }
+
+        currentCal.Id = calendar.Id;
+        currentCal.ShareUrl = "https://calendar.google.com/calendar/embed?ctz=America%2FChicago&src=" + calendar.Id;
+
+        calendarList.Add(currentCal);
+
+        cal.MaxResults = 5;
+        cal.TimeMin = DateTime.Today;
+        
+        Events events = await cal.ExecuteAsync();
 
         foreach (var eventItem in events.Items)
         {
           CalendarEvent calendarEvent = new CalendarEvent();
-
-          if (calendarList.IndexOf(calendar.Summary) < 0)
-          {
-            calendarList.Add(calendar.Summary);
-          }
 
           if (!String.IsNullOrEmpty(eventItem.Start.DateTime.ToString()))
           {
@@ -124,9 +149,8 @@ namespace Pack239LakeGeneva.Controllers
         }
       }
 
-      calendarList.RemoveAll(x => x.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase));
-      calendarList.Sort();
-      calendarList = calendarList.Select(x => x.Contains("-") ? x.Substring(x.IndexOf("-") + 1) : x).ToList();
+      //calendarList.RemoveAll(x => x.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase));
+      calendarList = calendarList.OrderBy(x => x.Sequence).ToList();
       calendarEvents.Sort((e1, e2) => DateTime.Compare(e1.Start, e2.Start));
 
       calendarViewModel.calendars = calendarList;

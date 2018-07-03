@@ -4,7 +4,7 @@ namespace Pack239LakeGeneva.Models
 {
   public class CalendarViewModel
   {
-    public List<string> calendars { get; set; }
+    public List<Calendar> calendars { get; set; }
     public List<CalendarEvent> calendarEvents { get; set; }
   }
 }

@@ -342,6 +342,7 @@ address {
     width: 100%;
 
     span {
+      display: inherit;
       position: relative;
       top: -9em;
     }
@@ -410,6 +411,10 @@ address {
     width: 1em;
   }
 
+  .calendar:hover {
+    width: 0.8em;
+  }
+
   [tooltip]:before {
     border-radius: 10px;
     color: $sctg-blue-dark;
@@ -423,8 +428,17 @@ address {
 
   [tooltip]:hover:before {
     background: $sctg-white;
+    float: right;
     opacity: 1;
-    right: 2em;
+    position: relative;
+    right: 1em;
+    white-space: nowrap;
+  }
+}
+
+.calendarSync {
+  a {
+    color: $sctg-gold;
   }
 }
 
