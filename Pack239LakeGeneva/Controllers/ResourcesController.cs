@@ -12,7 +12,19 @@ namespace Pack239LakeGeneva.Controllers
   {
     public IActionResult Index()
     {
-      ViewData["Message"] = "Your resources page.";
+      return View();
+    }
+
+    public IActionResult Leaders()
+    {
+      ViewData["Message"] = "Your application description page.";
+
+      return View();
+    }
+
+    public IActionResult Uniforms()
+    {
+      ViewData["Message"] = "Have questions?  Contact us using the links below.";
 
       return View();
     }

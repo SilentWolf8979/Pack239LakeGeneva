@@ -75,6 +75,16 @@ namespace Pack239LakeGeneva
           defaults: new { controller = "Calendar", action = "GetEvents" });
 
         routes.MapRoute(
+         name: "Leaders",
+         template: "Leaders",
+         defaults: new { controller = "Resources", action = "Leaders" });
+
+        routes.MapRoute(
+         name: "Uniforms",
+         template: "Uniforms",
+         defaults: new { controller = "Resources", action = "Uniforms" });
+
+        routes.MapRoute(
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
       });
