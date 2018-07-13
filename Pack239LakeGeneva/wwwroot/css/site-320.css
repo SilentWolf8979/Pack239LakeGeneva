@@ -311,6 +311,8 @@ address {
     margin: 0; }
   .leaders .row div {
     padding: 3px 0; }
+  .leaders .row div:first-child {
+    padding-left: 5px; }
   .leaders .row:nth-of-type(odd) {
     background-color: rgba(154, 179, 213, 0.5); }
   .leaders .row:nth-of-type(even) {

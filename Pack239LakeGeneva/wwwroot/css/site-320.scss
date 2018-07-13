@@ -479,6 +479,10 @@ address {
     padding: 3px 0;
   }
 
+  .row div:first-child {
+    padding-left: 5px;
+  }
+
   .row:nth-of-type(odd) {
     background-color: rgba(red($sctg-blue-pale), green($sctg-blue-pale), blue($sctg-blue-pale), 0.5);
   }
