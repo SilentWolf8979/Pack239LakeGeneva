@@ -12,11 +12,21 @@ $('.dropdown').on('hide.bs.dropdown', function (e) {
 });
 
 $(document).ready(function () {
-  $(".calendarEvents").load('Components/Calendar/Default');
+  if ($(".calendarEvents").length > 0) {
+    $(".calendarEvents").load('/Components/Calendar/Default');
+  }
+
+  if ($(".documents").length > 0) {
+    if (typeof (documentId) !== undefined) {
+      $(".documents").load('/Components/Resources/Default/' + documentId);
+    }
+    else {
+      $(".documents").load('/Components/Resources/Default');
+    }
+  }
 });
 
-function WireCalendarEvents()
-{
+function WireCalendarEvents() {
   $('input[type=checkbox]').change(function () {
     if (!this.checked) {
       $(".calendarEvent." + this.name).css("cssText", "display: none !important;");

@@ -90,7 +90,8 @@ namespace Pack239LakeGeneva.Controllers
         }
 
         currentCal.Id = calendar.Id;
-        currentCal.ShareUrl = "https://calendar.google.com/calendar/embed?ctz=America%2FChicago&src=" + calendar.Id;
+        //currentCal.ShareUrl = "https://calendar.google.com/calendar/embed?ctz=America%2FChicago&src=" + calendar.Id;
+        currentCal.ShareUrl = "https://calendar.google.com/calendar/ical/" + calendar.Id + "/public/basic.ics";
 
         calendarList.Add(currentCal);
 

@@ -230,6 +230,34 @@ address {
 
 
 
+.loading {
+  display: block;
+  margin: 3em 0;
+  text-align: center;
+  width: 100%;
+
+  svg {
+    height: 15em;
+    width: 15em;
+  }
+
+  svg path,
+  svg rect {
+    fill: $sctg-gold;
+  }
+
+  span {
+    display: inherit;
+    font-family: $sctg-font-primary;
+    font-size: 1rem;
+    margin: 0 auto;
+    position: relative;
+    top: -9em;
+    width: 100px;
+  }
+}
+
+
 
 .calendarCheckbox {
   white-space: nowrap;
@@ -329,29 +357,6 @@ address {
 
 
 .calendarEvents {
-  svg {
-    height: 15em;
-    width: 15em;
-  }
-
-  svg path,
-  svg rect {
-    fill: $sctg-gold;
-  }
-
-  .loading {
-    display: block;
-    margin: 3em 0;
-    text-align: center;
-    width: 100%;
-
-    span {
-      display: inherit;
-      position: relative;
-      top: -9em;
-    }
-  }
-
   p {
     text-decoration: underline;
   }
@@ -443,6 +448,28 @@ address {
 .calendarSync {
   a {
     color: $sctg-gold;
+  }
+}
+
+
+
+.documents {
+  font-family: $sctg-font-secondary;
+  font-size: 0.85rem;
+
+  a {
+    color: $sctg-white;
+  }
+
+  a:hover {
+    color: $sctg-gold;
+    text-decoration: none;
+  }
+
+  .row {
+    div {
+      margin-bottom: 2rem;
+    }
   }
 }
 
