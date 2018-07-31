@@ -15,6 +15,10 @@ body {
   padding: 15px 0;
 }
 
+.container {
+  overflow-x: hidden;
+}
+
 hr {
   background-color: $sctg-white;
 }
@@ -35,7 +39,7 @@ hr {
   a {
     color: $sctg-blue;
     position: relative;
-    top: 2px;
+    top: 3px;
   }
 
   a:hover {
@@ -43,7 +47,7 @@ hr {
   }
 
   .contact-icons a {
-    top: 0;
+    top: 2px;
   }
 
   a.fluer-de-lis {
@@ -54,6 +58,7 @@ hr {
     height: 25px;
     margin: 0 0.25rem;
     position: relative;
+    top: 0;
     width: 1.75rem;
   }
 
@@ -104,6 +109,7 @@ hr {
   .navbar-brand {
     height: 50px;
     margin-right: 0;
+    overflow: hidden;
 
     img {
       height: 2rem;
@@ -178,10 +184,11 @@ footer {
     background-image: url('../images/bsa/logos/fleur de lis_blue_transparent.png');
     background-size: 100% 100%;
     display: inline-block;
+    height: 25px;
     margin: 0 0.5rem;
     position: relative;
     top: -9px;
-    width: 1.75rem;
+    width: 25px;
   }
 
   a.fluer-de-lis:hover {
@@ -428,6 +435,7 @@ address {
     border-radius: 10px;
     color: $sctg-blue-dark;
     content: attr(tooltip);
+    display: none;
     opacity: 0;
     padding: 10px;
     position: absolute;
@@ -437,6 +445,7 @@ address {
 
   [tooltip]:hover:before {
     background: $sctg-white;
+    display: block;
     float: right;
     opacity: 1;
     position: relative;
