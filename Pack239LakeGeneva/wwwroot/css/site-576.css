@@ -1,4 +1,18 @@
-﻿.header-ribbon .textLinks a {
+﻿@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab");
+.header-ribbon .textLinks a {
   float: left;
   padding-right: 15px; }
+
+.leaders a {
+  color: #FFFFFF;
+  padding-left: 20px; }
+
+.leaders a:hover {
+  color: #FDC116; }
+
+.leaders .phone {
+  display: none; }
+
+.leaders .name:hover .contactBox .fa-envelope {
+  top: 15px; }
 

@@ -12,6 +12,7 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
 using Pack239LakeGeneva.Models;
 
 namespace Pack239LakeGeneva.Controllers
@@ -34,7 +35,9 @@ namespace Pack239LakeGeneva.Controllers
     {
       ViewData["Message"] = "Your application description page.";
 
-      return View();
+      var leaderList = GetLeaders();
+
+      return View(leaderList);
     }
 
     public IActionResult Uniforms()
@@ -54,6 +57,51 @@ namespace Pack239LakeGeneva.Controllers
     public IActionResult Error()
     {
       return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    private List<Leader> GetLeaders()
+    {
+      List<Leader> leaders = new List<Leader>();
+
+      string leaderData = System.IO.File.ReadAllText(@"wwwroot\data\leaders.json");
+      JToken token = JObject.Parse(leaderData);
+
+      foreach (JToken group in token.SelectToken("groups").Children())
+      {
+        foreach (JToken member in group.SelectToken("members").Children())
+        {
+          Leader leader = new Leader();
+
+          if (group.SelectToken("title") != null)
+          {
+            leader.Group = group.SelectToken("title").ToString();
+          }
+
+          if (member.SelectToken("position") != null)
+          {
+            leader.Position = member.SelectToken("position").ToString();
+          }
+
+          if (member.SelectToken("name") != null)
+          {
+            leader.Name = member.SelectToken("name").ToString();
+          }
+
+          if (member.SelectToken("phone") != null)
+          {
+            leader.Phone = member.SelectToken("phone").ToString();
+          }
+
+          if (member.SelectToken("email") != null)
+          {
+            leader.EMail = member.SelectToken("email").ToString();
+          }
+
+          leaders.Add(leader);
+        }
+      }
+
+      return leaders;
     }
 
     public async Task<IActionResult> GetDocuments(string documentId)

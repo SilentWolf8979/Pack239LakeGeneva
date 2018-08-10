@@ -1,4 +1,6 @@
-﻿.location-map {
+﻿@import 'site.scss';
+
+.location-map {
   border: 0;
   height: 400px;
   width: 350px;
@@ -12,6 +14,17 @@
 
     .location.short {
       display: none;
+    }
+  }
+}
+
+.leaders {
+  .name:hover {
+    color: $sctg-white;
+    cursor: text;
+
+    .contactBox {
+      display: none !important;
     }
   }
 }

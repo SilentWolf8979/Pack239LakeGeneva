@@ -1,0 +1,165 @@
+﻿{
+  "groups": [
+    {
+      "title": "Committee",
+      "members": [
+        {
+          "position": "Chartered Org. Rep.",
+          "name": "Brad Gulbrandson",
+          "phone": "",
+          "email": "brad.gulbrandson@gmail.com"
+        },
+        {
+          "position": "Committee Chair",
+          "name": "Nicole Zinkowich",
+          "phone": "262-203-2328",
+          "email": "nicolezinkowich@gmail.com"
+        },
+        {
+          "position": "Cubmaster",
+          "name": "Neil Doebler",
+          "phone": "262-716-6233",
+          "email": "NeilDoebler@outlook.com"
+        },
+        {
+          "position": "Asst. Cubmaster",
+          "name": "Anthony Nellessen",
+          "phone": "",
+          "email": "t.nellessen27@gmail.com"
+        },
+        {
+          "position": "Secretary",
+          "name": "Cheryl Chamberlin",
+          "phone": "847-812-3116",
+          "email": "tim.cheryl3@gmail.com"
+        },
+        {
+          "position": "Treasurer",
+          "name": "Phil Zinkowich",
+          "phone": "262-348-0401",
+          "email": "pzinkowich@gmail.com"
+        },
+        {
+          "position": "Member",
+          "name": "Brian Schuessler",
+          "phone": "262-249-8686",
+          "email": "bpslgw@gmail.com"
+        },
+        {
+          "position": "Member",
+          "name": "Heidi Schuessler",
+          "phone": "262-745-1917",
+          "email": "heidiroo22@gmail.com"
+        },
+        {
+          "position": "Member",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Lions",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Tigers",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "Lynn Koepke",
+          "phone": "847-284-0770",
+          "email": "koepke.lynn@gmail.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "Anthony Nellessen",
+          "phone": "",
+          "email": "t.nellessen27@gmail.com"
+        }
+      ]
+    },
+    {
+      "title": "Wolves",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "Jesse Kearns",
+          "phone": "808-385-4946",
+          "email": "jesseandmichellekearns@gmail.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Bears",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "James Krober",
+          "phone": "262-745-1510",
+          "email": "da9krober@hotmail.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Webelos",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "Jennifer Vavroch",
+          "phone": "",
+          "email": "myfamilieswellness@yahoo.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "Victoria Finch",
+          "phone": "847-269-1081",
+          "email": "vickyfinchmartin@yahoo.com"
+        }
+      ]
+    },
+    {
+      "title": "Arrow of Light",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "Holly Smith",
+          "phone": "224-436-0616",
+          "email": "hollsly84@gmail.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "Geordia Prichard",
+          "phone": "",
+          "email": "prichardfamily@yahoo.com"
+        }
+      ]
+    }
+  ]
+}

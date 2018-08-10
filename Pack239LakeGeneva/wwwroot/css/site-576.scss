@@ -1,8 +1,33 @@
-﻿.header-ribbon {
+﻿@import 'site.scss';
+
+.header-ribbon {
   .textLinks {
     a {
       float: left;
       padding-right: 15px;
+    }
+  }
+}
+
+.leaders {
+  a {
+    color: $sctg-white;
+    padding-left: 20px;
+  }
+
+  a:hover {
+    color: $sctg-gold;
+  }
+
+  .phone {
+    display: none;
+  }
+
+  .name:hover {
+    .contactBox {
+      .fa-envelope {
+        top: 15px;
+      }
     }
   }
 }

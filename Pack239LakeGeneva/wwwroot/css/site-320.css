@@ -339,6 +339,44 @@ address {
   .leaders .open {
     color: #FDC116;
     font-weight: bold; }
+  .leaders .contactBox {
+    background: #9AB3D5;
+    border: 1px solid #FDC116;
+    border-radius: 10px;
+    color: #FFFFFF;
+    content: attr(tooltip);
+    float: right;
+    margin-top: -70px;
+    position: relative;
+    right: 1rem;
+    transition: opacity 0.25s ease-out;
+    top: 4.25rem;
+    z-index: 100; }
+    .leaders .contactBox span {
+      float: left;
+      padding: .15rem;
+      width: 100%; }
+  .leaders .name:hover {
+    color: #FDC116;
+    cursor: default; }
+    .leaders .name:hover .contactBox {
+      display: block !important;
+      padding: 10px; }
+      .leaders .name:hover .contactBox a {
+        color: #FFFFFF;
+        padding-left: 20px; }
+      .leaders .name:hover .contactBox a:hover {
+        color: #FDC116; }
+      .leaders .name:hover .contactBox .fa-phone {
+        position: absolute;
+        top: 15px; }
+      .leaders .name:hover .contactBox .fa-envelope {
+        position: absolute;
+        top: 39px; }
+
+.uniforms img {
+  height: 100%;
+  width: 100%; }
 
 /* Carousel */
 .carousel-caption p {

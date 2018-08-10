@@ -2,186 +2,54 @@
   ViewData["Title"] = "Leaders";
 }
 
+@model List<Leader>
+
 <h2>@ViewData["Title"]</h2>
 
 <hr />
 
-<div class="leaders">
+@{string prevGroup = String.Empty; }
+
+@for (int i = 0; i < Model.Count; i++)
+{
+  @if (!Model[i].Group.Equals(prevGroup))
+  {
+    if (!String.IsNullOrEmpty(prevGroup))
+    {
+      @:</div>
+
+      <br /><br /><br />
+    }
+
+    @:<div class="leaders">
   <div class="row">
-    <div class="col-sm-12 d-flex justify-content-center">Committee</div>
+    <div class="col-sm-12 d-flex justify-content-center">@Model[i].Group</div>
   </div>
+
+  prevGroup = Model[i].Group;
+}
+
   <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Chartered Org. Rep.</div>
-    <div class="col-6 col-sm-5 col-md-3">Brad Gulbrandson</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4">brad.gulbrandson@gmail.com</div>
+    <div class="col-6 col-sm-5 col-md-3">@Model[i].Position</div>
+    @if (String.IsNullOrEmpty(Model[i].Name))
+    {
+      <div class="col-6 col-sm-5 col-md-3 open">We Need You!</div>
+    }
+    else
+    {
+      <div class="col-6 col-sm-4 col-md-3">
+        <span class="name">
+          @Model[i].Name
+          <div class="d-none contactBox">
+            <span class="phone"><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:@Model[i].Phone">@Model[i].Phone</a></span>
+            <span class="mail"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:@Model[i].EMail">@Model[i].EMail</a></span>
+          </div>
+        </span>
+      </div>
+    }
+    <div class="d-none d-sm-block col-sm-3 col-md-2"><a href="tel:@Model[i].Phone">@Model[i].Phone</a></div>
+    <div class="d-none d-md-block col-md-4"><a href="mailto:@Model[i].EMail">@Model[i].EMail</a></div>
   </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Committee Chair</div>
-    <div class="col-6 col-sm-5 col-md-3">Nicole Zinkowich</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">262-203-2328</div>
-    <div class="d-none d-md-block col-md-4">nicolezinkowich@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Cubmaster</div>
-    <div class="col-6 col-sm-5 col-md-3">Neil Doebler</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">262-716-6233</div>
-    <div class="d-none d-md-block col-md-4">NeilDoebler@outlook.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Asst. Cubmaster</div>
-    <div class="col-6 col-sm-5 col-md-3">Anthony Nellessen</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4">t.nellessen27@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Secretary</div>
-    <div class="col-6 col-sm-5 col-md-3">Cheryl Chamberin</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">847-812-3116</div>
-    <div class="d-none d-md-block col-md-4">tim.cheryl3@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Treasurer</div>
-    <div class="col-6 col-sm-5 col-md-3">Phil Zinkowich</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">262-348-0401</div>
-    <div class="d-none d-md-block col-md-4">pzinkowich@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Member</div>
-    <div class="col-6 col-sm-5 col-md-3">Brian Schuessler</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">262-249-8686</div>
-    <div class="d-none d-md-block col-md-4">bpslgw@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Member</div>
-    <div class="col-6 col-sm-5 col-md-3">Heidi Schuessler</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">262-745-1917</div>
-    <div class="d-none d-md-block col-md-4">heidiroo22@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Member</div>
-    <div class="col-6 col-sm-5 col-md-3 open">We Need You!</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4"></div>
-  </div>
-</div>
+}
 
 <br /><br /><br />
-
-<div class="leaders">
-  <div class="row">
-    <div class="col-sm-12 d-flex justify-content-center">Lions</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3 open">We Need You!</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4"></div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Asst. Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3 open">We Need You!</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4"></div>
-  </div>
-</div>
-
-<br /><br /><br />
-
-<div class="leaders">
-  <div class="row">
-    <div class="col-sm-12 d-flex justify-content-center">Tigers</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">Lynn Koepke</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">847-284-0770</div>
-    <div class="d-none d-md-block col-md-4">koepke.lynn@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Asst. Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">Anthony Nellessen</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4">t.nellessen27@gmail.com</div>
-  </div>
-</div>
-
-<br /><br /><br />
-
-<div class="leaders">
-  <div class="row">
-    <div class="col-sm-12 d-flex justify-content-center">Wolves</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">Jesse Kearns</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">808-385-4946</div>
-    <div class="d-none d-md-block col-md-4">jesseandmichellekearns@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Asst. Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3 open">We Need You!</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4"></div>
-  </div>
-</div>
-
-<br /><br /><br />
-
-<div class="leaders">
-  <div class="row">
-    <div class="col-sm-12 d-flex justify-content-center">Bears</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">James Krober</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">262-745-1510</div>
-    <div class="d-none d-md-block col-md-4">da9krober@hotmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Asst. Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3 open">We Need You!</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4"></div>
-  </div>
-</div>
-
-<br /><br /><br />
-
-<div class="leaders">
-  <div class="row">
-    <div class="col-sm-12 d-flex justify-content-center">Webelos</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">Jennifer Vavroch</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4">myfamilieswellness@yahoo.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Asst. Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">Victoria Finch</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">847-269-1081</div>
-    <div class="d-none d-md-block col-md-4">vickyfinchmartin@yahoo.com</div>
-  </div>
-</div>
-
-<br /><br /><br />
-
-<div class="leaders">
-  <div class="row">
-    <div class="col-sm-12 d-flex justify-content-center">Arrow of Light</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">Holly Smith</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2">224-436-0616</div>
-    <div class="d-none d-md-block col-md-4">hollsly84@gmail.com</div>
-  </div>
-  <div class="row">
-    <div class="col-6 col-sm-5 col-md-3">Asst. Den Leader</div>
-    <div class="col-6 col-sm-5 col-md-3">Geordia Prichard</div>
-    <div class="d-none d-sm-block col-sm-2 col-md-2"></div>
-    <div class="d-none d-md-block col-md-4">prichardfamily@yahoo.com</div>
-  </div>
-</div>
