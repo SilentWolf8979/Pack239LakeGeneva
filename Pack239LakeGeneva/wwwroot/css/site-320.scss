@@ -15,9 +15,9 @@ body {
   padding: 15px 0;
 }
 
-.container {
-  overflow-x: hidden;
-}
+/*.container {
+  overflow: hidden;
+}*/
 
 hr {
   background-color: $sctg-white;
@@ -30,6 +30,9 @@ hr {
   background-color: $sctg-gold;
   display: flex;
   height: 25px;
+  position: fixed;
+  width: 100%;
+  z-index: 250;
 
   p {
     font-size: 0.75rem;
@@ -87,10 +90,11 @@ hr {
 
 
 /* Header Navbar */
-.navbar, .dropdown-menu {
+.navbar {
   background-color: $sctg-blue;
   border: 0;
   flex-direction: column;
+  margin-top: 25px;
 
   .navbar-header {
     width: 100%;
@@ -138,270 +142,40 @@ hr {
   }
 }
 
-.dropdown-menu.show {
-  display: flex;
-}
-
-.navbar-inverse .navbar-nav > li > a,
-.dropdown-menu > li > a {
-  color: $sctg-white;
-}
-
-.navbar-inverse .navbar-nav > li > a:hover,
-.dropdown-menu > li > a:hover {
-  color: $sctg-gold;
-}
-
-
-
-/* Footer */
-footer {
-  background-color: $sctg-blue;
-  display: flex;
-  font-family: $sctg-font-secondary;
-
-  p {
-    color: $sctg-gold;
-    font-size: 0.6rem;
-    margin-top: 0.25rem;
+.dropdown-menu {
+    background-color: $sctg-blue;
+    border: 0;
+    flex-direction: column;
   }
 
-  .contact-icons {
-    position: relative;
-    top: -5px;
+  .dropdown-menu.show {
+    display: flex;
   }
 
-  a {
+  .navbar-inverse .navbar-nav > li > a,
+  .dropdown-menu > li > a {
     color: $sctg-white;
   }
 
-  a:hover {
+  .navbar-inverse .navbar-nav > li > a:hover,
+  .dropdown-menu > li > a:hover {
     color: $sctg-gold;
   }
+  /* Footer */
+  footer {
+    background-color: $sctg-blue;
+    display: flex;
+    font-family: $sctg-font-secondary;
 
-  a.fluer-de-lis {
-    background-color: $sctg-blue-pale;
-    background-image: url('../images/bsa/logos/fleur de lis_blue_transparent.png');
-    background-size: 100% 100%;
-    display: inline-block;
-    height: 25px;
-    margin: 0 0.5rem;
-    position: relative;
-    top: -9px;
-    width: 25px;
-  }
-
-  a.fluer-de-lis:hover {
-    background-image: url('../images/bsa/logos/fleur de lis_gold_transparent.png');
-    text-decoration: none;
-  }
-
-  .svg-inline--fa {
-    margin: 0.5rem;
-  }
-}
-
-
-
-
-
-
-.join {
-  a {
-    color: $sctg-gold;
-  }
-}
-
-
-
-address {
-  font-family: $sctg-font-secondary;
-  font-size: 0.85rem;
-
-  strong {
-    color: $sctg-gold;
-    font-family: $sctg-font-primary;
-    font-size: 1rem;
-    text-decoration: underline;
-  }
-
-  a {
-    color: $sctg-white;
-  }
-
-  a:hover {
-    color: $sctg-gold;
-    text-decoration: none;
-  }
-}
-
-
-
-.loading {
-  display: block;
-  margin: 3em 0;
-  text-align: center;
-  width: 100%;
-
-  svg {
-    height: 15em;
-    width: 15em;
-  }
-
-  svg path,
-  svg rect {
-    fill: $sctg-gold;
-  }
-
-  span {
-    display: inherit;
-    font-family: $sctg-font-primary;
-    font-size: 1rem;
-    margin: 0 auto;
-    position: relative;
-    top: -9em;
-    width: 100px;
-  }
-}
-
-
-
-.calendarCheckbox {
-  white-space: nowrap;
-  
-  [type="checkbox"] {
-    position: absolute;
-    left: -9999px;
-  }
-
-  label {
-    position: relative;
-    padding-left: 1.5em;
-    cursor: pointer;
-  }
-  /* checkbox aspect */
-  label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.25em;
-    height: 1.25em;
-    border: 2px solid #ccc;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
-  }
-  /* checkbox aspect */
-  label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.15em;
-    width: 1.25em;
-    height: 1.25em;
-    border: 2px solid #ccc;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
-  }
-  /* checked mark aspect */
-  label:after {
-    content: '✔';
-    position: absolute;
-    top: .2em;
-    left: .1em;
-    font-size: 1.4em;
-    line-height: 0.8;
-    color: $sctg-blue-dark;
-    transition: all .2s;
-  }
-  /* checked mark aspect changes */
-  [type="checkbox"]:not(:checked) + label:after {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  [type="checkbox"]:checked + label:after {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .ArrowofLight:before {
-    background: $sctg-olive;
-  }
-
-  .Bears:before {
-    background: $sctg-blue;
-  }
-
-  .Lions:before {
-    background: $sctg-gold;
-  }
-
-  .Pack:before {
-    background: $sctg-blue-pale;
-  }
-
-  .Tigers:before {
-    background: $sctg-orange;
-  }
-
-  .Webelos:before {
-    background: $sctg-tan;
-  }
-
-  .Wolves:before {
-    background: $sctg-red;
-  }
-
-  .ArrowofLight:after, .Bears:after, .Wolves:after {
-    color: $sctg-white;
-  }
-}
-
-
-
-
-.calendarEvents {
-  p {
-    text-decoration: underline;
-  }
-}
-
-.calendarEvent {
-  margin-bottom: 1em;
-  min-height: 7.5em;
-
-  .eventDate {
-    background-color: $sctg-red;
-    padding: 0 0.5em;
-    width: 5em;
-
-    .month {
-      font-size: .75em;
-      font-style: italic;
-      padding-top: 2em;
+    p {
+      color: $sctg-gold;
+      font-size: 0.6rem;
+      margin-top: 0.25rem;
     }
 
-    .day {
-      font-size: 2em;
-    }
-  }
-
-  .eventDescription {
-    background-color: $sctg-blue-pale;
-    padding: 0.5em;
-    width: 100%;
-
-    .summary {
-      font-size: 1.1em;
-    }
-
-    .time {
-      font-size: 0.85em;
-      font-style: italic;
-      margin-bottom: 1.25em;
+    .contact-icons {
+      position: relative;
+      top: -5px;
     }
 
     a {
@@ -412,194 +186,448 @@ address {
       color: $sctg-gold;
     }
 
-    .location {
-      display: none;
-      font-size: 0.75em;
-      font-style: italic;
+    a.fluer-de-lis {
+      background-color: $sctg-blue-pale;
+      background-image: url('../images/bsa/logos/fleur de lis_blue_transparent.png');
+      background-size: 100% 100%;
+      display: inline-block;
+      height: 25px;
+      margin: 0 0.5rem;
+      position: relative;
+      top: -9px;
+      width: 25px;
     }
 
-    .location.short {
-      display: block;
+    a.fluer-de-lis:hover {
+      background-image: url('../images/bsa/logos/fleur de lis_gold_transparent.png');
+      text-decoration: none;
+    }
+
+    .svg-inline--fa {
+      margin: 0.5rem;
     }
   }
 
-  .calendar {
-    width: 1em;
-  }
-
-  .calendar:hover {
-    width: 0.8em;
-  }
-
-  [tooltip]:before {
-    border-radius: 10px;
-    color: $sctg-blue-dark;
-    content: attr(tooltip);
-    display: none;
-    opacity: 0;
-    padding: 10px;
-    position: absolute;
-    right: -100em;
-    transition: opacity 0.25s ease-out;
-  }
-
-  [tooltip]:hover:before {
-    background: $sctg-white;
-    display: block;
-    float: right;
-    opacity: 1;
-    position: relative;
-    right: 1em;
-    white-space: nowrap;
-  }
-}
-
-.calendarSync {
-  a {
-    color: $sctg-gold;
-  }
-}
 
 
 
-.documents {
-  font-family: $sctg-font-secondary;
-  font-size: 0.85rem;
 
-  a {
-    color: $sctg-white;
-  }
 
-  a:hover {
-    color: $sctg-gold;
-    text-decoration: none;
-  }
-
-  .row {
-    div {
-      margin-bottom: 2rem;
+  .join {
+    a {
+      color: $sctg-gold;
     }
   }
-}
 
 
 
-.leaders {
-  margin: 0 auto;
-
-  table thead {
-    background-color: $sctg-gold;
-    color: $sctg-blue;
-    font-size: 1.25rem;
-    text-align: center;
-  }
-
-  table tbody {
+  address {
+    font-family: $sctg-font-secondary;
     font-size: 0.85rem;
+
+    strong {
+      color: $sctg-gold;
+      font-family: $sctg-font-primary;
+      font-size: 1rem;
+      text-decoration: underline;
+    }
+
+    a {
+      color: $sctg-white;
+    }
+
+    a:hover {
+      color: $sctg-gold;
+      text-decoration: none;
+    }
   }
 
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(red($sctg-blue-pale), green($sctg-blue-pale), blue($sctg-blue-pale), 0.5);
-  }
 
-  .table-striped tbody tr:nth-of-type(even) {
-    background-color: rgba(red($sctg-blue), green($sctg-blue), blue($sctg-blue), 0.5);
-  }
 
-  .row {
-    font-size: 0.8rem;
-    margin: 0;
-  }
-
-  .row div {
-    padding: 3px 0;
-  }
-
-  .row div:first-child {
-    padding-left: 5px;
-  }
-
-  .row:nth-of-type(odd) {
-    background-color: rgba(red($sctg-blue-pale), green($sctg-blue-pale), blue($sctg-blue-pale), 0.5);
-  }
-
-  .row:nth-of-type(even) {
-    background-color: rgba(red($sctg-blue), green($sctg-blue), blue($sctg-blue), 0.5);
-  }
-
-  .row:first-of-type {
-    background-color: $sctg-gold;
-    color: $sctg-blue;
-    font-size: 1.25rem;
-    font-weight: bold;
+  .loading {
+    display: block;
+    margin: 3em 0;
     text-align: center;
-  }
+    width: 100%;
 
-  .open {
-    color: $sctg-gold;
-    font-weight: bold;
-  }
+    svg {
+      height: 15em;
+      width: 15em;
+    }
 
-  .contactBox {
-    background: $sctg-blue-pale;
-    border: 1px solid $sctg-gold;
-    border-radius: 10px;
-    color: $sctg-white;
-    content: attr(tooltip);
-    float: right;
-    margin-top: -70px;
-    position: relative;
-    right: 1rem;
-    transition: opacity 0.25s ease-out;
-    top: 4.25rem;
-    z-index: 100;
+    svg path,
+    svg rect {
+      fill: $sctg-gold;
+    }
 
     span {
-      float: left;
-      padding: .15rem;
-      width: 100%;
+      display: inherit;
+      font-family: $sctg-font-primary;
+      font-size: 1rem;
+      margin: 0 auto;
+      position: relative;
+      top: -9em;
+      width: 100px;
     }
   }
 
-  .name:hover {
-    color: $sctg-gold;
-    cursor: default;
 
-    .contactBox {
-      display: block !important;
-      padding: 10px;
+
+  .calendarCheckbox {
+    white-space: nowrap;
+
+    [type="checkbox"] {
+      position: absolute;
+      left: -9999px;
+    }
+
+    label {
+      position: relative;
+      padding-left: 1.5em;
+      cursor: pointer;
+    }
+    /* checkbox aspect */
+    label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.25em;
+      height: 1.25em;
+      border: 2px solid #ccc;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    }
+    /* checkbox aspect */
+    label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.15em;
+      width: 1.25em;
+      height: 1.25em;
+      border: 2px solid #ccc;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    }
+    /* checked mark aspect */
+    label:after {
+      content: '✔';
+      position: absolute;
+      top: .2em;
+      left: .1em;
+      font-size: 1.4em;
+      line-height: 0.8;
+      color: $sctg-blue-dark;
+      transition: all .2s;
+    }
+    /* checked mark aspect changes */
+    [type="checkbox"]:not(:checked) + label:after {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    [type="checkbox"]:checked + label:after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .ArrowofLight:before {
+      background: $sctg-olive;
+    }
+
+    .Bears:before {
+      background: $sctg-blue;
+    }
+
+    .Lions:before {
+      background: $sctg-gold;
+    }
+
+    .Pack:before {
+      background: $sctg-blue-pale;
+    }
+
+    .Tigers:before {
+      background: $sctg-orange;
+    }
+
+    .Webelos:before {
+      background: $sctg-tan;
+    }
+
+    .Wolves:before {
+      background: $sctg-red;
+    }
+
+    .ArrowofLight:after, .Bears:after, .Wolves:after {
+      color: $sctg-white;
+    }
+  }
+
+
+
+
+  .calendarEvents {
+    p {
+      text-decoration: underline;
+    }
+  }
+
+  .calendarEvent {
+    margin-bottom: 1em;
+    min-height: 7.5em;
+
+    .eventDate {
+      background-color: $sctg-red;
+      padding: 0 0.5em;
+      width: 5em;
+
+      .month {
+        font-size: .75em;
+        font-style: italic;
+        padding-top: 2em;
+      }
+
+      .day {
+        font-size: 2em;
+      }
+    }
+
+    .eventDescription {
+      background-color: $sctg-blue-pale;
+      padding: 0.5em;
+      width: 100%;
+
+      .summary {
+        font-size: 1.1em;
+      }
+
+      .time {
+        font-size: 0.85em;
+        font-style: italic;
+        margin-bottom: 1.25em;
+      }
 
       a {
         color: $sctg-white;
-        padding-left: 20px;
       }
 
       a:hover {
         color: $sctg-gold;
       }
 
-      .fa-phone {
-        position: absolute;
-        top: 15px;
+      .location {
+        display: none;
+        font-size: 0.75em;
+        font-style: italic;
       }
 
-      .fa-envelope {
-        position: absolute;
-        top: 39px;
+      .location.short {
+        display: block;
+      }
+    }
+
+    .calendar {
+      width: 1em;
+    }
+
+    .calendar:hover {
+      width: 0.8em;
+    }
+
+    [tooltip]:before {
+      border-radius: 10px;
+      color: $sctg-blue-dark;
+      content: attr(tooltip);
+      display: none;
+      opacity: 0;
+      padding: 10px;
+      position: absolute;
+      right: -100em;
+      transition: opacity 0.25s ease-out;
+    }
+
+    [tooltip]:hover:before {
+      background: $sctg-white;
+      display: block;
+      float: right;
+      opacity: 1;
+      position: relative;
+      right: 1em;
+      white-space: nowrap;
+    }
+  }
+
+  .calendarSync {
+    a {
+      color: $sctg-gold;
+    }
+  }
+
+
+
+  .documents {
+    font-family: $sctg-font-secondary;
+    font-size: 0.85rem;
+
+    a {
+      color: $sctg-white;
+    }
+
+    a:hover {
+      color: $sctg-gold;
+      text-decoration: none;
+    }
+
+    .row {
+      div {
+        margin-bottom: 2rem;
       }
     }
   }
-}
+
+
+
+  .leaders {
+    margin: 0 auto;
+
+    table thead {
+      background-color: $sctg-gold;
+      color: $sctg-blue;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    table tbody {
+      font-size: 0.85rem;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: rgba(red($sctg-blue-pale), green($sctg-blue-pale), blue($sctg-blue-pale), 0.5);
+    }
+
+    .table-striped tbody tr:nth-of-type(even) {
+      background-color: rgba(red($sctg-blue), green($sctg-blue), blue($sctg-blue), 0.5);
+    }
+
+    .row {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+
+    .row div {
+      padding: 3px 0;
+    }
+
+    .row div:first-child {
+      padding-left: 5px;
+    }
+
+    .row:nth-of-type(odd) {
+      background-color: rgba(red($sctg-blue-pale), green($sctg-blue-pale), blue($sctg-blue-pale), 0.5);
+    }
+
+    .row:nth-of-type(even) {
+      background-color: rgba(red($sctg-blue), green($sctg-blue), blue($sctg-blue), 0.5);
+    }
+
+    .row:first-of-type {
+      background-color: $sctg-gold;
+      color: $sctg-blue;
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .open {
+      color: $sctg-gold;
+      font-weight: bold;
+    }
+
+    .contactBox {
+      background: $sctg-blue-pale;
+      border: 1px solid $sctg-gold;
+      border-radius: 10px;
+      color: $sctg-white;
+      content: attr(tooltip);
+      float: right;
+      margin-top: -70px;
+      position: relative;
+      right: 1rem;
+      transition: opacity 0.25s ease-out;
+      top: 4.25rem;
+      z-index: 100;
+
+      span {
+        float: left;
+        padding: .15rem;
+        width: 100%;
+      }
+    }
+
+    .name:hover {
+      color: $sctg-gold;
+      cursor: default;
+
+      .contactBox {
+        display: block !important;
+        padding: 10px;
+
+        a {
+          color: $sctg-white;
+          padding-left: 20px;
+        }
+
+        a:hover {
+          color: $sctg-gold;
+        }
+
+        .fa-phone {
+          position: absolute;
+          top: 15px;
+        }
+
+        .fa-envelope {
+          position: absolute;
+          top: 39px;
+        }
+      }
+    }
+  }
 
 .uniforms {
+  h4 {
+    display: flex;
+    color: $sctg-gold;
+    font-style: italic;
+    justify-content: center;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+  }
+
+  h4.paren {
+    text-decoration: none;
+  }
+
+  h4 span {
+    text-decoration: underline;
+  }
+
   img {
+    display: flex;
     height: 100%;
+    justify-content: center;
+    margin: 0 auto 10rem auto;
     width: 100%;
   }
+
+  img:last-of-type {
+    margin-bottom: 0;
+  }
 }
-
-
-
   /* Carousel */
   .carousel-caption p {
     font-size: 20px;
