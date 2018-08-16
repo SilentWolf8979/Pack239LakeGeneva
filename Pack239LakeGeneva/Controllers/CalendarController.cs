@@ -96,63 +96,70 @@ namespace Pack239LakeGeneva.Controllers
         calendarList.Add(currentCal);
 
         cal.MaxResults = 5;
+        cal.SingleEvents = true;
         cal.TimeMin = DateTime.Today;
         
         Events events = await cal.ExecuteAsync();
 
         foreach (var eventItem in events.Items)
         {
-          CalendarEvent calendarEvent = new CalendarEvent();
+          if (!eventItem.Status.Equals("cancelled", StringComparison.OrdinalIgnoreCase))
+          {
+            CalendarEvent calendarEvent = new CalendarEvent();
 
-          if (!String.IsNullOrEmpty(eventItem.Start.DateTime.ToString()))
-          {
-            calendarEvent.Start = (DateTime)eventItem.Start.DateTime;
-          }
-
-          if (!String.IsNullOrEmpty(eventItem.End.DateTime.ToString()))
-          {
-            calendarEvent.End = (DateTime)eventItem.End.DateTime;
-          }
-
-          calendarEvent.Sequence = (int)eventItem.Sequence;
-          calendarEvent.Description = eventItem.Description;
-          calendarEvent.Location = eventItem.Location;
-          calendarEvent.Summary = eventItem.Summary;
-          calendarEvent.EventColor = calendar.BackgroundColor;
-          calendarEvent.MapUrl = "https://www.google.com/maps/search/?api=1&query=" + HttpUtility.UrlEncode(eventItem.Location);
-
-          if ((!String.IsNullOrEmpty(eventItem.Location)) && (eventItem.Location.IndexOf(",") >= 0))
-          {
-            calendarEvent.ShortLocation = eventItem.Location.Substring(0, eventItem.Location.IndexOf(","));
-          }
-          else
-          {
-            calendarEvent.ShortLocation = eventItem.Location;
-          }
-
-          if (calendar.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
-          {
-            calendarEvent.Calendar = "Pack";
-          }
-          else
-          {
-            if (calendar.Summary.Contains("-"))
+            if (!String.IsNullOrEmpty(eventItem.Start.DateTime.ToString()))
             {
-              calendarEvent.Calendar = calendar.Summary.Substring(calendar.Summary.IndexOf("-") + 1);
+              calendarEvent.Start = (DateTime)eventItem.Start.DateTime;
+            }
+
+            if (!String.IsNullOrEmpty(eventItem.End.DateTime.ToString()))
+            {
+              calendarEvent.End = (DateTime)eventItem.End.DateTime;
+            }
+
+            calendarEvent.Sequence = (int)eventItem.Sequence;
+            calendarEvent.Description = eventItem.Description;
+            calendarEvent.Location = eventItem.Location;
+            calendarEvent.Summary = eventItem.Summary;
+            calendarEvent.EventColor = calendar.BackgroundColor;
+            calendarEvent.MapUrl = "https://www.google.com/maps/search/?api=1&query=" + HttpUtility.UrlEncode(eventItem.Location);
+
+            if ((!String.IsNullOrEmpty(eventItem.Location)) && (eventItem.Location.IndexOf(",") >= 0))
+            {
+              calendarEvent.ShortLocation = eventItem.Location.Substring(0, eventItem.Location.IndexOf(","));
             }
             else
             {
-              calendarEvent.Calendar = calendar.Summary;
+              calendarEvent.ShortLocation = eventItem.Location;
             }
-          }
 
-          calendarEvents.Add(calendarEvent);
+            if (calendar.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
+            {
+              calendarEvent.Calendar = "Pack";
+              calendarEvent.CalendarSort = 99;
+            }
+            else
+            {
+              if (calendar.Summary.Contains("-"))
+              {
+                calendarEvent.Calendar = calendar.Summary.Substring(calendar.Summary.IndexOf("-") + 1);
+                calendarEvent.CalendarSort = Int32.Parse(calendar.Summary.Substring(0, calendar.Summary.IndexOf("-")));
+              }
+              else
+              {
+                calendarEvent.Calendar = calendar.Summary;
+              }
+            }
+
+            calendarEvents.Add(calendarEvent);
+          }
         }
       }
 
       //calendarList.RemoveAll(x => x.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase));
       calendarList = calendarList.OrderBy(x => x.Sequence).ToList();
-      calendarEvents.Sort((e1, e2) => DateTime.Compare(e1.Start, e2.Start));
+      //calendarEvents.Sort((e1, e2) => DateTime.Compare(e1.Start, e2.Start));
+      calendarEvents = calendarEvents.OrderBy(s => s.Start).ThenBy(c => c.CalendarSort).ToList();
 
       calendarViewModel.calendars = calendarList;
       calendarViewModel.calendarEvents = calendarEvents;

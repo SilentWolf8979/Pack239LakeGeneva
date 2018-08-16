@@ -24,6 +24,13 @@ $(document).ready(function () {
       $(".documents").load('/Components/Resources/Default');
     }
   }
+
+  //$("#imageCarousel").swiperight(function () {
+  //  $(this).carousel('prev');
+  //});
+  //$("#imageCarousel").swipeleft(function () {
+  //  $(this).carousel('next');
+  //});
 });
 
 function WireCalendarEvents() {
@@ -35,4 +42,8 @@ function WireCalendarEvents() {
       $(".calendarEvent." + this.name).css("cssText", "");
     }
   });
+}
+
+function ShowPackEvents() {
+  $(":checkbox").click();
 }

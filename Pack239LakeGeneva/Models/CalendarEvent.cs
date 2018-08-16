@@ -12,6 +12,7 @@ namespace Pack239LakeGeneva.Models
     public DateTime Start { get; set; }
     public DateTime End { get; set; }
     public string Calendar { get; set; }
+    public int? CalendarSort { get; set; }
     public string EventColor { get; set; }
     public string MapUrl { get; set; }
   }

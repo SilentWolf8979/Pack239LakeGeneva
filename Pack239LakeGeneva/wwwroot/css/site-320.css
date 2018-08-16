@@ -19,6 +19,18 @@ body {
 hr {
   background-color: #FFFFFF; }
 
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2.5rem;
+  text-align: center; }
+
+a {
+  color: #FDC116; }
+
+a:hover {
+  color: #FDC116;
+  text-decoration: underline; }
+
 /* Header Ribbon */
 .header-ribbon {
   background-color: #FDC116;
@@ -146,6 +158,21 @@ footer {
   footer .svg-inline--fa {
     margin: 0.5rem; }
 
+.upcomingEvents .filters {
+  display: none; }
+
+.upcomingEvents .header {
+  display: block !important; }
+
+.upcomingEvents .calendarEvent .calendar {
+  display: none; }
+
+.upcomingEvents .sync {
+  display: none; }
+
+.homeImage {
+  width: 100%; }
+
 .join a {
   color: #FDC116; }
 
@@ -249,6 +276,9 @@ address {
     background: #CE1126; }
   .calendarCheckbox .ArrowofLight:after, .calendarCheckbox .Bears:after, .calendarCheckbox .Wolves:after {
     color: #FFFFFF; }
+
+.calendarEvents .header {
+  display: none; }
 
 .calendarEvents p {
   text-decoration: underline; }
@@ -415,22 +445,16 @@ address {
 .uniforms img:last-of-type {
   margin-bottom: 0; }
 
-/* Carousel */
-.carousel-caption p {
-  font-size: 20px;
-  line-height: 1.4; }
+.carousel {
+  margin-bottom: 2.5rem; }
+  .carousel .carousel-item {
+    height: 10rem; }
+    .carousel .carousel-item img {
+      display: block;
+      height: 100%;
+      margin: auto;
+      width: 75%; }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-  width: 100%; }
-
-/* QR code generator */
-#qrCode {
-  margin: 15px; }
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-  /* Hide captions */
-  .carousel-caption {
-    display: none; } }
+.carousel.banner .carousel-item {
+  height: unset; }
 

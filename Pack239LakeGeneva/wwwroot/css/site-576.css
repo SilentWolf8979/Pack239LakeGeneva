@@ -3,6 +3,12 @@
   float: left;
   padding-right: 15px; }
 
+.calendarEvent .eventDescription .location {
+  display: block; }
+
+.calendarEvent .eventDescription .location.short {
+  display: none; }
+
 .leaders a {
   color: #FFFFFF;
   padding-left: 20px; }

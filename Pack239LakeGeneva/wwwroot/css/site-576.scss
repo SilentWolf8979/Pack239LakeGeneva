@@ -9,6 +9,18 @@
   }
 }
 
+.calendarEvent {
+  .eventDescription {
+    .location {
+      display: block;
+    }
+
+    .location.short {
+      display: none;
+    }
+  }
+}
+
 .leaders {
   a {
     color: $sctg-white;

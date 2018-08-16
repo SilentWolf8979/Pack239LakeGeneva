@@ -9,8 +9,18 @@
 
 @if (Model != null)
 {
+
+<div class="header">
+  <h4>Upcoming Events</h4>
+
   <hr />
+</div>
+
+<div class="filters">
+  <hr />
+
   <p class="text-center">Filter Calendars</p>
+
   <div class="row">
     @foreach (var calendar in Model.calendars)
     {
@@ -25,6 +35,7 @@
   </div>
 
   <hr />
+</div>
 
   foreach (var calendarEvent in Model.calendarEvents)
   {
@@ -46,18 +57,24 @@
   }
 }
 
-<hr />
+<div class="sync">
+  <hr />
 
-<p class="text-center">Sync Calendars</p>
-<div class="row">
-  @foreach (var calendar in Model.calendars)
-  {
-    <span class="calendarSync col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
-      <a href="@calendar.ShareUrl" target="_blank" class="d-flex justify-content-center">@calendar.Summary</a>
-    </span>
-  }
+  <p class="text-center">Sync Calendars</p>
+  <div class="row">
+    @foreach (var calendar in Model.calendars)
+    {
+      <span class="calendarSync col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
+        <a href="@calendar.ShareUrl" target="_blank" class="d-flex justify-content-center">@calendar.Summary</a>
+      </span>
+    }
+  </div>
 </div>
 
 <script type="text/javascript">
   WireCalendarEvents();
+
+  if ($(".filters").css("display") === "none") {
+    ShowPackEvents();
+  }
 </script>
