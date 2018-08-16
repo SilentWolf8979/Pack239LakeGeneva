@@ -64,8 +64,8 @@ a:hover {
     background-image: url("../images/bsa/logos/fleur de lis_white_transparent.png");
     text-decoration: none; }
   .header-ribbon .arrow {
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
     border-top: 7px solid #9AB3D5;
     display: inline;
     left: 32px;
