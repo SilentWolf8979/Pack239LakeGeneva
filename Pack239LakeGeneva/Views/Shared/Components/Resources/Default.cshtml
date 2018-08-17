@@ -9,10 +9,25 @@
 
 @if (Model != null)
 {
+  <ol class="breadcrumb">
+    @for (int i = 0; i < Model.breadcrumbs.Count; i++)
+    {
+      if (i == Model.breadcrumbs.Count - 1)
+      {
+        <li class="active">@Model.breadcrumbs[i].Item2</li>
+      }
+      else
+      {
+        <li><a href="@Model.breadcrumbs[i].Item1">@Model.breadcrumbs[i].Item2</a></li>
+      }
+    }
+  </ol>
+  
   <div class="row">
   @foreach (var document in Model.documents)
   {
     <div class="col-6 col-sm-4 col-md-3">
+      <img src="@document.IconLink" />
       @if (document.MimeType.Equals("application/vnd.google-apps.folder", StringComparison.OrdinalIgnoreCase))
       {
         <a href="/Documents/@document.Id">@document.Name</a>

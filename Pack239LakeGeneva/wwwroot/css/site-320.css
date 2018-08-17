@@ -345,6 +345,18 @@ address {
 .documents {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem; }
+  .documents .breadcrumb {
+    background-color: unset;
+    font-size: 0.75rem;
+    font-style: italic;
+    padding: 0; }
+    .documents .breadcrumb .active {
+      color: #FDC116; }
+    .documents .breadcrumb li:after {
+      content: "/";
+      padding: 0 5px; }
+    .documents .breadcrumb li:last-child:after {
+      content: ""; }
   .documents a {
     color: #FFFFFF; }
   .documents a:hover {

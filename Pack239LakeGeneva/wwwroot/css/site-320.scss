@@ -514,6 +514,26 @@ address {
   font-family: $sctg-font-secondary;
   font-size: 0.85rem;
 
+  .breadcrumb {
+    background-color: unset;
+    font-size: 0.75rem;
+    font-style: italic;
+    padding: 0;
+
+    .active {
+      color: $sctg-gold;
+    }
+
+    li:after {
+      content: "/";
+      padding: 0 5px;
+    }
+
+    li:last-child:after {
+      content: "";
+    }
+  }
+
   a {
     color: $sctg-white;
   }

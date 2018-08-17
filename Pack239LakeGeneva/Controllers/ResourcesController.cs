@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
-using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Microsoft.AspNetCore.Mvc;
@@ -108,6 +107,8 @@ namespace Pack239LakeGeneva.Controllers
     {
       string webFolder = "1IjWXjO_2rthBbp77-FsPXp1im7yxTjkw";
       var documentViewModel = new DocumentViewModel();
+      var breadcrumb = -1;
+      var breadcrumbList = new List<Tuple<string, string>>();
       var documentList = new List<Document>();
 
       UserCredential credential;
@@ -139,11 +140,40 @@ namespace Pack239LakeGeneva.Controllers
         listRequest.Q = "'" + documentId + "' in parents";
         listRequest.Fields = "nextPageToken, files(fileExtension, iconLink, id, mimeType, name, parents, thumbnailLink, webContentLink, webViewLink)";
 
-        //FilesResource.GetRequest getRequest = service.f.Get(webFolder);
-        //getRequest.Fields = "nextPageToken, files(fileExtension, iconLink, id, mimeType, name, thumbnailLink, webContentLink, webViewLink)";
-
-        //var fileList = await getRequest.ExecuteAsync();
         var fileList = await listRequest.ExecuteAsync();
+        var parentFile = fileList.Files[0];
+
+        breadcrumbList.Add(new Tuple<string, string>(parentFile.Parents[0], ""));
+
+        while ((parentFile.Parents != null) && (parentFile.Parents.Count > 0) && !parentFile.Parents[0].Equals(webFolder))
+        {
+          FilesResource.GetRequest parentRequest = service.Files.Get(parentFile.Parents[0]);
+              
+          parentRequest.Fields = "id, name, parents";
+
+          parentFile = await parentRequest.ExecuteAsync();
+
+          if (parentFile.Parents != null)
+          {
+            breadcrumb = breadcrumbList.IndexOf(new Tuple<string, string>(parentFile.Id, ""));
+
+            if (breadcrumb >= 0)
+            {
+              breadcrumbList[breadcrumb] = new Tuple<string, string>(parentFile.Id, parentFile.Name);
+            }
+
+            breadcrumbList.Add(new Tuple<string, string>(parentFile.Parents[0], ""));
+          }
+        }
+
+        breadcrumb = breadcrumbList.IndexOf(new Tuple<string, string>(webFolder, ""));
+
+        if (breadcrumb >= 0)
+        {
+          breadcrumbList[breadcrumb] = new Tuple<string, string>(webFolder, "Home");
+        }
+
+        breadcrumbList.Reverse();
 
         foreach (var file in fileList.Files)
         {
@@ -166,6 +196,8 @@ namespace Pack239LakeGeneva.Controllers
       {
         string s = ex.Message;
       }
+
+      documentViewModel.breadcrumbs = breadcrumbList;
       documentViewModel.documents = documentList;
 
       return PartialView("Components/Resources/Default", documentViewModel);
