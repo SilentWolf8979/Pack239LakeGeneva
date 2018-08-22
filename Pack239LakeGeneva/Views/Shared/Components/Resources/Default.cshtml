@@ -23,18 +23,25 @@
     }
   </ol>
   
-  <div class="row">
+  <div class="row align-items-end">
   @foreach (var document in Model.documents)
   {
-    <div class="col-6 col-sm-4 col-md-3">
-      <img src="@document.IconLink" />
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mx-auto d-flex justify-content-center">
+
       @if (document.MimeType.Equals("application/vnd.google-apps.folder", StringComparison.OrdinalIgnoreCase))
       {
-        <a href="/Documents/@document.Id">@document.Name</a>
+        <a href="/Documents/@document.Id"><img src="@document.IconLink" />@document.Name</a>
       }
       else
       {
-        <a href="@document.WebViewLink">@document.Name</a>
+        <a href="@document.WebViewLink">
+          <figure>
+            <img src="@document.ThumbnailLink" />
+            <figcaption>
+              <span><img src="@document.IconLink" />@document.Name</span>
+            </figcaption>
+          </figure>
+        </a>
       }
     </div>
   }

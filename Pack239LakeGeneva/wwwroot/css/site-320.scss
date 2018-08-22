@@ -536,6 +536,12 @@ address {
 
   a {
     color: $sctg-white;
+
+    span {
+      float: left;
+      text-align: center;
+      width: 100%;
+    }
   }
 
   a:hover {

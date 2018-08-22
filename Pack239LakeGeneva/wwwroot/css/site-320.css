@@ -359,6 +359,10 @@ address {
       content: ""; }
   .documents a {
     color: #FFFFFF; }
+    .documents a span {
+      float: left;
+      text-align: center;
+      width: 100%; }
   .documents a:hover {
     color: #FDC116;
     text-decoration: none; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -109,6 +110,7 @@ namespace Pack239LakeGeneva.Controllers
       var documentViewModel = new DocumentViewModel();
       var breadcrumb = -1;
       var breadcrumbList = new List<Tuple<string, string>>();
+      var folderList = new List<Document>();
       var documentList = new List<Document>();
 
       UserCredential credential;
@@ -139,6 +141,7 @@ namespace Pack239LakeGeneva.Controllers
         //listRequest.PageSize = 10;
         listRequest.Q = "'" + documentId + "' in parents";
         listRequest.Fields = "nextPageToken, files(fileExtension, iconLink, id, mimeType, name, parents, thumbnailLink, webContentLink, webViewLink)";
+        listRequest.OrderBy = "name";
 
         var fileList = await listRequest.ExecuteAsync();
         var parentFile = fileList.Files[0];
@@ -189,8 +192,21 @@ namespace Pack239LakeGeneva.Controllers
           currentDoc.WebContentLink = file.WebContentLink;
           currentDoc.WebViewLink = file.WebViewLink;
 
-          documentList.Add(currentDoc);
+          if (currentDoc.MimeType.Equals("application/vnd.google-apps.folder", StringComparison.OrdinalIgnoreCase))
+          {
+            folderList.Add(currentDoc);
+          }
+          else
+          {
+            documentList.Add(currentDoc);
+          }
         }
+
+       foreach (var document in documentList)
+        {
+          folderList.Add(document);
+        }
+
       }
       catch (Exception ex)
       {
@@ -198,7 +214,7 @@ namespace Pack239LakeGeneva.Controllers
       }
 
       documentViewModel.breadcrumbs = breadcrumbList;
-      documentViewModel.documents = documentList;
+      documentViewModel.documents = folderList;
 
       return PartialView("Components/Resources/Default", documentViewModel);
     }
