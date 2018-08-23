@@ -22,5 +22,21 @@
   {
     "outputFile": "wwwroot/css/site-992.css",
     "inputFile": "wwwroot/css/site-992.scss"
+  },
+  {
+    "outputFile": "wwwroot/lib/js/jquery/jquery.es5.js",
+    "inputFile": "wwwroot/lib/js/jquery/jquery.js"
+  },
+  {
+    "outputFile": "wwwroot/lib/js/bootstrap/bootstrap.es5.js",
+    "inputFile": "wwwroot/lib/js/bootstrap/bootstrap.js"
+  },
+  {
+    "outputFile": "wwwroot/js/site.es5.js",
+    "inputFile": "wwwroot/js/site.js"
+  },
+  {
+    "outputFile": "wwwroot/lib/js/fontawesome/fontawesome-all.es5.js",
+    "inputFile": "wwwroot/lib/js/fontawesome/fontawesome-all.js"
   }
 ]

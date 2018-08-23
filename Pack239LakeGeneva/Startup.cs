@@ -11,17 +11,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Pack239LakeGeneva.Data;
 using Pack239LakeGeneva.Models;
 using Pack239LakeGeneva.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Pack239LakeGeneva
 {
   public class Startup
   {
+    private IConfiguration Configuration { get; }
+
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
     }
-
-    public IConfiguration Configuration { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
@@ -36,7 +37,7 @@ namespace Pack239LakeGeneva
       // Add application services.
       services.AddTransient<IEmailSender, EmailSender>();
 
-      services.AddMvc();
+      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +53,9 @@ namespace Pack239LakeGeneva
       {
         app.UseExceptionHandler("/Home/Error");
       }
+
+      app.UseStatusCodePages();
+      app.UseStatusCodePagesWithReExecute("/Home/Error");
 
       app.UseStaticFiles();
 

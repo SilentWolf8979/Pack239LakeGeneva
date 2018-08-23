@@ -472,6 +472,25 @@ address {
 .uniforms img:last-of-type {
   margin-bottom: 0; }
 
+.error {
+  text-align: center; }
+  .error h2 {
+    margin-top: 2.5rem; }
+  .error p {
+    font-size: 1.5rem;
+    padding: 6rem 0; }
+  .error div:after {
+    background-image: url("/images/BSA/Logos/Fleur de lis_White_Transparent.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0.05;
+    position: absolute;
+    right: 0;
+    top: 0; }
+
 .carousel {
   margin-bottom: 2.5rem; }
   .carousel .carousel-item {

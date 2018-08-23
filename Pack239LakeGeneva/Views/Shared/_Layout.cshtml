@@ -12,18 +12,16 @@
     <link rel="stylesheet" href="~/css/site-768.css" media="screen and (min-width: 768px)" />
     <link rel="stylesheet" href="~/css/site-992.css" media="screen and (min-width: 992px)" />
 
-    <script defer src="~/lib/js/fontawesome/fontawesome-all.js"></script>
+    <script defer src="~/js/fontawesome/fontawesome-all.js"></script>
   </environment>
   <environment exclude="Development">
-    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-          asp-fallback-href="~/lib/css/bootstrap/bootstrap.min.css"
-          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site-320.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site-576.css" asp-append-version="true" media="screen and (min-width: 576px)" />
-    <link rel="stylesheet" href="~/css/site-768.css" asp-append-version="true" media="screen and (min-width: 768px)" />
-    <link rel="stylesheet" href="~/css/site-992.css" asp-append-version="true" media="screen and (min-width: 992px)" />
+    <link rel="stylesheet" href="~/css/site-576.min.css" asp-append-version="true" media="screen and (min-width: 576px)" />
+    <link rel="stylesheet" href="~/css/site-768.min.css" asp-append-version="true" media="screen and (min-width: 768px)" />
+    <link rel="stylesheet" href="~/css/site-992.min.css" asp-append-version="true" media="screen and (min-width: 992px)" />
 
-    <script defer src="~/lib/js/fontawesome/fontawesome.js"></script>
+    <script defer src="~/lib/js/fontawesome/fontawesome-all.min.js"></script>
   </environment>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -53,18 +51,8 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
   </environment>
   <environment exclude="Development">
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-            asp-fallback-src="~/lib/js/jquery/jquery.min.js"
-            asp-fallback-test="window.jQuery"
-            crossorigin="anonymous"
-            integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-    </script>
-    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js"
-            asp-fallback-src="~/lib/js/bootstrap/bootstrap.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-            crossorigin="anonymous"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-    </script>
+    <script src="~/lib/js/jquery/jquery.min.js"></script>
+    <script src="~/lib/js/bootstrap/bootstrap.min.js"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
   </environment>
 

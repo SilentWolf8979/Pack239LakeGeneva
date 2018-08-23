@@ -713,6 +713,34 @@ address {
 
 
 
+.error {
+  text-align: center;
+
+  h2 {
+    margin-top: 2.5rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+    padding: 6rem 0;
+  }
+
+  div:after {
+    background-image: url('/images/BSA/Logos/Fleur de lis_White_Transparent.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0.05;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+
+
 .carousel {
   margin-bottom: 2.5rem;
 
