@@ -109,6 +109,7 @@ a:hover {
   border: 0;
   flex-direction: column;
   margin-top: 25px;
+  z-index: 100;
 
   .navbar-header {
     width: 100%;
@@ -716,14 +717,18 @@ address {
 .error {
   text-align: center;
 
-  h2 {
-    margin-top: 2.5rem;
+  div {
+    h2 {
+      color: $sctg-gold;
+      margin-top: 2.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      padding: 3rem 0;
+    }
   }
 
-  p {
-    font-size: 1.5rem;
-    padding: 6rem 0;
-  }
 
   div:after {
     background-image: url('/images/BSA/Logos/Fleur de lis_White_Transparent.png');

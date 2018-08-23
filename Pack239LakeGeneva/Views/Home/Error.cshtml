@@ -1,11 +1,15 @@
-﻿@{
-  ViewData["Title"] = "Error Page";
+﻿@model ErrorViewModel
+
+@{
+  ViewData["Title"] = "Error";
 }
 
 <div class="error">
-  <h2>A Scout is Helpful</h2>
+  <h2>@Model.StatusCode - @ViewData["Title"]</h2>
   <hr />
   <div>
+    <h2>A Scout is Helpful</h2>
+
     <p>But despite our best efforts, we couldn't find what you were looking for!</p>
   </div>
 </div>

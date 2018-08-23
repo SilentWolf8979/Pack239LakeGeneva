@@ -81,7 +81,8 @@ a:hover {
   background-color: #003F87;
   border: 0;
   flex-direction: column;
-  margin-top: 25px; }
+  margin-top: 25px;
+  z-index: 100; }
   .navbar .navbar-header {
     width: 100%; }
   .navbar .navbar-toggler {
@@ -474,11 +475,12 @@ address {
 
 .error {
   text-align: center; }
-  .error h2 {
+  .error div h2 {
+    color: #FDC116;
     margin-top: 2.5rem; }
-  .error p {
+  .error div p {
     font-size: 1.5rem;
-    padding: 6rem 0; }
+    padding: 3rem 0; }
   .error div:after {
     background-image: url("/images/BSA/Logos/Fleur de lis_White_Transparent.png");
     background-position: center;
