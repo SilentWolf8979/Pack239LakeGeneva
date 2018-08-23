@@ -357,17 +357,28 @@ address {
       padding: 0 5px; }
     .documents .breadcrumb li:last-child:after {
       content: ""; }
+  .documents .row div {
+    margin-bottom: 0.5rem; }
+  .documents figure {
+    margin-top: 2rem;
+    text-align: center; }
   .documents a {
     color: #FFFFFF; }
     .documents a span {
+      display: flex;
       float: left;
-      text-align: center;
+      justify-content: center;
+      margin-top: 0.5rem;
       width: 100%; }
+      .documents a span img {
+        height: 15px;
+        margin-right: 0.25rem;
+        position: relative;
+        top: 2px;
+        width: 15px; }
   .documents a:hover {
     color: #FDC116;
     text-decoration: none; }
-  .documents .row div {
-    margin-bottom: 2rem; }
 
 .leaders {
   margin: 0 auto; }

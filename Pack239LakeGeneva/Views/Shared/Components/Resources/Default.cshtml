@@ -22,18 +22,20 @@
       }
     }
   </ol>
-  
-  <div class="row align-items-end">
-  @foreach (var document in Model.documents)
-  {
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mx-auto d-flex justify-content-center">
 
-      @if (document.MimeType.Equals("application/vnd.google-apps.folder", StringComparison.OrdinalIgnoreCase))
-      {
-        <a href="/Documents/@document.Id"><img src="@document.IconLink" />@document.Name</a>
-      }
-      else
-      {
+  <div class="row align-items-end">
+    @foreach (var document in Model.folders)
+    {
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+        <a href="/Documents/@document.Id"><span><img src="@document.IconLink" />@document.Name</span></a>
+      </div>
+    }
+  </div>
+
+  <div class="row align-items-end">
+    @foreach (var document in Model.documents)
+    {
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mx-auto justify-content-center">
         <a href="@document.WebViewLink">
           <figure>
             <img src="@document.ThumbnailLink" />
@@ -42,8 +44,7 @@
             </figcaption>
           </figure>
         </a>
-      }
-    </div>
-  }
+      </div>
+    }
   </div>
 }

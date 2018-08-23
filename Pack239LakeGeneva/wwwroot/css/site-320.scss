@@ -534,25 +534,40 @@ address {
     }
   }
 
+  .row {
+    div {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  figure {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
   a {
     color: $sctg-white;
 
     span {
+      display: flex;
       float: left;
-      text-align: center;
+      justify-content: center;
+      margin-top: 0.5rem;
       width: 100%;
+
+      img {
+        height: 15px;
+        margin-right: 0.25rem;
+        position: relative;
+        top: 2px;
+        width: 15px;
+      }
     }
   }
 
   a:hover {
     color: $sctg-gold;
     text-decoration: none;
-  }
-
-  .row {
-    div {
-      margin-bottom: 2rem;
-    }
   }
 }
 

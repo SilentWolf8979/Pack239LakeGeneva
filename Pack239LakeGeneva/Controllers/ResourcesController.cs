@@ -188,7 +188,8 @@ namespace Pack239LakeGeneva.Controllers
           currentDoc.MimeType = file.MimeType;
           currentDoc.Name = file.Name;
           currentDoc.Parents = file.Parents;
-          currentDoc.ThumbnailLink = file.ThumbnailLink;
+          //currentDoc.ThumbnailLink = file.ThumbnailLink;
+          currentDoc.ThumbnailLink = "https://drive.google.com/thumbnail?authuser=0&sz=s200&id=" + currentDoc.Id;
           currentDoc.WebContentLink = file.WebContentLink;
           currentDoc.WebViewLink = file.WebViewLink;
 
@@ -201,12 +202,6 @@ namespace Pack239LakeGeneva.Controllers
             documentList.Add(currentDoc);
           }
         }
-
-       foreach (var document in documentList)
-        {
-          folderList.Add(document);
-        }
-
       }
       catch (Exception ex)
       {
@@ -214,7 +209,8 @@ namespace Pack239LakeGeneva.Controllers
       }
 
       documentViewModel.breadcrumbs = breadcrumbList;
-      documentViewModel.documents = folderList;
+      documentViewModel.folders = folderList;
+      documentViewModel.documents = documentList;
 
       return PartialView("Components/Resources/Default", documentViewModel);
     }
