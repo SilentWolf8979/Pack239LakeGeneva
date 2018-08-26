@@ -5,11 +5,11 @@
 }
 
 <div class="error">
-  <h2>@Model.StatusCode - @ViewData["Title"]</h2>
+  <h2>@Model.StatusCode - @Model.StatusMessage</h2>
   <hr />
   <div>
-    <h2>A Scout is Helpful</h2>
+    <h2>@Model.ErrorHeadline</h2>
 
-    <p>But despite our best efforts, we couldn't find what you were looking for!</p>
+    <p>@Html.Raw(Model.ErrorText)</p>
   </div>
 </div>

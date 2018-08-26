@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Pack239LakeGeneva.Models;
@@ -27,7 +29,34 @@ namespace Pack239LakeGeneva.Controllers
 
     public IActionResult Error()
     {
-      return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, StatusCode = HttpContext.Response.StatusCode });
+      ErrorViewModel model = new ErrorViewModel();
+
+      model.RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+      model.StatusCode = HttpContext.Response.StatusCode;
+      model.StatusMessage = ((HttpStatusCode)HttpContext.Response.StatusCode).ToString();
+      model.StatusMessage = Regex.Replace(model.StatusMessage, "(\\B[A-Z])", " $1");
+
+      switch (model.StatusCode)
+      {
+        case 401:
+          model.ErrorHeadline = "A Scout is Trustworthy";
+          model.ErrorText = "This page requires you to <a href='/Account/Login'>login</a>. Please be sure you have an account and have entered the correct user ID and password.";
+          break;
+        case 404:
+          model.ErrorHeadline = "A Scout is Helpful";
+          model.ErrorText = "But despite our best efforts, we couldn't find what you were looking for!";
+          break;
+        case 500:
+          model.ErrorHeadline = "A Scout is Courteous";
+          model.ErrorText = "Something went wrong. Please try again, and if it continues please be courteous and <a href='/Contact'>let us know</a> about it!";
+          break;
+        default:
+          model.ErrorHeadline = "A Scout is Helpful";
+          model.ErrorText = "But despite our best efforts, we couldn't find what you were looking for!";
+          break;
+      }
+
+      return View(model);
     }
   }
 }

@@ -45,7 +45,19 @@
         <span class="day">@calendarEvent.Start.ToString("dd")</span>
       </div>
       <div class="eventDescription">
-        <span class="summary">@calendarEvent.Summary</span>
+        @if (!String.IsNullOrEmpty(calendarEvent.Description))
+        {
+          <span class="summary details">
+            @calendarEvent.Summary
+            <div class="d-none description">
+              <span>@Html.Raw(calendarEvent.Description)</span>
+            </div>
+          </span>
+        }
+        else
+        {
+          <span class="summary">@calendarEvent.Summary</span>
+        }
         <span class="time d-flex">@calendarEvent.Start.ToString("h:mm")@(calendarEvent.End != null ? " - " + @calendarEvent.End.ToString("h:mm") : "")</span>
         <a href="@calendarEvent.MapUrl" target="_blank">
           <span class="location short float-left">@calendarEvent.ShortLocation</span>

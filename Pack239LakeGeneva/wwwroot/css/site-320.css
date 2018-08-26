@@ -159,6 +159,27 @@ footer {
   footer .svg-inline--fa {
     margin: 0.5rem; }
 
+.home h1 {
+  color: #FDC116;
+  margin-bottom: 1rem; }
+
+.home h5 {
+  font-family: "Roboto Condensed", sans-serif;
+  margin-bottom: 1rem; }
+
+.home ul {
+  margin-bottom: 5rem; }
+  .home ul li {
+    margin-bottom: 0.5rem; }
+
+.home .hero {
+  text-align: center; }
+
+.home .homeImage {
+  margin-bottom: 1rem;
+  max-width: 500px;
+  width: 100%; }
+
 .upcomingEvents .filters {
   display: none; }
 
@@ -170,9 +191,6 @@ footer {
 
 .upcomingEvents .sync {
   display: none; }
-
-.homeImage {
-  width: 100%; }
 
 .join a {
   color: #FDC116; }
@@ -299,10 +317,36 @@ address {
       font-size: 2em; }
   .calendarEvent .eventDescription {
     background-color: #9AB3D5;
+    height: 120px;
     padding: 0.5em;
     width: 100%; }
     .calendarEvent .eventDescription .summary {
       font-size: 1.1em; }
+      .calendarEvent .eventDescription .summary .description {
+        background: #003F87;
+        border: 1px solid #FDC116;
+        border-radius: 10px;
+        color: #FFFFFF;
+        content: attr(tooltip);
+        float: right;
+        font-size: 0.75rem;
+        margin-top: -70px;
+        padding: 10px;
+        position: relative;
+        right: 1rem;
+        transition: opacity 0.25s ease-out;
+        top: 4.25rem;
+        z-index: 100; }
+        .calendarEvent .eventDescription .summary .description span {
+          float: left;
+          padding: .15rem;
+          width: 100%; }
+          .calendarEvent .eventDescription .summary .description span a {
+            color: #FDC116; }
+    .calendarEvent .eventDescription .summary.details:hover {
+      color: #FDC116; }
+      .calendarEvent .eventDescription .summary.details:hover .description {
+        display: block !important; }
     .calendarEvent .eventDescription .time {
       font-size: 0.85em;
       font-style: italic;
@@ -491,7 +535,8 @@ address {
     opacity: 0.05;
     position: absolute;
     right: 0;
-    top: 0; }
+    top: 0;
+    z-index: -100; }
 
 .carousel {
   margin-bottom: 2.5rem; }

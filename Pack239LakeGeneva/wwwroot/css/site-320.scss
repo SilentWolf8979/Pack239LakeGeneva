@@ -226,6 +226,38 @@ footer {
 
 
 
+.home {
+  h1 {
+    color: $sctg-gold;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    font-family: $sctg-font-secondary;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    margin-bottom: 5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .homeImage {
+    margin-bottom: 1rem;
+    max-width: 500px;
+    width: 100%;
+  }
+}
+
+
+
 .upcomingEvents {
   .filters {
     display: none;
@@ -246,9 +278,6 @@ footer {
   }
 }
 
-.homeImage {
-  width: 100%;
-}
 
 
 .join {
@@ -440,11 +469,47 @@ address {
 
   .eventDescription {
     background-color: $sctg-blue-pale;
+    height: 120px;
     padding: 0.5em;
     width: 100%;
 
     .summary {
       font-size: 1.1em;
+
+      .description {
+        background: $sctg-blue;
+        border: 1px solid $sctg-gold;
+        border-radius: 10px;
+        color: $sctg-white;
+        content: attr(tooltip);
+        float: right;
+        font-size: 0.75rem;
+        margin-top: -70px;
+        padding: 10px;
+        position: relative;
+        right: 1rem;
+        transition: opacity 0.25s ease-out;
+        top: 4.25rem;
+        z-index: 100;
+
+        span {
+          float: left;
+          padding: .15rem;
+          width: 100%;
+
+          a {
+            color: $sctg-gold;
+          }
+        }
+      }
+    }
+
+    .summary.details:hover {
+      color: $sctg-gold;
+
+      .description {
+        display: block !important;
+      }
     }
 
     .time {
@@ -741,6 +806,7 @@ address {
     position: absolute;
     right: 0;
     top: 0;
+    z-index: -100;
   }
 }
 
