@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <None Remove="gulpfile.js" />
+    <None Remove="robots.txt" />
+    <None Remove="sitemap.xml" />
   </ItemGroup>
 
   <ItemGroup>
