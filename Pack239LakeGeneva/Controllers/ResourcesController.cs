@@ -114,7 +114,7 @@ namespace Pack239LakeGeneva.Controllers
       var folderList = new List<Document>();
       var documentList = new List<Document>();
 
-      var json = System.IO.File.ReadAllText("client_secrets.google.json");
+      var json = System.IO.File.ReadAllText("client_secrets.json");
       JObject cr = (JObject)JsonConvert.DeserializeObject(json);
 
       var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(cr.GetValue("client_email").ToString())

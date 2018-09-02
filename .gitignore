@@ -156,3 +156,4 @@ appsettings.json
 appsettings.*.json
 client_secrets.json
 client_secrets.*.json
+/Pack239LakeGeneva/client_secrets.json.old

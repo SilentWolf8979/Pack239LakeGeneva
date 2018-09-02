@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
-
-using Google.Apis.Auth.OAuth2;
+﻿using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
-using Google.Apis.Util.Store;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 using Pack239LakeGeneva.Models;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+
 using static Google.Apis.Calendar.v3.EventsResource.ListRequest;
 
 namespace Pack239LakeGeneva.Controllers
@@ -49,7 +49,7 @@ namespace Pack239LakeGeneva.Controllers
       var calendarList = new List<Models.Calendar>();
       var calendarEvents = new List<CalendarEvent>();
 
-      var json = System.IO.File.ReadAllText("client_secrets.google.json");
+      var json = System.IO.File.ReadAllText("client_secrets.json");
       JObject cr = (JObject)JsonConvert.DeserializeObject(json);
  
       var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(cr.GetValue("client_email").ToString())
