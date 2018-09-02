@@ -37,6 +37,11 @@ namespace Pack239LakeGeneva
       // Add application services.
       services.AddTransient<IEmailSender, EmailSender>();
 
+      services.AddHttpsRedirection(options =>
+      {
+        options.HttpsPort = 443;
+      });
+
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
 
@@ -57,6 +62,7 @@ namespace Pack239LakeGeneva
       app.UseStatusCodePages();
       app.UseStatusCodePagesWithReExecute("/Home/Error");
 
+      app.UseHttpsRedirection();
       app.UseStaticFiles();
 
       app.UseAuthentication();

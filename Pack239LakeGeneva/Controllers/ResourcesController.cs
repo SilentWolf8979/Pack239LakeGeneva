@@ -12,6 +12,7 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Pack239LakeGeneva.Models;
 
@@ -113,23 +114,21 @@ namespace Pack239LakeGeneva.Controllers
       var folderList = new List<Document>();
       var documentList = new List<Document>();
 
-      UserCredential credential;
-      using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read))
+      var json = System.IO.File.ReadAllText("client_secrets.google.json");
+      JObject cr = (JObject)JsonConvert.DeserializeObject(json);
+
+      var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(cr.GetValue("client_email").ToString())
       {
-        credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-          GoogleClientSecrets.Load(stream).Secrets,
-          new[] { DriveService.Scope.Drive },
-          "user",
-          CancellationToken.None,
-          new FileDataStore("Pack239LakeGeneva.Documents"));
-      }
+        Scopes = new[] {
+            DriveService.Scope.Drive
+        }
+      }.FromPrivateKey(cr.GetValue("private_key").ToString()));
 
       var service = new DriveService(new BaseClientService.Initializer()
       {
-        ApiKey = _configuration["GoogleAPIKey"],
-        ApplicationName = "Pack239LakeGeneva",
         HttpClientInitializer = credential
       });
+
       try
       {
         if (String.IsNullOrEmpty(documentId))

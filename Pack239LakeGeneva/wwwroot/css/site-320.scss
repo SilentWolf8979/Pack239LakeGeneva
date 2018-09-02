@@ -111,6 +111,10 @@ a:hover {
   margin-top: 25px;
   z-index: 100;
 
+  .login {
+    display: none;
+  }
+
   .navbar-header {
     width: 100%;
   }
@@ -544,6 +548,38 @@ address {
 
   .calendar {
     width: 1em;
+  }
+
+  .calendar.ArrowofLight {
+    background: $sctg-olive;
+  }
+
+  .calendar.Bears {
+    background: $sctg-blue;
+  }
+
+  .calendar.Committee {
+    background: $sctg-white;
+  }
+
+  .calendar.Lions {
+    background: $sctg-gold;
+  }
+
+  .calendar.Pack {
+    background: $sctg-blue-pale;
+  }
+
+  .calendar.Tigers {
+    background: $sctg-orange;
+  }
+
+  .calendar.Webelos {
+    background: $sctg-tan;
+  }
+
+  .calendar.Wolves {
+    background: $sctg-red;
   }
 
   .calendar:hover {

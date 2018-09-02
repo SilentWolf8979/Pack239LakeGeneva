@@ -15,7 +15,8 @@ using Google.Apis.Util.Store;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Pack239LakeGeneva.Models;
 using static Google.Apis.Calendar.v3.EventsResource.ListRequest;
 
@@ -48,21 +49,18 @@ namespace Pack239LakeGeneva.Controllers
       var calendarList = new List<Models.Calendar>();
       var calendarEvents = new List<CalendarEvent>();
 
-      UserCredential credential;
-      using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read))
+      var json = System.IO.File.ReadAllText("client_secrets.google.json");
+      JObject cr = (JObject)JsonConvert.DeserializeObject(json);
+ 
+      var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(cr.GetValue("client_email").ToString())
       {
-        credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-          GoogleClientSecrets.Load(stream).Secrets,
-          new[] { CalendarService.Scope.Calendar },
-          "user",
-          CancellationToken.None,
-          new FileDataStore("Pack239LakeGeneva.Controllers"));
-      }
+        Scopes = new[] {
+            CalendarService.Scope.Calendar
+        }
+      }.FromPrivateKey(cr.GetValue("private_key").ToString()));
 
       var service = new CalendarService(new BaseClientService.Initializer()
       {
-        ApiKey = _configuration["GoogleAPIKey"],
-        ApplicationName = "Pack239LakeGeneva",
         HttpClientInitializer = credential
       });
 
@@ -154,6 +152,8 @@ namespace Pack239LakeGeneva.Controllers
               calendarEvent.Calendar = calendar.Summary;
             }
           }
+
+          calendarEvent.EventColor = calendarEvent.Calendar.Replace(" ", "");
 
           calendarEvents.Add(calendarEvent);
         }

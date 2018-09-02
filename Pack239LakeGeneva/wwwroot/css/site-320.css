@@ -83,6 +83,8 @@ a:hover {
   flex-direction: column;
   margin-top: 25px;
   z-index: 100; }
+  .navbar .login {
+    display: none; }
   .navbar .navbar-header {
     width: 100%; }
   .navbar .navbar-toggler {
@@ -368,6 +370,22 @@ address {
       display: block; }
   .calendarEvent .calendar {
     width: 1em; }
+  .calendarEvent .calendar.ArrowofLight {
+    background: #243E2C; }
+  .calendarEvent .calendar.Bears {
+    background: #003F87; }
+  .calendarEvent .calendar.Committee {
+    background: #FFFFFF; }
+  .calendarEvent .calendar.Lions {
+    background: #FDC116; }
+  .calendarEvent .calendar.Pack {
+    background: #9AB3D5; }
+  .calendarEvent .calendar.Tigers {
+    background: #F98D2B; }
+  .calendarEvent .calendar.Webelos {
+    background: #D6CEBD; }
+  .calendarEvent .calendar.Wolves {
+    background: #CE1126; }
   .calendarEvent .calendar:hover {
     width: 0.8em; }
   .calendarEvent [tooltip]:before {
