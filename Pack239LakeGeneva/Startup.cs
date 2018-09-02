@@ -62,7 +62,7 @@ namespace Pack239LakeGeneva
       app.UseStatusCodePages();
       app.UseStatusCodePagesWithReExecute("/Home/Error");
 
-      app.UseHttpsRedirection();
+      //app.UseHttpsRedirection();
       app.UseStaticFiles();
 
       app.UseAuthentication();
