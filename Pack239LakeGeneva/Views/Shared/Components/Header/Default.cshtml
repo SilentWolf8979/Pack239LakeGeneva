@@ -1,15 +1,15 @@
 ﻿<div class="header-ribbon">
   <div class="container">
     <p class="float-left textLinks">
-      <a href="https://www.scouting.org" target="_blank">scouting.org</a>
-      <a href="http://www.glaciersedge.org" target="_blank" class="d-none d-sm-flex">glaciersedge.org</a>
+      <a href="https://www.scouting.org" title="scouting.org Website" target="_blank">scouting.org</a>
+      <a href="http://www.glaciersedge.org" title="Glacier's Edge Council Website" target="_blank" class="d-none d-sm-flex">glaciersedge.org</a>
     </p>
 
     <div class="float-right contact-icons">
       <div class="arrow"></div>
-      <a href="/" class="fluer-de-lis">&nbsp;</a>
-      <a href="mailto:Pack239LakeGeneva@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.facebook.com/Pack239LakeGeneva" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="/" title="Home Page" class="fluer-de-lis">&nbsp;</a>
+      <a href="mailto:Pack239LakeGeneva@gmail.com" title="Email Pack 239"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/Pack239LakeGeneva" title="Pack 239 Facebook Page" target="_blank"><i class="fab fa-facebook-f"></i></a>
     </div>
   </div>
 </div>
@@ -21,25 +21,25 @@
         <span class="sr-only">Toggle navigation</span>
         <i class="fa fa-bars"></i>
       </button>
-      <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand float-right float-lg-left">
-        <img src="~/images/BSA/Logos/BSA_Logo_Transparent.png" />
+      <a asp-area="" asp-controller="Home" asp-action="Index" title="Home Page" class="navbar-brand float-right float-lg-left">
+        <img src="~/images/BSA/Logos/BSA_Logo_Transparent.png" alt="Boy Scouts of America Logo" />
         <p>Pack 239 - Lake Geneva, WI</p>
       </a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a asp-area="" asp-controller="Join" asp-action="Index">Join Us!</a></li>
-        <li><a asp-area="" asp-controller="Calendar" asp-action="Index">Calendar</a></li>
+        <li><a asp-area="" asp-controller="Join" asp-action="Index" title="Join Page">Join Us!</a></li>
+        <li><a asp-area="" asp-controller="Calendar" asp-action="Index" title="Calendar Page">Calendar</a></li>
         <li class="dropdown justify-content-center">
-          <a class="dropdown-toggle" href="#" id="navbarResources" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+          <a class="dropdown-toggle" href="#" title="Resources Dropdown" id="navbarResources" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
           <ul class="dropdown-menu" aria-labelledby="navbarResources">
-            <li><a asp-area="" asp-controller="Leaders" asp-action="Index">Leaders</a></li>
-            <li><a asp-area="" asp-controller="Uniforms" asp-action="Index">Uniforms</a></li>
-            <li><a asp-area="" asp-controller="Documents" asp-action="Index">Documents</a></li>
+            <li><a asp-area="" asp-controller="Leaders" asp-action="Index" title="Leaders Page">Leaders</a></li>
+            <li><a asp-area="" asp-controller="Uniforms" asp-action="Index" title="Uniforms Page">Uniforms</a></li>
+            <li><a asp-area="" asp-controller="Documents" asp-action="Index" title="Documents Page">Documents</a></li>
           </ul>
         </li>
-        <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a></li>
-        <li><a asp-area="" asp-controller="About" asp-action="Index">About</a></li>
+        <li><a asp-area="" asp-controller="Contact" asp-action="Index" title="Contact Page">Contact</a></li>
+        <li><a asp-area="" asp-controller="About" asp-action="Index" title="About Page">About</a></li>
       </ul>
       <hr class="login" />
       @await Html.PartialAsync("_LoginPartial")
