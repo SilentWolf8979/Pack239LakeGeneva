@@ -516,6 +516,12 @@ address {
         position: absolute;
         top: 39px; }
 
+.purchase span {
+  color: #FDC116; }
+
+.purchase i {
+  font-size: 0.8rem; }
+
 .uniforms h4 {
   display: flex;
   color: #FDC116;

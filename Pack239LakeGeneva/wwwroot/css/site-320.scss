@@ -787,6 +787,16 @@ address {
   }
 }
 
+.purchase {
+  span {
+    color: $sctg-gold;
+  }
+
+  i {
+    font-size: 0.8rem;
+  }
+}
+
 .uniforms {
   h4 {
     display: flex;
