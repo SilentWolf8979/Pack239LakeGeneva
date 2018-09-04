@@ -1,4 +1,11 @@
-﻿using Google.Apis.Auth.OAuth2;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
@@ -10,13 +17,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using Pack239LakeGeneva.Models;
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 
 using static Google.Apis.Calendar.v3.EventsResource.ListRequest;
 

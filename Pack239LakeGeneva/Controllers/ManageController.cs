@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+
 using Pack239LakeGeneva.Models;
 using Pack239LakeGeneva.Models.ManageViewModels;
 using Pack239LakeGeneva.Services;
 
 namespace Pack239LakeGeneva.Controllers
 {
-    [Authorize]
+  [Authorize]
     [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
