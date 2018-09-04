@@ -407,8 +407,39 @@ address {
     right: 1em;
     white-space: nowrap; }
 
-.calendarSync a {
+.calendarSync {
   color: #FDC116; }
+  .calendarSync .syncBox {
+    background: #9AB3D5;
+    border: 1px solid #FDC116;
+    border-radius: 10px;
+    color: #FFFFFF;
+    content: attr(tooltip);
+    float: right;
+    font-size: 0.8rem;
+    margin-top: -133px;
+    position: relative;
+    right: -1rem;
+    transition: opacity 0.25s ease-out;
+    top: 1rem;
+    white-space: nowrap;
+    z-index: 100; }
+    .calendarSync .syncBox a {
+      float: left;
+      padding: .15rem;
+      width: 100%; }
+
+.calendarSync:hover {
+  color: #FDC116;
+  cursor: default;
+  text-decoration: underline; }
+  .calendarSync:hover .syncBox {
+    display: block !important;
+    padding: 10px; }
+    .calendarSync:hover .syncBox a {
+      color: #FFFFFF; }
+    .calendarSync:hover .syncBox a:hover {
+      color: #FDC116; }
 
 .documents {
   font-family: "Roboto Condensed", sans-serif;

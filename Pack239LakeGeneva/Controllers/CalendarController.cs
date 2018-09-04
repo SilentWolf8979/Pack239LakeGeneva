@@ -79,7 +79,38 @@ namespace Pack239LakeGeneva.Controllers
         Models.Calendar currentCal = new Models.Calendar();
 
         currentCal.Id = calendar.Id;
-        currentCal.ShareUrl = "https://calendar.google.com/calendar/ical/" + calendar.Id + "/public/basic.ics";
+
+        currentCal.ShareUrlEmbed = "https://calendar.google.com/calendar/embed?src=" + calendar.Id;
+        currentCal.ShareUrlIcs = "https://calendar.google.com/calendar/ical/" + calendar.Id + "/public/basic.ics";
+
+        switch (calendar.Summary)
+        {
+          case "pack239lakegeneva@gmail.com":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=cGFjazIzOWxha2VnZW5ldmFAZ21haWwuY29t";
+            break;
+          case "1-Lions":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=NDBvdDQ2bzh1bjFqM211OWRxbm1va2N0dGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+          case "2-Tigers":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=czN0ZmNvdXFvMmVhNzhzY2FrdmY1c3FxbzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+          case "3-Wolves":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=amJlbHJkaGQxNWdlbGMyNjcxMXNjNnQxaDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+          case "4-Bears":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=dHQxbTM0dnJpZXNhNXNocWZhNmc1bDNoY3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+          case "5-Webelos":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=bmFzNW9uY2hwc3Y0aHVyN2pzc29vcWRhMzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+          case "6-Arrow of Light":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZGlkaW0wcG1jNnE5aDZ1amdkcHA1M3ExNzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+          case "Committee":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=dnBmcHU0bW5sdTRtdWJscWgxdHZlOXE2ZzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+        }
+        
 
         if (calendar.Summary.IndexOf("-") >= 0)
         {

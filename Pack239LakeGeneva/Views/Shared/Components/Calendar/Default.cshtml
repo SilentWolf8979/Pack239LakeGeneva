@@ -77,7 +77,12 @@
     @foreach (var calendar in Model.calendars)
     {
       <span class="calendarSync col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
-        <a href="@calendar.ShareUrl" target="_blank" class="d-flex justify-content-center">@calendar.Summary</a>
+        @calendar.Summary
+        <div class="d-none syncBox">
+          <a href="@calendar.ShareUrl" target="_blank" class="d-flex">Google Calendar</a>
+          <a href="@calendar.ShareUrlEmbed" target="_blank" class="d-flex">Embedded Format</a>
+          <a href="@calendar.ShareUrlIcs" target="_blank" class="d-flex">ICS Format</a>
+        </div>
       </span>
     }
   </div>

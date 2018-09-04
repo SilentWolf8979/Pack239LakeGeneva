@@ -9,6 +9,9 @@
 .calendarEvent .eventDescription .location.short {
   display: none; }
 
+.calendarSync .syncBox {
+  right: 0; }
+
 .leaders a {
   color: #FFFFFF;
   padding-left: 20px; }
