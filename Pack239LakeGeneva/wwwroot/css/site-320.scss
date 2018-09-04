@@ -237,8 +237,9 @@ footer {
     margin-bottom: 1rem;
   }
 
-  h5 {
+  strong {
     color: $sctg-gold;
+    display: block;
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -855,20 +856,22 @@ address {
 }
 
 .uniforms {
-  h4 {
-    display: flex;
+  strong {
     color: $sctg-gold;
+    display: flex;
+    font-family: $sctg-font-primary;
+    font-size: 1.5rem;
     font-style: italic;
     justify-content: center;
     margin-bottom: 1rem;
     text-decoration: underline;
   }
 
-  h4.paren {
+  strong.paren {
     text-decoration: none;
   }
 
-  h4 span {
+  strong span {
     text-decoration: underline;
   }
 

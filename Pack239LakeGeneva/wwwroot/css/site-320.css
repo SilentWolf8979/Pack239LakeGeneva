@@ -166,8 +166,9 @@ footer {
   font-weight: bold;
   margin-bottom: 1rem; }
 
-.home h5 {
+.home strong {
   color: #FDC116;
+  display: block;
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -568,18 +569,20 @@ address {
 .purchase i {
   font-size: 0.8rem; }
 
-.uniforms h4 {
-  display: flex;
+.uniforms strong {
   color: #FDC116;
+  display: flex;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.5rem;
   font-style: italic;
   justify-content: center;
   margin-bottom: 1rem;
   text-decoration: underline; }
 
-.uniforms h4.paren {
+.uniforms strong.paren {
   text-decoration: none; }
 
-.uniforms h4 span {
+.uniforms strong span {
   text-decoration: underline; }
 
 .uniforms img {
