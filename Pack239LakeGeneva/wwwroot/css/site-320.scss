@@ -350,6 +350,7 @@ address {
 
 
 .calendarCheckbox {
+  font-family: $sctg-font-secondary;
   white-space: nowrap;
 
   [type="checkbox"] {
@@ -380,7 +381,7 @@ address {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.15em;
+    top: 0.1em;
     width: 1.25em;
     height: 1.25em;
     border: 2px solid #ccc;
@@ -392,7 +393,7 @@ address {
   label:after {
     content: '✔';
     position: absolute;
-    top: .2em;
+    top: .15em;
     left: .1em;
     font-size: 1.4em;
     line-height: 0.8;
@@ -451,8 +452,23 @@ address {
     display: none;
   }
 
-  p {
+  strong {
+    color: $sctg-gold;
+    display: block;
+    font-family: $sctg-font-primary;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
     text-decoration: underline;
+  }
+
+  a {
+    color: $sctg-white;
+  }
+
+  a:hover {
+    color: $sctg-gold;
+    text-decoration: none;
   }
 }
 
@@ -610,7 +626,8 @@ address {
 }
 
 .calendarSync {
-  color: $sctg-gold;
+  color: $sctg-white;
+  font-family: $sctg-font-secondary;
 
   .syncBox {
     background: $sctg-blue-pale;
@@ -620,11 +637,12 @@ address {
     content: attr(tooltip);
     float: right;
     font-size: 0.8rem;
-    margin-top: -133px;
+    margin-top: -130px;
     position: absolute;
     transition: opacity 0.25s ease-out;
     top: 2.5rem;
     white-space: nowrap;
+    width: 125px;
     z-index: 100;
 
     a {
