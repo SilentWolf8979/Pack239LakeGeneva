@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -62,7 +63,13 @@ namespace Pack239LakeGeneva
       app.UseStatusCodePagesWithReExecute("/Home/Error");
 
       //app.UseHttpsRedirection();
-      app.UseStaticFiles();
+      var provider = new FileExtensionContentTypeProvider();
+      provider.Mappings[".webmanifest"] = "application/x-web-app-manifest+json";
+
+      app.UseStaticFiles(new StaticFileOptions
+      {
+        ContentTypeProvider = provider
+      });
 
       app.UseAuthentication();
 
