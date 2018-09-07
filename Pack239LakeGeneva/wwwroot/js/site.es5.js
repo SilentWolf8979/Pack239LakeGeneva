@@ -58,8 +58,8 @@ var images = document.querySelectorAll('img');
 
 var options = {
   root: null,
-  rootMargin: '0px',
-  threshold: 0.1
+  rootMargin: '50px',
+  threshold: 0
 };
 
 var fetchImage = function fetchImage(url) {

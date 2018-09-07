@@ -68,7 +68,7 @@ namespace Pack239LakeGeneva
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
       app.UseResponseCompression();
-      app.UseHttpsRedirection();
+      //app.UseHttpsRedirection();
 
       if (env.IsDevelopment())
       {
