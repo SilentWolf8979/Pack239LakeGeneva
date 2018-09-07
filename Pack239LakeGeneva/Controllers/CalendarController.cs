@@ -155,11 +155,19 @@ namespace Pack239LakeGeneva.Controllers
           }
 
           calendarEvent.Sequence = (int)eventItem.Sequence;
-          calendarEvent.Description = eventItem.Description;
           calendarEvent.Location = eventItem.Location;
           calendarEvent.Summary = eventItem.Summary;
           calendarEvent.EventColor = calendar.BackgroundColor;
           calendarEvent.MapUrl = "https://www.google.com/maps/search/?api=1&query=" + HttpUtility.UrlEncode(eventItem.Location);
+
+          if (!String.IsNullOrEmpty(eventItem.Description))
+          {
+            calendarEvent.Description = eventItem.Description.Replace("target=\"_blank\"", "target=\"_blank\" rel=\"noopener\" ");
+          }
+          else
+          {
+            calendarEvent.Description = eventItem.Description;
+          }
 
           if ((!String.IsNullOrEmpty(eventItem.Location)) && (eventItem.Location.IndexOf(",") >= 0))
           {
