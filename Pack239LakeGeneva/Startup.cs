@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -86,6 +87,14 @@ namespace Pack239LakeGeneva
 
       var provider = new FileExtensionContentTypeProvider();
       provider.Mappings[".webmanifest"] = "application/x-web-app-manifest+json";
+
+      using (StreamReader iisUrlRewriteStreamReader = File.OpenText("IISUrlRewrite.xml"))
+      {
+        var options = new RewriteOptions()
+            .AddIISUrlRewrite(iisUrlRewriteStreamReader);
+
+        app.UseRewriter(options);
+      }
 
       app.UseStaticFiles(new StaticFileOptions
       {
