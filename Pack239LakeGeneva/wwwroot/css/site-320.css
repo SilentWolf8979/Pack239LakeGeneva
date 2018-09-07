@@ -622,7 +622,7 @@ address {
     height: 10rem; }
     .carousel .carousel-item img {
       display: block;
-      height: auto;
+      height: 100%;
       margin: auto;
       width: 75%; }
 
