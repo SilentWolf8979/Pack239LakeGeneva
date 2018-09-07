@@ -24,6 +24,16 @@ $(document).ready(function () {
       $(".documents").load('/Components/Resources/Default');
     }
   }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(handleIntersection, options);
+    images.forEach(img => {
+      observer.observe(img);
+    });
+  }
+  else {
+    Array.from(images).forEach(image => loadImage(image));
+  }
 });
 
 function WireCalendarEvents() {
@@ -40,9 +50,6 @@ function WireCalendarEvents() {
 function ShowPackEvents() {
   $(":checkbox").click();
 }
-
-
-
 
 
 
@@ -78,15 +85,3 @@ const handleIntersection = (entries, observer) => {
     }
   });
 };
-
-if ('IntersectionObserver' in window)
-{
-  const observer = new IntersectionObserver(handleIntersection, options);
-  images.forEach(img => {
-    observer.observe(img);
-  });
-}
-else
-{
-  Array.from(images).forEach(image => loadImage(image));
-}
