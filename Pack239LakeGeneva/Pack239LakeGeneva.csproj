@@ -11,12 +11,14 @@
 
   <ItemGroup>
     <None Remove="gulpfile.js" />
+    <None Remove="IISUrlRewrite.xml" />
     <None Remove="robots.txt" />
     <None Remove="sitemap.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="gulpfile.js" />
+    <Content Include="IISUrlRewrite.xml" />
   </ItemGroup>
 
   <ItemGroup>
