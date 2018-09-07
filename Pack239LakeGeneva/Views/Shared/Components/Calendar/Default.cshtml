@@ -59,7 +59,7 @@
           <span class="summary">@calendarEvent.Summary</span>
         }
         <span class="time d-flex">@calendarEvent.Start.ToString("h:mm")@(calendarEvent.End != null ? " - " + @calendarEvent.End.ToString("h:mm") : "")</span>
-        <a href="@calendarEvent.MapUrl" target="_blank">
+        <a href="@calendarEvent.MapUrl" target="_blank" rel="noopener">
           <span class="location short float-left">@calendarEvent.ShortLocation</span>
           <span class="location float-left">@calendarEvent.Location</span>
         </a>
@@ -80,9 +80,9 @@
         <span class="calendarSync">
           @calendar.Summary
           <div class="d-none syncBox">
-            <a href="@calendar.ShareUrl" target="_blank" class="d-flex">Google Calendar</a>
-            <a href="@calendar.ShareUrlIcs" target="_blank" class="d-flex">iCal ICS Format</a>
-            <a href="@calendar.ShareUrlEmbed" target="_blank" class="d-flex">Web View</a>
+            <a href="@calendar.ShareUrl" target="_blank" rel="noopener" class="d-flex">Google Calendar</a>
+            <a href="@calendar.ShareUrlIcs" target="_blank" rel="noopener" class="d-flex">iCal ICS Format</a>
+            <a href="@calendar.ShareUrlEmbed" target="_blank" rel="noopener" class="d-flex">Web View</a>
           </div>
         </span>
       </div>

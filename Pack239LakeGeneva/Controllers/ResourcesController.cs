@@ -28,12 +28,14 @@ namespace Pack239LakeGeneva.Controllers
 
     public IActionResult Index()
     {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
       return View();
     }
 
     public IActionResult Leaders()
     {
-      ViewData["Message"] = "Your application description page.";
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
 
       var leaderList = GetLeaders();
 
@@ -42,13 +44,14 @@ namespace Pack239LakeGeneva.Controllers
 
     public IActionResult Uniforms()
     {
-      ViewData["Message"] = "Have questions?  Contact us using the links below.";
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
 
       return View();
     }
 
     public IActionResult Documents(string documentId)
     {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
       ViewData["documentId"] = documentId;
 
       return View();
@@ -56,6 +59,8 @@ namespace Pack239LakeGeneva.Controllers
 
     public IActionResult Error()
     {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
       return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 

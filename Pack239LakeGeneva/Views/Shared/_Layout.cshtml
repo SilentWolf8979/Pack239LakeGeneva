@@ -1,13 +1,37 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cub Scout Pack 239 - Lake Geneva, WI - @ViewData["Title"]</title>
   <meta name="description" content="@ViewData["Description"]" />
   <meta name="keywords" content="@ViewData["Keywords"]" />
+  <link rel="canonical" href="@ViewData["CurrentUrl"]" />
+
+  <meta property="og:description" content="@ViewData["Description"]" />
+  <meta property="og:image" content="https://www.pack239lakegeneva.org/images/BSA/Logos/CubScout_SMI_Stacked_800x410.png" />
+  <meta property="og:site_name" content="Cub Scout Pack 239 - Lake Geneva, WI" />
+  <meta property="og:title" content="Cub Scout Pack 239 - Lake Geneva, WI - @ViewData["Title"]" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="@ViewData["CurrentUrl"]" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:description" content="@ViewData["Description"]" />
+  <meta name="twitter:image" content="https://www.pack239lakegeneva.org/images/BSA/Logos/CubScout_SMI_Stacked_800x410.png" />
+  <meta name="twitter:site" content="Cub Scout Pack 239 - Lake Geneva, WI" />
+  <meta name="twitter:title" content="Cub Scout Pack 239 - Lake Geneva, WI - @ViewData["Title"]" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#003F87">
+  <meta name="theme-color" content="#003F87">
 
   <environment include="Development">
+    <!--link rel="preload" as="style" href="~/lib/css/bootstrap/bootstrap.css" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="~/css/site-320.css" onload="this.rel='stylesheet'"-->
     <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site-320.css" />
     <link rel="stylesheet" href="~/css/site-576.css" media="screen and (min-width: 576px)" />
@@ -50,14 +74,6 @@
       gtag('config', 'UA-125089495-1');
     </script>
   </environment>
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#003F87">
-  <meta name="theme-color" content="#003F87">
 </head>
 <body class="d-flex flex-column">
   @await Html.PartialAsync("Components/Header/Default")

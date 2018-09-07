@@ -12,21 +12,29 @@ namespace Pack239LakeGeneva.Controllers
   {
     public IActionResult Index()
     {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
       return View();
     }
 
     public IActionResult About()
     {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
       return View();
     }
 
     public IActionResult Contact()
     {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
       return View();
     }
 
     public IActionResult Error()
     {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
       ErrorViewModel model = new ErrorViewModel();
 
       model.RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;

@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO;
+using System.IO.Compression;
+using System.Linq;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -40,14 +44,31 @@ namespace Pack239LakeGeneva
         options.HttpsPort = 443;
       });
 
+      services.AddResponseCompression(options =>
+      {
+        options.EnableForHttps = true;
+        options.Providers.Add<GzipCompressionProvider>();
+        //options.MimeTypes =
+        //    ResponseCompressionDefaults.MimeTypes.Concat(
+        //        new[] { "text/html" });
+      });
+
+      services.Configure<GzipCompressionProviderOptions>(options =>
+      {
+        options.Level = CompressionLevel.Fastest;
+      });
+
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
       services.AddApplicationInsightsTelemetry(Configuration);
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
+      app.UseResponseCompression();
+
       if (env.IsDevelopment())
       {
         app.UseBrowserLink();
