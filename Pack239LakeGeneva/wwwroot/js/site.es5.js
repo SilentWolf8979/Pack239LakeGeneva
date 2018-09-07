@@ -26,12 +26,18 @@ $(document).ready(function () {
     }
   }
 
-  //$("#imageCarousel").swiperight(function () {
-  //  $(this).carousel('prev');
-  //});
-  //$("#imageCarousel").swipeleft(function () {
-  //  $(this).carousel('next');
-  //});
+  if ('IntersectionObserver' in window) {
+    (function () {
+      var observer = new IntersectionObserver(handleIntersection, options);
+      images.forEach(function (img) {
+        observer.observe(img);
+      });
+    })();
+  } else {
+    Array.from(images).forEach(function (image) {
+      return loadImage(image);
+    });
+  }
 });
 
 function WireCalendarEvents() {
@@ -47,4 +53,36 @@ function WireCalendarEvents() {
 function ShowPackEvents() {
   $(":checkbox").click();
 }
+
+var images = document.querySelectorAll('img');
+
+var options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
+var fetchImage = function fetchImage(url) {
+  return new Promise(function (resolve, reject) {
+    var image = new Image();
+    image.src = url;
+    image.onload = resolve;
+    image.onerror = reject;
+  });
+};
+
+var loadImage = function loadImage(image) {
+  var src = image.dataset.src;
+  fetchImage(src).then(function () {
+    image.src = src;
+  });
+};
+
+var handleIntersection = function handleIntersection(entries, observer) {
+  entries.forEach(function (entry) {
+    if (entry.intersectionRatio > 0) {
+      loadImage(entry.target);
+    }
+  });
+};
 

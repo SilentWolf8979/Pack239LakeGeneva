@@ -68,6 +68,7 @@ namespace Pack239LakeGeneva
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
       app.UseResponseCompression();
+      app.UseHttpsRedirection();
 
       if (env.IsDevelopment())
       {
@@ -83,7 +84,6 @@ namespace Pack239LakeGeneva
       app.UseStatusCodePages();
       app.UseStatusCodePagesWithReExecute("/Home/Error");
 
-      //app.UseHttpsRedirection();
       var provider = new FileExtensionContentTypeProvider();
       provider.Mappings[".webmanifest"] = "application/x-web-app-manifest+json";
 
