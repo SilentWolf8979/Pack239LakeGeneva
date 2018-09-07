@@ -85,16 +85,16 @@ namespace Pack239LakeGeneva
       app.UseStatusCodePages();
       app.UseStatusCodePagesWithReExecute("/Home/Error");
 
-      var provider = new FileExtensionContentTypeProvider();
-      provider.Mappings[".webmanifest"] = "application/x-web-app-manifest+json";
-
-      using (StreamReader iisUrlRewriteStreamReader = File.OpenText("IISUrlRewrite.xml"))
+      if (!env.IsProduction())
       {
         var options = new RewriteOptions()
-            .AddIISUrlRewrite(iisUrlRewriteStreamReader);
+          .AddRewrite(@"^robots.txt", "robots.staging.txt", true);
 
         app.UseRewriter(options);
       }
+
+      var provider = new FileExtensionContentTypeProvider();
+      provider.Mappings[".webmanifest"] = "application/x-web-app-manifest+json";
 
       app.UseStaticFiles(new StaticFileOptions
       {
