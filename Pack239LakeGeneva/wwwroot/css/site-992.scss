@@ -16,3 +16,24 @@
     white-space: nowrap;
   }
 }
+
+.calendarEvent {
+  .eventDescription {
+    .summary {
+      display: flex !important;
+      white-space: nowrap;
+
+      .description {
+        float: left;
+        left: -13.75rem;
+        right: 0;
+        top: 5.75rem;
+        white-space: normal;
+      }
+    }
+  }
+}
+
+.carousel .carousel-item img {
+  width: auto;
+}

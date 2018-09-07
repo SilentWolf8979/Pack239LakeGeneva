@@ -12,3 +12,16 @@
   transform: translateX(-50%);
   white-space: nowrap; }
 
+.calendarEvent .eventDescription .summary {
+  display: flex !important;
+  white-space: nowrap; }
+  .calendarEvent .eventDescription .summary .description {
+    float: left;
+    left: -13.75rem;
+    right: 0;
+    top: 5.75rem;
+    white-space: normal; }
+
+.carousel .carousel-item img {
+  width: auto; }
+
