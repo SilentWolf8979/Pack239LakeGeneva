@@ -32,22 +32,22 @@
   <environment include="Development">
     <!--link rel="preload" as="style" href="~/lib/css/bootstrap/bootstrap.css" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="~/css/site-320.css" onload="this.rel='stylesheet'"-->
-    <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site-320.css" />
-    <link rel="stylesheet" href="~/css/site-576.css" media="screen and (min-width: 576px)" />
-    <link rel="stylesheet" href="~/css/site-768.css" media="screen and (min-width: 768px)" />
-    <link rel="stylesheet" href="~/css/site-992.css" media="screen and (min-width: 992px)" />
+    <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-320.css"  asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-576.css"  asp-append-version="true" media="screen and (min-width: 576px)" />
+    <link rel="stylesheet" href="~/css/site-768.css"  asp-append-version="true" media="screen and (min-width: 768px)" />
+    <link rel="stylesheet" href="~/css/site-992.css"  asp-append-version="true" media="screen and (min-width: 992px)" />
 
-    <script defer src="~/js/fontawesome/fontawesome-all.js"></script>
+    <script defer src="~/js/fontawesome/fontawesome-all.js" asp-append-version="true"></script>
   </environment>
   <environment exclude="Development">
-    <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/css/bootstrap/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site-320.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site-576.min.css" asp-append-version="true" media="screen and (min-width: 576px)" />
     <link rel="stylesheet" href="~/css/site-768.min.css" asp-append-version="true" media="screen and (min-width: 768px)" />
     <link rel="stylesheet" href="~/css/site-992.min.css" asp-append-version="true" media="screen and (min-width: 992px)" />
 
-    <script defer src="~/lib/js/fontawesome/fontawesome-all.min.js"></script>
+    <script defer src="~/lib/js/fontawesome/fontawesome-all.min.js" asp-append-version="true"></script>
 
     <!--
     To collect user behavior analytics about your application,
@@ -89,13 +89,13 @@
   <!--div class="partialContents" data-url="Components/Footer"></div-->
 
   <environment include="Development">
-    <script src="~/lib/js/jquery/jquery.js"></script>
-    <script src="~/lib/js/bootstrap/bootstrap.js"></script>
+    <script src="~/lib/js/jquery/jquery.js" asp-append-version="true"></script>
+    <script src="~/lib/js/bootstrap/bootstrap.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
   </environment>
   <environment exclude="Development">
-    <script src="~/lib/js/jquery/jquery.min.js"></script>
-    <script src="~/lib/js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/lib/js/jquery/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/js/bootstrap/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/js/site.es5.min.js" asp-append-version="true"></script>
   </environment>
 
