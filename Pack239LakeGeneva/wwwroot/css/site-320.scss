@@ -253,6 +253,11 @@ footer {
     li {
       margin-bottom: 0.5rem;
     }
+
+    li.empty {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
   }
 
   .hero {

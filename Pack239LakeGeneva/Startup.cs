@@ -3,6 +3,7 @@ using System.IO.Compression;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -49,9 +50,6 @@ namespace Pack239LakeGeneva
       {
         options.EnableForHttps = true;
         options.Providers.Add<GzipCompressionProvider>();
-        //options.MimeTypes =
-        //    ResponseCompressionDefaults.MimeTypes.Concat(
-        //        new[] { "text/html" });
       });
 
       services.Configure<GzipCompressionProviderOptions>(options =>
@@ -96,9 +94,15 @@ namespace Pack239LakeGeneva
       var provider = new FileExtensionContentTypeProvider();
       provider.Mappings[".webmanifest"] = "application/x-web-app-manifest+json";
 
+      var cachePeriod = !env.IsProduction() ? "600" : "604800";
+
       app.UseStaticFiles(new StaticFileOptions
       {
-        ContentTypeProvider = provider
+        ContentTypeProvider = provider,
+        OnPrepareResponse = ctx =>
+        {
+          ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={cachePeriod}");
+        }
       });
 
       app.UseAuthentication();

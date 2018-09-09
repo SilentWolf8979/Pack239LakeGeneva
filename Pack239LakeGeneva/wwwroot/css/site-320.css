@@ -179,6 +179,9 @@ footer {
   margin-bottom: 5rem; }
   .home ul li {
     margin-bottom: 0.5rem; }
+  .home ul li.empty {
+    list-style: none;
+    margin-bottom: 2.5rem; }
 
 .home .hero {
   text-align: center; }
