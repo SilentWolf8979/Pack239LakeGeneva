@@ -77,7 +77,7 @@
     @foreach (var calendar in Model.calendars)
     {
       <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
-        <span class="calendarSync">
+        <span class="calendarSync" onclick="void (0);">
           @calendar.Summary
           <div class="d-none syncBox">
             <a href="@calendar.ShareUrl" target="_blank" rel="noopener" class="d-flex">Google Calendar</a>
