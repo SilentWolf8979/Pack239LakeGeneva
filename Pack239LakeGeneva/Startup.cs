@@ -109,6 +109,19 @@ namespace Pack239LakeGeneva
 
       app.UseMvc(routes =>
       {
+        if (env.IsProduction())
+        {
+          routes.MapRoute(
+          name: "Account",
+          template: "Account/{*url}",
+          defaults: new { controller = "Home", action = "Error" });
+
+          routes.MapRoute(
+          name: "Manage",
+          template: "Manage/{*url}",
+          defaults: new { controller = "Home", action = "Error" });
+        }
+
         routes.MapRoute(
           name: "About",
           template: "About",

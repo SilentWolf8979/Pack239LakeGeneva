@@ -17,7 +17,6 @@ using Pack239LakeGeneva.Services;
 namespace Pack239LakeGeneva.Controllers
 {
   [Authorize]
-    [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

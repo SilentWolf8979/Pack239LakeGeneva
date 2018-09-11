@@ -38,8 +38,17 @@ namespace Pack239LakeGeneva.Controllers
       ErrorViewModel model = new ErrorViewModel();
 
       model.RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-      model.StatusCode = HttpContext.Response.StatusCode;
-      model.StatusMessage = ((HttpStatusCode)HttpContext.Response.StatusCode).ToString();
+
+      if (model.StatusCode == (int)HttpStatusCode.OK)
+      {
+        model.StatusCode = (int)HttpStatusCode.NotFound;
+      }
+      else
+      {
+        model.StatusCode = HttpContext.Response.StatusCode;
+      }
+      
+      model.StatusMessage = (model.StatusCode).ToString();
       model.StatusMessage = Regex.Replace(model.StatusMessage, "(\\B[A-Z])", " $1");
 
       switch (model.StatusCode)
