@@ -14,6 +14,9 @@ gulp.task('copy-bootstrap', function ()
       .pipe(gulp.dest('wwwroot/lib/css/bootstrap'));
 
     gulp.src('node_modules/bootstrap/dist/js/*.js')
+      .pipe(sourcemaps.init())
+      .pipe(uglify())
+      .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('wwwroot/lib/js/bootstrap'));
   }
   catch (e)
