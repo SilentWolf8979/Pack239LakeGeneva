@@ -39,7 +39,7 @@ namespace Pack239LakeGeneva.Controllers
 
       model.RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
 
-      if (model.StatusCode == (int)HttpStatusCode.OK)
+      if (HttpContext.Response.StatusCode == (int)HttpStatusCode.OK)
       {
         model.StatusCode = (int)HttpStatusCode.NotFound;
       }
@@ -48,7 +48,7 @@ namespace Pack239LakeGeneva.Controllers
         model.StatusCode = HttpContext.Response.StatusCode;
       }
       
-      model.StatusMessage = (model.StatusCode).ToString();
+      model.StatusMessage = ((HttpStatusCode)model.StatusCode).ToString();
       model.StatusMessage = Regex.Replace(model.StatusMessage, "(\\B[A-Z])", " $1");
 
       switch (model.StatusCode)
