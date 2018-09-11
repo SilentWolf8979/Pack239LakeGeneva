@@ -47,7 +47,7 @@
       <div class="eventDescription">
         @if (!String.IsNullOrEmpty(calendarEvent.Description))
         {
-          <span class="summary details">
+          <span class="summary details" onclick="void (0);">
             @calendarEvent.Summary
             <div class="d-none description">
               <span>@Html.Raw(calendarEvent.Description)</span>
@@ -64,7 +64,7 @@
           <span class="location float-left">@calendarEvent.Location</span>
         </a>
       </div>
-      <span class="calendar @calendarEvent.EventColor" tooltip="@calendarEvent.Calendar"></span>
+      <span class="calendar @calendarEvent.EventColor" tooltip="@calendarEvent.Calendar" onclick="void (0);"></span>
     </div>
   }
 }

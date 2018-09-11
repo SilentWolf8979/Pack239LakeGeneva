@@ -448,19 +448,15 @@ address {
       padding: .15rem;
       width: 100%; }
 
-.calendarSync:focus,
 .calendarSync:hover {
   color: #FDC116;
   cursor: default;
   text-decoration: underline; }
-  .calendarSync:focus .syncBox,
   .calendarSync:hover .syncBox {
     display: block !important;
     padding: 10px; }
-    .calendarSync:focus .syncBox a,
     .calendarSync:hover .syncBox a {
       color: #FFFFFF; }
-    .calendarSync:focus .syncBox a:hover,
     .calendarSync:hover .syncBox a:hover {
       color: #FDC116; }
 
