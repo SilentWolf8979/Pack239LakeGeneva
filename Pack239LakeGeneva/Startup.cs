@@ -80,8 +80,8 @@ namespace Pack239LakeGeneva
         app.UseExceptionHandler("/Home/Error");
       }
 
-      app.UseStatusCodePages();
-      app.UseStatusCodePagesWithReExecute("/Home/Error");
+      //app.UseStatusCodePages(); // App Insughts shows 404 URL
+      app.UseStatusCodePagesWithReExecute("/Home/Error"); // App Insights shows /Home/Error
 
       if (!env.IsProduction())
       {
@@ -161,8 +161,6 @@ namespace Pack239LakeGeneva
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
       });
-
-      //await Initializer.initialize(roleManager);
     }
   }
 }
