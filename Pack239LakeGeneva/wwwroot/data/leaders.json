@@ -149,16 +149,17 @@
       "members": [
         {
           "position": "Den Leader",
-          "name": "Holly Smith",
-          "phone": "224-436-0616",
-          "email": "hollsly84@gmail.com"
-        },
-        {
-          "position": "Asst. Den Leader",
           "name": "Geordia Prichard",
           "phone": "",
           "email": "prichardfamily@yahoo.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "Holly Smith",
+          "phone": "224-436-0616",
+          "email": "hollsly84@gmail.com"
         }
+        
       ]
     }
   ]
