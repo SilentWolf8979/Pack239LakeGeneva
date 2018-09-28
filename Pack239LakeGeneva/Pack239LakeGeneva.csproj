@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-Pack239LakeGeneva-FD9BF1D0-D568-4684-9C75-B5BDD7116095</UserSecretsId>
   </PropertyGroup>
 
+  <Target Name="MyPreCompileTarget" AfterTargets="Build">
+    <Exec Command="gulp copy-bootstrap" />
+    <Exec Command="gulp copy-jquery" />
+    <Exec Command="gulp copy-fontawesome" />
+    <Exec Command="gulp minify-site" />
+  </Target>
+
   <ItemGroup>
     <Content Remove="client_secret.json" />
   </ItemGroup>
@@ -59,6 +66,10 @@
     <Content Update="Views\Shared\Components\Resources\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
 </Project>

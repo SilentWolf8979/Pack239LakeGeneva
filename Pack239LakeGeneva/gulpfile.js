@@ -1,8 +1,7 @@
-﻿/// <binding AfterBuild='copy-bootstrap, copy-jquery, copy-fontawesome, minify-site' />
+﻿/// <binding />
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('copy-bootstrap', function ()
