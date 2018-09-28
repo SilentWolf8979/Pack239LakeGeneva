@@ -36,7 +36,7 @@
     <Content Update="Views\Calendar\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Join\Index.cshtml">
+    <Content Update="Views\Home\Join.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Resources\Leaders.cshtml">

@@ -123,6 +123,11 @@ namespace Pack239LakeGeneva
         }
 
         routes.MapRoute(
+          name: "Join",
+          template: "Join",
+          defaults: new { controller = "Home", action = "Join" });
+
+        routes.MapRoute(
           name: "About",
           template: "About",
           defaults: new { controller = "Home", action = "About" });

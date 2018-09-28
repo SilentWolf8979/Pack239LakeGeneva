@@ -6,7 +6,7 @@ using Pack239LakeGeneva.Models;
 
 namespace Pack239LakeGeneva.Controllers
 {
-  public class JoinController : Controller
+  public class CeremoniesController : Controller
   {
     public IActionResult Index()
     {

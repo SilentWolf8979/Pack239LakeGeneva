@@ -17,6 +17,13 @@ namespace Pack239LakeGeneva.Controllers
       return View();
     }
 
+    public IActionResult Join()
+    {
+      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
+      return View();
+    }
+
     public IActionResult About()
     {
       ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
