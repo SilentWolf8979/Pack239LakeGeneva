@@ -81,7 +81,6 @@ namespace Pack239LakeGeneva
 
       if (env.IsDevelopment())
       {
-        app.UseBrowserLink();
         app.UseDeveloperExceptionPage();
         app.UseDatabaseErrorPage();
       }
@@ -131,6 +130,11 @@ namespace Pack239LakeGeneva
           template: "Manage/{*url}",
           defaults: new { controller = "Home", action = "Error" });
         }
+
+        routes.MapRoute(
+          name: "Join",
+          template: "Join",
+          defaults: new { controller = "Home", action = "Join" });
 
         routes.MapRoute(
           name: "About",
