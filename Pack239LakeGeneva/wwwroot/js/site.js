@@ -13,7 +13,7 @@ $('.dropdown').on('hide.bs.dropdown', function (e) {
 
 $(document).ready(function () {
   if ($(".calendarEvents").length > 0) {
-    $(".calendarEvents").load('/Components/Calendar/Default');
+    $(".calendarEvents").load('/Components/Calendar/Calendars');
   }
 
   if ($(".documents").length > 0) {

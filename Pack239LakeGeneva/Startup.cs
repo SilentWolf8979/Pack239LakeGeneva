@@ -67,6 +67,8 @@ namespace Pack239LakeGeneva
         options.Level = CompressionLevel.Fastest;
       });
 
+      services.AddMemoryCache();
+
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
       services.AddApplicationInsightsTelemetry(Configuration);
@@ -147,8 +149,13 @@ namespace Pack239LakeGeneva
           defaults: new { controller = "Home", action = "Contact" });
 
         routes.MapRoute(
+          name: "Calendars",
+          template: "Components/Calendar/Calendars",
+          defaults: new { controller = "Calendar", action = "GetCalendars" });
+
+        routes.MapRoute(
           name: "Events",
-          template: "Components/Calendar/Default",
+          template: "Components/Calendar/Events",
           defaults: new { controller = "Calendar", action = "GetEvents" });
 
         routes.MapRoute(

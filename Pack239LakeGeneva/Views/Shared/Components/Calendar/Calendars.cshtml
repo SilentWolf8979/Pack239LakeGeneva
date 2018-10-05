@@ -1,0 +1,72 @@
+﻿@model CalendarViewModel
+
+<div class="header">
+  <h4>Upcoming Pack Events</h4>
+
+  <hr />
+</div>
+
+<div class="filters">
+  <hr />
+
+  <strong class="text-center">Filter Calendars</strong>
+
+  <div class="row">
+    @foreach (var calendar in Model.calendars)
+    {
+      if (!calendar.Summary.Equals("Pack", StringComparison.OrdinalIgnoreCase))
+      {
+        <span class="calendarCheckbox col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
+          <input id="@calendar.Summary.Replace(" ", "")" name="@calendar.Summary.Replace(" ", "")" value="@calendar.Summary" type="checkbox" checked="checked" aria-label="Checkbox for @calendar.Summary">
+          <label for="@calendar.Summary.Replace(" ", "")" class="@calendar.Summary.Replace(" ", "")">@calendar.Summary</label>
+        </span>
+      }
+    }
+  </div>
+
+  <hr />
+</div>
+
+<div class="events">
+  <div class="loading ml-auto mr-auto">
+    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+    <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+    <animateTransform attributeType="xml"
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 25 25"
+                      to="360 25 25"
+                      dur="0.75s"
+                      repeatCount="indefinite" />
+
+      </path>
+    </svg>
+    <span>Loading Events</span>
+  </div>
+</div>
+  
+<div class="sync">
+  <hr />
+
+  <strong class="text-center">Sync Calendars</strong>
+  <div class="row">
+    @foreach (var calendar in Model.calendars)
+    {
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl">
+        <span class="calendarSync" onclick="void (0);">
+          @calendar.Summary
+          <div class="d-none syncBox">
+            <a href="@calendar.ShareUrl" target="_blank" rel="noopener" class="d-flex">Google Calendar</a>
+            <a href="@calendar.ShareUrlIcs" target="_blank" rel="noopener" class="d-flex">iCal ICS Format</a>
+            <a href="@calendar.ShareUrlEmbed" target="_blank" rel="noopener" class="d-flex">Web View</a>
+          </div>
+        </span>
+      </div>
+    }
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(".calendarEvents .events").load('/Components/Calendar/Events');
+</script>

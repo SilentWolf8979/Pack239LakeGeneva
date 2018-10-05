@@ -11,13 +11,14 @@ using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using Pack239LakeGeneva.Models;
-
+using static Google.Apis.Calendar.v3.EventsResource;
 using static Google.Apis.Calendar.v3.EventsResource.ListRequest;
 
 namespace Pack239LakeGeneva.Controllers
@@ -25,10 +26,12 @@ namespace Pack239LakeGeneva.Controllers
   public class CalendarController : Controller
   {
     private IConfiguration _configuration;
+    private IMemoryCache _cache;
 
-    public CalendarController(IConfiguration Configuration)
+    public CalendarController(IConfiguration configuration, IMemoryCache cache)
     {
-      _configuration = Configuration;
+      _configuration = configuration;
+      _cache = cache;
     }
 
     public IActionResult Index()
@@ -47,39 +50,15 @@ namespace Pack239LakeGeneva.Controllers
 
 
 
-    public async Task<IActionResult> GetEvents()
+    public async Task<IActionResult> GetCalendars()
     {
       var calendarViewModel = new CalendarViewModel();
       var calendarList = new List<Models.Calendar>();
-      var calendarEvents = new List<CalendarEvent>();
 
-      var json = System.IO.File.ReadAllText("client_secrets.json");
-      JObject cr = (JObject)JsonConvert.DeserializeObject(json);
- 
-      var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(cr.GetValue("client_email").ToString())
-      {
-        Scopes = new[] {
-            CalendarService.Scope.Calendar
-        }
-      }.FromPrivateKey(cr.GetValue("private_key").ToString()));
-
-      var service = new CalendarService(new BaseClientService.Initializer()
-      {
-        HttpClientInitializer = credential
-      });
-
-      var calendars = await service.CalendarList.List().ExecuteAsync();
+      var calendars = await GetCalendarList();
 
       foreach (var calendar in calendars.Items)
       {
-        var cal = service.Events.List(calendar.Id);
-
-        cal.MaxResults = 3;
-        cal.OrderBy = OrderByEnum.StartTime;
-        cal.ShowDeleted = false;
-        cal.SingleEvents = true;
-        cal.TimeMin = DateTime.Today;
-
         Models.Calendar currentCal = new Models.Calendar();
 
         currentCal.Id = calendar.Id;
@@ -125,8 +104,6 @@ namespace Pack239LakeGeneva.Controllers
         {
           currentCal.Sequence = 99;
           currentCal.Summary = "Pack";
-
-          cal.MaxResults = 5;
         }
         else
         {
@@ -135,14 +112,38 @@ namespace Pack239LakeGeneva.Controllers
         }
 
         calendarList.Add(currentCal);
+      }
 
-       
-        
-        Events events = await cal.ExecuteAsync();
+      calendarList = calendarList.OrderBy(x => x.Sequence).ToList();
+
+      calendarViewModel.calendars = calendarList;
+
+      return PartialView("Components/Calendar/Calendars", calendarViewModel);
+    }
+
+    public async Task<IActionResult> GetEvents()
+    {
+      var calendarViewModel = new CalendarViewModel();
+      var calendarList = new List<Models.Calendar>();
+      var calendarEvents = new List<CalendarEvent>();
+
+      var calendars = await GetCalendarList();
+
+      foreach (var calendar in calendars.Items)
+      {
+        Models.Calendar currentCal = new Models.Calendar();
+
+        Events events = await GetCalendarEvents(calendar.Id);
 
         foreach (var eventItem in events.Items)
         {
           CalendarEvent calendarEvent = new CalendarEvent();
+
+          if (!String.IsNullOrEmpty(eventItem.Start.Date))
+          {
+            calendarEvent.Start = DateTime.Parse(eventItem.Start.Date);
+            calendarEvent.End = calendarEvent.Start;
+          }
 
           if (!String.IsNullOrEmpty(eventItem.Start.DateTime.ToString()))
           {
@@ -202,13 +203,106 @@ namespace Pack239LakeGeneva.Controllers
         }
       }
 
-      calendarList = calendarList.OrderBy(x => x.Sequence).ToList();
       calendarEvents = calendarEvents.OrderBy(s => s.Start).ThenBy(c => c.CalendarSort).ToList();
 
-      calendarViewModel.calendars = calendarList;
       calendarViewModel.calendarEvents = calendarEvents;
 
-      return PartialView("Components/Calendar/Default", calendarViewModel);
+      return PartialView("Components/Calendar/Events", calendarViewModel);
+    }
+
+    private CalendarService GetCalendarService()
+    {
+      CalendarService service;
+
+      // Look for cache key.
+      if (!_cache.TryGetValue(CacheKeys.GoogleService, out service))
+      {
+        // Key not in cache, so get data.
+        var json = System.IO.File.ReadAllText("client_secrets.json");
+        JObject cr = (JObject)JsonConvert.DeserializeObject(json);
+
+        var credential = new ServiceAccountCredential(new ServiceAccountCredential.Initializer(cr.GetValue("client_email").ToString())
+        {
+          Scopes = new[] {
+            CalendarService.Scope.Calendar
+          }
+        }.FromPrivateKey(cr.GetValue("private_key").ToString()));
+
+        service = new CalendarService(new BaseClientService.Initializer()
+        {
+          HttpClientInitializer = credential
+        });
+
+        // Set cache options.
+        var cacheEntryOptions = new MemoryCacheEntryOptions()
+            // Keep in cache for this time, reset time if accessed.
+            .SetSlidingExpiration(TimeSpan.FromDays(1));
+
+        // Save data in cache.
+        _cache.Set(CacheKeys.GoogleService, service, cacheEntryOptions);
+      }
+
+      return service;
+    }
+
+    private async Task<CalendarList> GetCalendarList()
+    {
+      CalendarList calendars;
+
+      // Look for cache key.
+      if (!_cache.TryGetValue(CacheKeys.Calendars, out calendars))
+      {
+        // Key not in cache, so get data.
+        calendars = await GetCalendarService().CalendarList.List().ExecuteAsync();
+
+        // Set cache options.
+        var cacheEntryOptions = new MemoryCacheEntryOptions()
+            // Keep in cache for this time, reset time if accessed.
+            .SetSlidingExpiration(TimeSpan.FromDays(1));
+
+        // Save data in cache.
+        _cache.Set(CacheKeys.Calendars, calendars, cacheEntryOptions);
+      }
+
+      return calendars;
+    }
+
+    private async Task<Events> GetCalendarEvents(string calendarId)
+    {
+      Events events;
+
+      // Look for cache key.
+      if (!_cache.TryGetValue($"{CacheKeys.Events}_{calendarId}", out events))
+      {
+        // Key not in cache, so get data.
+        var cal = GetCalendarService().Events.List(calendarId);
+
+        //if (calendarId.Equals("pack239lakegeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
+        //{
+        //  cal.MaxResults = 5;
+        //}
+        //else
+        //{
+        //  cal.MaxResults = 3;
+        //}
+
+        cal.OrderBy = OrderByEnum.StartTime;
+        cal.ShowDeleted = false;
+        cal.SingleEvents = true;
+        cal.TimeMin = DateTime.Today;
+
+        events = await cal.ExecuteAsync();
+
+        // Set cache options.
+        var cacheEntryOptions = new MemoryCacheEntryOptions()
+            // Keep in cache for this time, reset time if accessed.
+            .SetSlidingExpiration(TimeSpan.FromHours(1));
+
+        // Save data in cache.
+        _cache.Set($"{CacheKeys.Events}_{calendarId}", events, cacheEntryOptions);
+      }
+
+      return events;
     }
   }
 }
