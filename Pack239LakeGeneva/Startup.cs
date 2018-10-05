@@ -22,17 +22,27 @@ namespace Pack239LakeGeneva
   public class Startup
   {
     private IConfiguration Configuration { get; }
+    private IHostingEnvironment _env { get; }
 
-    public Startup(IConfiguration configuration)
+    public Startup(IConfiguration configuration, IHostingEnvironment environment)
     {
       Configuration = configuration;
+      _env = environment;
     }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<ApplicationDbContext>(options =>
-          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+      if (_env.IsDevelopment())//(_env.IsStaging() || _env.IsProduction())
+      {
+        services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
+      }
+      else
+      {
+        services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+      }
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
           .AddEntityFrameworkStores<ApplicationDbContext>()

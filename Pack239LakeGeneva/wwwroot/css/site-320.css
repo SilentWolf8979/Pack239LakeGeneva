@@ -83,8 +83,6 @@ a:hover {
   flex-direction: column;
   margin-top: 25px;
   z-index: 100; }
-  .navbar .login {
-    display: none; }
   .navbar .navbar-header {
     width: 100%; }
   .navbar .navbar-toggler {
