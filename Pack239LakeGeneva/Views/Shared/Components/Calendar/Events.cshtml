@@ -4,6 +4,11 @@
 {
   foreach (var calendarEvent in Model.calendarEvents)
   {
+    if (calendarEvent.Start > DateTime.Now.AddMonths(1))
+    {
+      break;
+    }
+
     <div class="calendarEvent d-flex @calendarEvent.Calendar.Replace(" ", "")">
       <div class="eventDate text-center float-left align-content-center">
         <span class="month w-100 float-left">@calendarEvent.Start.ToString("MMM")</span>
