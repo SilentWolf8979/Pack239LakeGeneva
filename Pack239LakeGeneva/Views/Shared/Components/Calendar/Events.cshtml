@@ -1,0 +1,48 @@
+﻿@model CalendarViewModel
+
+@if ((Model != null) && (Model.calendarEvents != null))
+{
+  foreach (var calendarEvent in Model.calendarEvents)
+  {
+    if (calendarEvent.Start > DateTime.Now.AddMonths(1))
+    {
+      break;
+    }
+
+    <div class="calendarEvent d-flex @calendarEvent.Calendar.Replace(" ", "")">
+      <div class="eventDate text-center float-left align-content-center">
+        <span class="month w-100 float-left">@calendarEvent.Start.ToString("MMM")</span>
+        <span class="day">@calendarEvent.Start.ToString("dd")</span>
+      </div>
+      <div class="eventDescription">
+        @if (!String.IsNullOrEmpty(calendarEvent.Description))
+        {
+          <span class="summary details" onclick="void (0);">
+            @calendarEvent.Summary
+            <div class="d-none description">
+              <span>@Html.Raw(calendarEvent.Description)</span>
+            </div>
+          </span>
+        }
+        else
+        {
+          <span class="summary">@calendarEvent.Summary</span>
+        }
+        <span class="time d-flex">@calendarEvent.Start.ToString("h:mm")@(calendarEvent.End != null ? " - " + @calendarEvent.End.ToString("h:mm") : "")</span>
+        <a href="@calendarEvent.MapUrl" target="_blank" rel="noopener">
+          <span class="location short float-left">@calendarEvent.ShortLocation</span>
+          <span class="location float-left">@calendarEvent.Location</span>
+        </a>
+      </div>
+      <span class="calendar @calendarEvent.EventColor" tooltip="@calendarEvent.Calendar" onclick="void (0);"></span>
+    </div>
+  }
+}
+
+<script type="text/javascript">
+  WireCalendarEvents();
+
+  if ($(".filters").css("display") === "none") {
+    ShowPackEvents();
+  }
+</script>
