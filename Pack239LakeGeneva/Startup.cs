@@ -51,6 +51,13 @@ namespace Pack239LakeGeneva
       // Add application services.
       services.AddTransient<IEmailSender, EmailSender>();
 
+      services.AddHsts(options =>
+      {
+        options.Preload = true;
+        options.IncludeSubDomains = true;
+        options.MaxAge = TimeSpan.FromDays(1);
+      });
+
       services.AddHttpsRedirection(options =>
       {
         options.HttpsPort = 443;
