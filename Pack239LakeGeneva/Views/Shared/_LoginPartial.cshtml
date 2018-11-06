@@ -12,7 +12,14 @@
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="login ml-auto">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+          @if (User.IsInRole("Pending"))
+          {
+            <a href="https://www.google.com" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+          }
+          else
+          {
+            <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+          }
         </li>
         <li>
           <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>

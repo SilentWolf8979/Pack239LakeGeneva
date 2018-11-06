@@ -64,6 +64,10 @@ namespace Pack239LakeGeneva.Controllers
           model.ErrorHeadline = "A Scout is Trustworthy";
           model.ErrorText = "This page requires you to <a href='/Account/Login'>login</a>. Please be sure you have an account and have entered the correct user ID and password.";
           break;
+        case 403:
+          model.ErrorHeadline = "A Scout is Trustworthy";
+          model.ErrorText = "You do not have access to this page. Please be sure you have entered the correct user ID and password, and <a href='/Contact'>let us know</a> if you think you should have access.";
+          break;
         case 404:
           model.ErrorHeadline = "A Scout is Helpful";
           model.ErrorText = "But despite our best efforts, we couldn't find what you were looking for!";

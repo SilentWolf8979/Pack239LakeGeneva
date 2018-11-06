@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO.Compression;
 using System.Linq;
-
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,7 +34,7 @@ namespace Pack239LakeGeneva
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      if (_env.IsDevelopment())//(_env.IsStaging() || _env.IsProduction())
+      if (!_env.IsDevelopment())//(_env.IsStaging() || _env.IsProduction())
       {
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
@@ -42,12 +42,27 @@ namespace Pack239LakeGeneva
       else
       {
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("LocalConnection")));
       }
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
           .AddEntityFrameworkStores<ApplicationDbContext>()
           .AddDefaultTokenProviders();
+
+      services.ConfigureApplicationCookie(options =>
+      {
+        options.Events.OnRedirectToLogin = context =>
+        {
+          context.Response.StatusCode = 401;
+          return Task.CompletedTask;
+        };
+
+        options.Events.OnRedirectToAccessDenied = context =>
+        {
+          context.Response.StatusCode = 403;
+          return Task.CompletedTask;
+        };
+      });
 
       // Add application services.
       services.AddTransient<IEmailSender, EmailSender>();

@@ -16,7 +16,7 @@ using Pack239LakeGeneva.Services;
 
 namespace Pack239LakeGeneva.Controllers
 {
-  [Authorize]
+  [Authorize(Roles = "Admin,User")]
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
