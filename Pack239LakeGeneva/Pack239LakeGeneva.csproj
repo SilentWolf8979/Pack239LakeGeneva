@@ -20,14 +20,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Apis.Calendar.v3" Version="1.36.1.1424" />
-    <PackageReference Include="Google.Apis.Drive.v3" Version="1.36.1.1421" />
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" AllowExplicitVersion="true" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0" PrivateAssets="all">
+    <PackageReference Include="Google.Apis.Calendar.v3" Version="1.38.0.1482" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.38.0.1477" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.1" AllowExplicitVersion="true" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.1" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.1" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
