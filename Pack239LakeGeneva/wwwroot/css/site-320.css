@@ -109,6 +109,7 @@ a:hover {
     padding-top: 10px; }
   .navbar .btn-link {
     color: #FFFFFF;
+    margin-top: -3px;
     padding: 0; }
 
 .dropdown-menu {
@@ -629,4 +630,3 @@ address {
 
 .carousel.banner .carousel-item {
   height: unset; }
-
