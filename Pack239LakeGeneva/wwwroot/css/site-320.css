@@ -630,3 +630,12 @@ address {
 
 .carousel.banner .carousel-item {
   height: unset; }
+
+.manage label {
+  color: #FDC116;
+  text-decoration: underline; }
+
+.manage input:disabled {
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF; }

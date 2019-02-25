@@ -945,3 +945,16 @@ address {
     height: unset;
   }
 }
+
+.manage {
+  label {
+    color: $sctg-gold;
+    text-decoration: underline;
+  }
+
+  input:disabled {
+    background-color: transparent;
+    border: none;
+    color: $sctg-white;
+  }
+}
