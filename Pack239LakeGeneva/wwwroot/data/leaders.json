@@ -81,6 +81,23 @@
       "members": [
         {
           "position": "Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Wolves",
+      "members": [
+        {
+          "position": "Den Leader",
           "name": "Lynn Koepke",
           "phone": "847-284-0770",
           "email": "koepke.lynn@gmail.com"
@@ -94,7 +111,7 @@
       ]
     },
     {
-      "title": "Wolves",
+      "title": "Bears",
       "members": [
         {
           "position": "Den Leader",
@@ -111,7 +128,7 @@
       ]
     },
     {
-      "title": "Bears",
+      "title": "Webelos",
       "members": [
         {
           "position": "Den Leader",
@@ -128,7 +145,7 @@
       ]
     },
     {
-      "title": "Webelos",
+      "title": "Arrow of Light",
       "members": [
         {
           "position": "Den Leader",
@@ -142,24 +159,6 @@
           "phone": "847-269-1081",
           "email": "vickyfinchmartin@yahoo.com"
         }
-      ]
-    },
-    {
-      "title": "Arrow of Light",
-      "members": [
-        {
-          "position": "Den Leader",
-          "name": "Geordia Prichard",
-          "phone": "",
-          "email": "prichardfamily@yahoo.com"
-        },
-        {
-          "position": "Asst. Den Leader",
-          "name": "Holly Smith",
-          "phone": "224-436-0616",
-          "email": "hollsly84@gmail.com"
-        }
-        
       ]
     }
   ]
