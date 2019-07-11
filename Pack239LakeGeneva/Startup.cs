@@ -112,7 +112,7 @@ namespace Pack239LakeGeneva
       else
       {
         app.UseExceptionHandler("/Home/Error");
-        //app.UseHsts();
+        app.UseHsts();
       }
 
       //app.UseStatusCodePages(); // App Insughts shows 404 URL
