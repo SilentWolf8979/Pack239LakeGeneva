@@ -71,7 +71,7 @@ namespace Pack239LakeGeneva
       {
         options.Preload = true;
         options.IncludeSubDomains = true;
-        options.MaxAge = TimeSpan.FromDays(180);
+        options.MaxAge = TimeSpan.FromDays(1);
       });
 
       services.AddHttpsRedirection(options =>
@@ -112,7 +112,6 @@ namespace Pack239LakeGeneva
       else
       {
         app.UseExceptionHandler("/Home/Error");
-        app.UseHsts();
       }
 
       //app.UseStatusCodePages(); // App Insughts shows 404 URL
@@ -138,18 +137,6 @@ namespace Pack239LakeGeneva
         {
           ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={cachePeriod}");
         }
-      });
-
-      app.Use(async (context, next) =>
-      {
-        context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'");
-        context.Response.Headers.Add("Feature-Policy", "geolocation '*'; vibrate '*'");
-        context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
-        context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-        context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
-        context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
-
-        await next();
       });
 
       app.UseAuthentication();
