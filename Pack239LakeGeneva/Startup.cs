@@ -205,6 +205,18 @@ namespace Pack239LakeGeneva
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
       });
+
+      app.Use(async (context, next) =>
+      {
+        context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'");
+        context.Response.Headers.Add("Feature-Policy", "geolocation '*'; vibrate '*'");
+        context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+        context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+        context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+        context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+
+        await next();
+      });
     }
   }
 }
