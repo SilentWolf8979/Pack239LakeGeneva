@@ -130,6 +130,18 @@ namespace Pack239LakeGeneva
 
       var cachePeriod = !env.IsProduction() ? "600" : "604800";
 
+      app.Use(async (context, next) =>
+      {
+        context.Response.Headers.Add("Content-Security-Policy", "connect-src 'self' https://dc.services.visualstudio.com; default-src 'self'; font-src https://fonts.gstatic.com/; img-src 'self' data: https://www.google-analytics.com https://stats.g.doubleclick.net; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.msecnd.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com");
+        context.Response.Headers.Add("Feature-Policy", "geolocation *");
+        context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+        context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+        context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+        context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+
+        await next();
+      });
+
       app.UseStaticFiles(new StaticFileOptions
       {
         ContentTypeProvider = provider,
@@ -204,18 +216,6 @@ namespace Pack239LakeGeneva
         routes.MapRoute(
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
-      });
-
-      app.Use(async (context, next) =>
-      {
-        context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'");
-        context.Response.Headers.Add("Feature-Policy", "geolocation '*'; vibrate '*'");
-        context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
-        context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-        context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
-        context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
-
-        await next();
       });
     }
   }
