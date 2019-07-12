@@ -71,7 +71,7 @@ namespace Pack239LakeGeneva
       {
         options.Preload = true;
         options.IncludeSubDomains = true;
-        options.MaxAge = TimeSpan.FromDays(30);
+        options.MaxAge = TimeSpan.FromDays(1);
       });
 
       services.AddHttpsRedirection(options =>
