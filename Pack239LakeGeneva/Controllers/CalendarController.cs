@@ -107,7 +107,7 @@ namespace Pack239LakeGeneva.Controllers
         }
         else if (calendar.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
         {
-          currentCal.Sequence = 99;
+          currentCal.Sequence = 97;
           currentCal.Summary = "Pack";
         }
         else if (calendar.Summary.Equals("Indian Trails District", StringComparison.OrdinalIgnoreCase))
@@ -117,7 +117,7 @@ namespace Pack239LakeGeneva.Controllers
         }
         else if (calendar.Summary.Equals("Glacier's Edge Council", StringComparison.OrdinalIgnoreCase))
         {
-          currentCal.Sequence = 97;
+          currentCal.Sequence = 99;
           currentCal.Summary = "Council";
         }
         else
@@ -197,7 +197,7 @@ namespace Pack239LakeGeneva.Controllers
           if (calendar.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
           {
             calendarEvent.Calendar = "Pack";
-            calendarEvent.CalendarSort = 99;
+            calendarEvent.CalendarSort = 97;
           }
           else if (calendar.Summary.Equals("Indian Trails District", StringComparison.OrdinalIgnoreCase))
           {
@@ -207,7 +207,7 @@ namespace Pack239LakeGeneva.Controllers
           else if (calendar.Summary.Equals("Glacier's Edge Council", StringComparison.OrdinalIgnoreCase))
           {
             calendarEvent.Calendar = "Council";
-            calendarEvent.CalendarSort = 97;
+            calendarEvent.CalendarSort = 99;
           }
           else
           {
