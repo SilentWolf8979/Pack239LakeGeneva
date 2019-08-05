@@ -42,7 +42,12 @@
 <script type="text/javascript">
   WireCalendarEvents();
 
-  if ($(".filters").css("display") === "none") {
+  if ($(".filters").css("display") === "none")
+  {
     ShowPackEvents();
+  }
+  else
+  {
+    HideCouncilDistrictEvents();
   }
 </script>

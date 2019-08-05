@@ -422,6 +422,14 @@ address {
     background: $sctg-blue;
   }
 
+  .Council:before {
+    background: $sctg-council;
+  }
+
+  .District:before {
+    background: $sctg-district;
+  }
+
   .Lions:before {
     background: $sctg-gold;
   }
@@ -453,6 +461,15 @@ address {
 .calendarEvents {
   .header {
     display: none;
+  }
+
+  .sync {
+    .col-xl {
+      height: 2.5em;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+    }
   }
 
   strong {
@@ -579,6 +596,14 @@ address {
 
   .calendar.Committee {
     background: $sctg-white;
+  }
+
+  .calendar.Council {
+    background: $sctg-council;
+  }
+
+  .calendar.District {
+    background: $sctg-district;
   }
 
   .calendar.Lions {

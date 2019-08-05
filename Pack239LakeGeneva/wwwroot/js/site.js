@@ -51,6 +51,12 @@ function ShowPackEvents() {
   $(":checkbox").click();
 }
 
+function HideCouncilDistrictEvents()
+{
+  $(":checkbox#Council").click();
+  $(":checkbox#District").click();
+}
+
 
 
 const images = document.querySelectorAll('img');

@@ -294,6 +294,10 @@ address {
     background: #243E2C; }
   .calendarCheckbox .Bears:before {
     background: #003F87; }
+  .calendarCheckbox .Council:before {
+    background: #B39DDB; }
+  .calendarCheckbox .District:before {
+    background: #9E69AF; }
   .calendarCheckbox .Lions:before {
     background: #FDC116; }
   .calendarCheckbox .Pack:before {
@@ -309,6 +313,12 @@ address {
 
 .calendarEvents .header {
   display: none; }
+
+.calendarEvents .sync .col-xl {
+  height: 2.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center; }
 
 .calendarEvents strong {
   color: #FDC116;
@@ -393,6 +403,10 @@ address {
     background: #003F87; }
   .calendarEvent .calendar.Committee {
     background: #FFFFFF; }
+  .calendarEvent .calendar.Council {
+    background: #B39DDB; }
+  .calendarEvent .calendar.District {
+    background: #9E69AF; }
   .calendarEvent .calendar.Lions {
     background: #FDC116; }
   .calendarEvent .calendar.Pack {
