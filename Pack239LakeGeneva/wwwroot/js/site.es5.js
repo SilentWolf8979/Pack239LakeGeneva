@@ -15,11 +15,21 @@ $('.dropdown').on('hide.bs.dropdown', function (e) {
 
 $(document).ready(function () {
   if ($(".calendarEvents").length > 0) {
-    $(".calendarEvents").load('/Components/Calendar/Calendars');
+    $(".calendarEvents").load('/Components/Calendar/Calendars', null, function () {
+      $(".calendarEvents .events").load('/Components/Calendar/Events', null, function () {
+        WireCalendarEvents();
+
+        if ($(".filters").css("display") === "none") {
+          ShowPackEvents();
+        } else {
+          HideCouncilDistrictEvents();
+        }
+      });
+    });
   }
 
   if ($(".documents").length > 0) {
-    if (typeof documentId !== undefined) {
+    if ($(".documents").attr("data-documentId") !== undefined && $(".documents").attr("data-documentId") !== "") {
       $(".documents").load('/Components/Resources/Default/' + documentId);
     } else {
       $(".documents").load('/Components/Resources/Default');
