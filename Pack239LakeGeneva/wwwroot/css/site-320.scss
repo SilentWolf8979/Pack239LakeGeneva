@@ -463,6 +463,12 @@ address {
     display: none;
   }
 
+  .loading {
+    svg {
+      enable-background: new 0 0 50 50;
+    }
+  }
+
   .sync {
     .col-xl {
       height: 2.5em;
@@ -705,6 +711,12 @@ address {
 .documents {
   font-family: $sctg-font-secondary;
   font-size: 0.85rem;
+
+  .loading {
+    svg {
+      enable-background: new 0 0 50 50;
+    }
+  }
 
   .breadcrumb {
     background-color: unset;

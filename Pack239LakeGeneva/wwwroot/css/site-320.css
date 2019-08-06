@@ -314,6 +314,9 @@ address {
 .calendarEvents .header {
   display: none; }
 
+.calendarEvents .loading svg {
+  enable-background: new 0 0 50 50; }
+
 .calendarEvents .sync .col-xl {
   height: 2.5em;
   padding-left: 10px;
@@ -476,6 +479,8 @@ address {
 .documents {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem; }
+  .documents .loading svg {
+    enable-background: new 0 0 50 50; }
   .documents .breadcrumb {
     background-color: unset;
     font-size: 0.75rem;

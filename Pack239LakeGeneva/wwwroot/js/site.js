@@ -40,7 +40,7 @@ $(document).ready(function ()
   {
     if (($(".documents").attr("data-documentId") !== undefined) && ($(".documents").attr("data-documentId") !== ""))
     {
-      $(".documents").load('/Components/Resources/Default/' + documentId);
+      $(".documents").load('/Components/Resources/Default/' + $(".documents").attr("data-documentId"));
     }
     else
     {
