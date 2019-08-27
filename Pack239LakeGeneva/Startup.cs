@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO.Compression;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +13,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Pack239LakeGeneva.Data;
 using Pack239LakeGeneva.Models;
 using Pack239LakeGeneva.Services;
+
+using System;
+using System.IO.Compression;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Pack239LakeGeneva
 {
@@ -82,7 +83,13 @@ namespace Pack239LakeGeneva
       services.AddResponseCompression(options =>
       {
         options.EnableForHttps = true;
-        options.Providers.Add<GzipCompressionProvider>();
+        options.Providers.Add<BrotliCompressionProvider>();
+        options.Providers.Add<GzipCompressionProvider>();        
+      });
+
+      services.Configure<BrotliCompressionProviderOptions>(options =>
+      {
+        options.Level = CompressionLevel.Fastest;
       });
 
       services.Configure<GzipCompressionProviderOptions>(options =>
@@ -92,7 +99,7 @@ namespace Pack239LakeGeneva
 
       services.AddMemoryCache();
 
-      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
       services.AddApplicationInsightsTelemetry(Configuration);
 
@@ -121,7 +128,8 @@ namespace Pack239LakeGeneva
       if (!env.IsProduction())
       {
         var options = new RewriteOptions()
-          .AddRewrite(@"^robots.txt", "robots.staging.txt", true);
+          .AddRewrite(@"^robots.txt", "robots.staging.txt", true)
+          .AddRewrite(@"^data/", "/Home/Error", true);
 
         app.UseRewriter(options);
       }
@@ -133,6 +141,7 @@ namespace Pack239LakeGeneva
 
       app.Use(async (context, next) =>
       {
+        context.Response.Headers.Clear();
         context.Response.Headers.Add("Content-Security-Policy", "connect-src 'self' https://dc.services.visualstudio.com; default-src 'self' https://*.google.com; font-src https://fonts.gstatic.com/; img-src 'self' data: https://*.google.com https://*.googleusercontent.com https://www.google-analytics.com https://stats.g.doubleclick.net; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.msecnd.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com");
         context.Response.Headers.Add("Feature-Policy", "geolocation *");
         context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
@@ -159,14 +168,14 @@ namespace Pack239LakeGeneva
         if (env.IsProduction())
         {
           routes.MapRoute(
-          name: "Account",
-          template: "Account/{*url}",
-          defaults: new { controller = "Home", action = "Error" });
+            name: "Account",
+            template: "Account/{*url}",
+            defaults: new { controller = "Home", action = "Error" });
 
           routes.MapRoute(
-          name: "Manage",
-          template: "Manage/{*url}",
-          defaults: new { controller = "Home", action = "Error" });
+            name: "Manage",
+            template: "Manage/{*url}",
+            defaults: new { controller = "Home", action = "Error" });
         }
 
         routes.MapRoute(
@@ -200,19 +209,24 @@ namespace Pack239LakeGeneva
           defaults: new { controller = "Resources", action = "Documents" });
 
         routes.MapRoute(
-         name: "DocumentList",
-         template: "Components/Resources/Default/{documentId?}",
-         defaults: new { controller = "Resources", action = "GetDocuments" });
+          name: "DocumentList",
+          template: "Components/Resources/Default/{documentId?}",
+          defaults: new { controller = "Resources", action = "GetDocuments" });
 
         routes.MapRoute(
-         name: "Leaders",
-         template: "Leaders",
-         defaults: new { controller = "Resources", action = "Leaders" });
+          name: "Leaders",
+          template: "Leaders",
+          defaults: new { controller = "Resources", action = "Leaders" });
 
         routes.MapRoute(
-         name: "Uniforms",
-         template: "Uniforms",
-         defaults: new { controller = "Resources", action = "Uniforms" });
+          name: "Uniforms",
+          template: "Uniforms",
+          defaults: new { controller = "Resources", action = "Uniforms" });
+
+        routes.MapRoute(
+          name: "Ceremonies",
+          template: "Ceremonies/Skits/{skitName?}",
+          defaults: new { controller = "Ceremonies", action = "Skits" });
 
         routes.MapRoute(
           name: "default",

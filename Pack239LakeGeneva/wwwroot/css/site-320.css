@@ -616,6 +616,15 @@ address {
 .uniforms img:last-of-type {
   margin-bottom: 0; }
 
+.ceremonies .direction {
+  font-style: italic;
+  font-size: 0.85em; }
+
+.ceremonies .speaker {
+  color: #FDC116;
+  font-style: italic;
+  font-weight: bold; }
+
 .error {
   text-align: center; }
   .error div h2 {

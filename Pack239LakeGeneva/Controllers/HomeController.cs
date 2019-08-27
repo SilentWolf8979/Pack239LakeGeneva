@@ -48,6 +48,7 @@ namespace Pack239LakeGeneva.Controllers
 
       if (HttpContext.Response.StatusCode == (int)HttpStatusCode.OK)
       {
+        HttpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
         model.StatusCode = (int)HttpStatusCode.NotFound;
       }
       else

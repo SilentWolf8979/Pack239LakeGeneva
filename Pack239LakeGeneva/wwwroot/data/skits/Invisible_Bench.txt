@@ -1,0 +1,16 @@
+﻿Q:Cub Scout 1 walks onstage and squats down as if he is sitting on a bench that is invisible.
+Q:Cub Scout 2 walks up to Cub Scout 1.
+Cub Scout 2: “Whatcha doing?”
+Cub Scout 1:  “Just sitting on this invisible bench.”
+Cub Scout 2: “Can I join you?”
+Cub Scout 1: “Sure!”
+Q:Cub Scout 2 squats down to sit next to Cub Scout 1.  Cub Scout 3 walks up to Cub Scouts 1 & 2.
+Cub Scout 3: “Hey, what are you guys doing?”
+Cub Scouts 1 & 2:  “Just sitting on this invisible bench.”
+Cub Scout 3:  “Do you mind if I join you?”
+Cub Scouts 1 & 2: “Not at all!  Have a seat.”
+Q:Continue the dialog with each Cub Scout coming up to ask what the boys are doing and if he can join them until you get to the last Cub Scout.
+Last Cub Scout: “What are y’all doing?”
+All Cub Scouts:  “Just sitting here on this invisible bench.”
+Last Cub Scout: “No you aren’t. I moved that bench over there yesterday.” Cub Scout points.
+Q:All Cub Scouts who are sitting fall down.

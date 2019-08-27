@@ -12,10 +12,10 @@ namespace Pack239LakeGeneva
     }
 
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args).ConfigureAppConfiguration((hostingContext, config) =>
-        {
-          config.AddJsonFile("client_secrets.json", optional: false, reloadOnChange: true);
-        })
-            .UseStartup<Startup>();
+      WebHost.CreateDefaultBuilder(args).ConfigureAppConfiguration((hostingContext, config) =>
+      {
+        config.AddJsonFile("client_secrets.json", optional: false, reloadOnChange: true);
+      })
+      .UseStartup<Startup>();
   }
 }
