@@ -616,11 +616,11 @@ address {
 .uniforms img:last-of-type {
   margin-bottom: 0; }
 
-.ceremonies .direction {
+.campfire .direction {
   font-style: italic;
   font-size: 0.85em; }
 
-.ceremonies .speaker {
+.campfire .speaker {
   color: #FDC116;
   font-style: italic;
   font-weight: bold; }

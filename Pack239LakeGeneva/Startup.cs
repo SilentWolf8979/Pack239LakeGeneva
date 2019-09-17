@@ -35,6 +35,8 @@ namespace Pack239LakeGeneva
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddHealthChecks();
+
       if (!_env.IsDevelopment())//(_env.IsStaging() || _env.IsProduction())
       {
         services.AddDbContext<ApplicationDbContext>(options =>
@@ -108,6 +110,8 @@ namespace Pack239LakeGeneva
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
+      app.UseHealthChecks("/health");
+
       app.UseResponseCompression();
       //app.UseHttpsRedirection();
 
@@ -224,9 +228,19 @@ namespace Pack239LakeGeneva
           defaults: new { controller = "Resources", action = "Uniforms" });
 
         routes.MapRoute(
+          name: "Skits",
+          template: "Skits/{skitName?}",
+          defaults: new { controller = "Campfire", action = "Skits" });
+
+        routes.MapRoute(
+          name: "Songs",
+          template: "Songs/{songName?}",
+          defaults: new { controller = "Campfire", action = "Songs" });
+
+        routes.MapRoute(
           name: "Ceremonies",
-          template: "Ceremonies/Skits/{skitName?}",
-          defaults: new { controller = "Ceremonies", action = "Skits" });
+          template: "Ceremonies/{ceremonyName?}",
+          defaults: new { controller = "Campfire", action = "Ceremonies" });
 
         routes.MapRoute(
           name: "default",

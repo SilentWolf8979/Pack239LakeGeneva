@@ -39,6 +39,14 @@
             <li><a asp-area="" asp-controller="Resources" asp-action="Documents" title="Documents Page">Documents</a></li>
           </ul>
         </li>
+        <li class="dropdown justify-content-center">
+          <a class="dropdown-toggle" href="#" title="Campfire Dropdown" id="navbarCampfire" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Campfire</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarCampfire">
+            <li><a asp-area="" asp-controller="Campfire" asp-action="Skits" asp-route-skitName="" title="Skits Page">Skits</a></li>
+            <li><a asp-area="" asp-controller="Campfire" asp-action="Songs" asp-route-songName="" title="Songs Page">Songs</a></li>
+            <li><a asp-area="" asp-controller="Campfire" asp-action="Ceremonies" asp-route-ceremonyName="" title="Ceremonies Page">Ceremonies</a></li>
+          </ul>
+        </li>
         <li><a asp-area="" asp-controller="Home" asp-action="Contact" title="Contact Page">Contact</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="About" title="About Page">About</a></li>
       </ul>
