@@ -1,4 +1,5 @@
 ﻿User-Agent: *
 Sitemap: https://www.pack239lakegeneva.org/sitemap.xml
 Disallow: /Account
+Disallow: /Health
 Disallow: /Manage
