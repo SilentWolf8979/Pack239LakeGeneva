@@ -141,12 +141,12 @@ namespace Pack239LakeGeneva
       var provider = new FileExtensionContentTypeProvider();
       provider.Mappings[".webmanifest"] = "application/x-web-app-manifest+json";
 
-      var cachePeriod = !env.IsProduction() ? "600" : "604800";
+      var cachePeriod = !env.IsProduction() ? "600" : "2592000";
 
       app.Use(async (context, next) =>
       {
         context.Response.Headers.Clear();
-        context.Response.Headers.Add("Content-Security-Policy", "connect-src 'self' https://dc.services.visualstudio.com; default-src 'self' https://*.google.com; font-src https://fonts.gstatic.com/; img-src 'self' data: https://*.google.com https://*.googleusercontent.com https://www.google-analytics.com https://stats.g.doubleclick.net; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.msecnd.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com");
+        context.Response.Headers.Add("Content-Security-Policy", "connect-src 'self' https://dc.services.visualstudio.com; default-src 'self' https://*.google.com; font-src https://fonts.googleapis.com/ https://fonts.gstatic.com/; img-src 'self' data: https://*.google.com https://*.googleusercontent.com https://www.google-analytics.com https://stats.g.doubleclick.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.msecnd.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com");
         context.Response.Headers.Add("Feature-Policy", "geolocation *");
         context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
         context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
@@ -196,6 +196,11 @@ namespace Pack239LakeGeneva
           name: "Contact",
           template: "Contact",
           defaults: new { controller = "Home", action = "Contact" });
+
+        routes.MapRoute(
+          name: "Search",
+          template: "Search/{query?}",
+          defaults: new { controller = "Search", action = "Index" });
 
         routes.MapRoute(
           name: "Calendars",

@@ -7,7 +7,7 @@
 
     <div class="float-right contact-icons">
       <div class="arrow"></div>
-      <a href="/" title="Home Page" class="fluer-de-lis">&nbsp;</a>
+      <a href="/" title="Home Page" aria-label="Home Page" class="fluer-de-lis">&nbsp;</a>
       <a href="mailto:Pack239LakeGeneva@gmail.com" title="Email Pack 239"><i class="fas fa-envelope"></i></a>
       <a href="https://www.facebook.com/Pack239LakeGeneva" title="Pack 239 Facebook Page" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
     </div>
@@ -21,8 +21,8 @@
         <span class="sr-only">Toggle navigation</span>
         <i class="fa fa-bars"></i>
       </button>
-      <a asp-area="" asp-controller="Home" asp-action="Index" title="Home Page" class="navbar-brand float-right float-lg-left">
-        <img data-src="/images/BSA/Logos/BSA_Logo_Transparent.png" alt="Boy Scouts of America Logo" />
+      <a asp-area="" asp-controller="Home" asp-action="Index" title="Home Page" aria-label="Home Page" class="navbar-brand float-right float-lg-left">
+        <img data-src="/images/BSA/Logos/BSA_Logo_Transparent.png" asp-append-version="true" alt="Boy Scouts of America Logo" />
         <p>Pack 239 - Lake Geneva, WI</p>
       </a>
     </div>
@@ -49,6 +49,9 @@
         </li>
         <li><a asp-area="" asp-controller="Home" asp-action="Contact" title="Contact Page">Contact</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="About" title="About Page">About</a></li>
+        <environment exclude="Production">
+          <li><div class="gcse-search"></div></li>
+        </environment>
       </ul>
       @await Html.PartialAsync("_LoginPartial")
     </div>
