@@ -25,12 +25,10 @@ namespace Pack239LakeGeneva.Controllers
 {
   public class CalendarController : Controller
   {
-    private IConfiguration _configuration;
-    private IMemoryCache _cache;
+    private readonly IMemoryCache _cache;
 
-    public CalendarController(IConfiguration configuration, IMemoryCache cache)
+    public CalendarController(IMemoryCache cache)
     {
-      _configuration = configuration;
       _cache = cache;
     }
 
@@ -139,15 +137,12 @@ namespace Pack239LakeGeneva.Controllers
     public async Task<IActionResult> GetEvents()
     {
       var calendarViewModel = new CalendarViewModel();
-      var calendarList = new List<Models.Calendar>();
       var calendarEvents = new List<CalendarEvent>();
 
       var calendars = await GetCalendarList();
 
       foreach (var calendar in calendars.Items)
       {
-        Models.Calendar currentCal = new Models.Calendar();
-
         Events events = await GetCalendarEvents(calendar.Id);
 
         foreach (var eventItem in events.Items)
@@ -301,15 +296,6 @@ namespace Pack239LakeGeneva.Controllers
       {
         // Key not in cache, so get data.
         var cal = GetCalendarService().Events.List(calendarId);
-
-        //if (calendarId.Equals("pack239lakegeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
-        //{
-        //  cal.MaxResults = 5;
-        //}
-        //else
-        //{
-        //  cal.MaxResults = 3;
-        //}
 
         cal.OrderBy = OrderByEnum.StartTime;
         cal.ShowDeleted = false;

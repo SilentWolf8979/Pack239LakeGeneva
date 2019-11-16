@@ -19,11 +19,8 @@ namespace Pack239LakeGeneva.Controllers
 {
   public class ResourcesController : Controller
   {
-    private IConfiguration _configuration;
-
-    public ResourcesController(IConfiguration Configuration)
+    public ResourcesController()
     {
-      _configuration = Configuration;
     }
 
     public IActionResult Index()
@@ -141,7 +138,6 @@ namespace Pack239LakeGeneva.Controllers
         }
 
         FilesResource.ListRequest listRequest = service.Files.List();
-        //listRequest.PageSize = 10;
         listRequest.Q = "'" + documentId + "' in parents";
         listRequest.Fields = "nextPageToken, files(fileExtension, iconLink, id, mimeType, name, parents, thumbnailLink, webContentLink, webViewLink)";
         listRequest.OrderBy = "name";
@@ -191,7 +187,6 @@ namespace Pack239LakeGeneva.Controllers
           currentDoc.MimeType = file.MimeType;
           currentDoc.Name = file.Name;
           currentDoc.Parents = file.Parents;
-          //currentDoc.ThumbnailLink = file.ThumbnailLink;
           currentDoc.ThumbnailLink = "https://drive.google.com/thumbnail?authuser=0&sz=s200&id=" + currentDoc.Id;
           currentDoc.WebContentLink = file.WebContentLink;
           currentDoc.WebViewLink = file.WebViewLink;
@@ -206,9 +201,8 @@ namespace Pack239LakeGeneva.Controllers
           }
         }
       }
-      catch (Exception ex)
+      catch
       {
-        string s = ex.Message;
       }
 
       documentViewModel.breadcrumbs = breadcrumbList;

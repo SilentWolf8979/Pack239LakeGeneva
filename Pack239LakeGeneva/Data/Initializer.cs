@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Pack239LakeGeneva.Data
 {
-    public static class Initializer
+  public static class Initializer
+  {
+    public static async Task initialize(RoleManager<IdentityRole> roleManager)
     {
-      public static async Task initialize(RoleManager<IdentityRole> roleManager)
-      {
-        if (!await roleManager.RoleExistsAsync("Admin"))
+      if (!await roleManager.RoleExistsAsync("Admin"))
       {
         var users = new IdentityRole("Admin");
         await roleManager.CreateAsync(users);
@@ -28,5 +25,5 @@ namespace Pack239LakeGeneva.Data
         await roleManager.CreateAsync(users);
       }
     }
-    }
+  }
 }
