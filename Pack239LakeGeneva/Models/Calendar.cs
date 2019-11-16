@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Pack239LakeGeneva.Models
+﻿namespace Pack239LakeGeneva.Models
 {
   public class Calendar
   {

@@ -8,7 +8,6 @@ using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -203,6 +202,7 @@ namespace Pack239LakeGeneva.Controllers
       }
       catch
       {
+        // Ignore this exception...cause it's a Google issue
       }
 
       documentViewModel.breadcrumbs = breadcrumbList;

@@ -12,13 +12,11 @@ using Google.Apis.Services;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using Pack239LakeGeneva.Models;
-using static Google.Apis.Calendar.v3.EventsResource;
 using static Google.Apis.Calendar.v3.EventsResource.ListRequest;
 
 namespace Pack239LakeGeneva.Controllers
