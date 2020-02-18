@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Apis.Calendar.v3" Version="1.43.0.1837" />
+    <PackageReference Include="Google.Apis.Calendar.v3" Version="1.43.0.1860" />
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.43.0.1807" />
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.43.0.1369" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.7" AllowExplicitVersion="true" />
