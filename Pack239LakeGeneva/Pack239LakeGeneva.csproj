@@ -24,7 +24,7 @@
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.44.1.1876" />
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.44.1.1369" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.7" AllowExplicitVersion="true" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
