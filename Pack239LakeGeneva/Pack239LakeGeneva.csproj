@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Apis.Calendar.v3" Version="1.46.0.1986" />
-    <PackageReference Include="Google.Apis.Drive.v3" Version="1.46.0.1986" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.48.0.1995" />
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.46.0.1986" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.7" AllowExplicitVersion="true" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" />
