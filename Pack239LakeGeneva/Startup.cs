@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 using Pack239LakeGeneva.Data;
 using Pack239LakeGeneva.Models;
@@ -24,9 +25,9 @@ namespace Pack239LakeGeneva
   public class Startup
   {
     private IConfiguration Configuration { get; }
-    private IHostingEnvironment _env { get; }
+    private IWebHostEnvironment _env { get; }
 
-    public Startup(IConfiguration configuration, IHostingEnvironment environment)
+    public Startup(IConfiguration configuration, IWebHostEnvironment environment)
     {
       Configuration = configuration;
       _env = environment;
@@ -101,14 +102,13 @@ namespace Pack239LakeGeneva
 
       services.AddMemoryCache();
 
-      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+      services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
       services.AddApplicationInsightsTelemetry(Configuration);
-
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       app.UseHealthChecks("/health");
 
