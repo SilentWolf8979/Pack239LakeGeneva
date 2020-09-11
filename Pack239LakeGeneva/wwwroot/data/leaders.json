@@ -35,10 +35,10 @@
         },
         {
           "position": "Treasurer",
-          "name": "Phil Zinkowich",
-          "phone": "262-348-0401",
-          "email": "pzinkowich@gmail.com"
-        },
+          "name": "Jessica Pokorny",
+          "phone": "952-200-5049",
+          "email": "pokorny3@live.com"
+        },,
         {
           "position": "Member",
           "name": "Brian Schuessler",
@@ -50,6 +50,12 @@
           "name": "Heidi Schuessler",
           "phone": "262-745-1917",
           "email": "heidiroo22@gmail.com"
+        },
+        {
+          "position": "Member",
+          "name": "Phil Zinkowich",
+          "phone": "262-348-0401",
+          "email": "pzinkowich@gmail.com"
         },
         {
           "position": "Member",
@@ -148,7 +154,7 @@
       "title": "Arrow of Light",
       "members": [
         {
-          "position": "Asst. Den Leader",
+          "position": "Den Leader",
           "name": "Jessica Pokorny",
           "phone": "952-200-5049",
           "email": "pokorny3@live.com"
