@@ -197,6 +197,12 @@ footer {
     list-style: none;
     margin-bottom: 2.5rem; }
 
+.home ul.small-margin {
+  margin-bottom: 3rem; }
+
+.home ul.no-margin {
+  margin-bottom: 0; }
+
 .home .hero {
   text-align: center; }
 
