@@ -50,10 +50,17 @@
         <li><a asp-area="" asp-controller="Home" asp-action="Contact" title="Contact Page">Contact</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="About" title="About Page">About</a></li>
         <environment exclude="Production">
-          <li><div class="gcse-search"></div></li>
+          <li class="dropdown justify-content-center">
+            <a class="dropdown-toggle" href="#" title="Search Dropdown" id="navbarSearch" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
+            <ul class="dropdown-menu searchBox" aria-labelledby="navbarSearch">
+              <li><div class="gcse-searchbox-only" data-resultsUrl="/Search"></div></li>
+            </ul>
+          </li>
         </environment>
       </ul>
-      @await Html.PartialAsync("_LoginPartial")
+      <environment exclude="Development, Staging, Production">
+        @await Html.PartialAsync("_LoginPartial")
+      </environment>
     </div>
   </div>
 </nav>

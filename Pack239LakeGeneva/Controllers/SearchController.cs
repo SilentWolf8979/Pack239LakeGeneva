@@ -25,14 +25,40 @@ namespace Pack239LakeGeneva.Controllers
       _cache = cache;
     }
 
-    public IActionResult Index(string query)
+    public IActionResult Index()
     {
-      ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
-
-      var searchResultsList = GetSearchResultsList(query);
-
-      return View(searchResultsList);
+      return View();
     }
+
+    // This is commented out as we're using the Google-provided search box and search results
+
+    //public async Task<IActionResult> Index(string query, int pageNumber)
+    //{
+    //  var searchViewModel = new SearchViewModel();
+    //  var searchResults = new List<SearchResult>();
+
+    //  ViewData["CurrentUrl"] = Request.Scheme + "://" + Request.Host.Value + Request.Path.Value;
+
+    //  var searchResultsList = await GetSearchResultsList(query, pageNumber);
+
+    //  foreach (var searchResultItem in searchResultsList.Items)
+    //  {
+    //    SearchResult searchResult = new SearchResult();
+
+    //    searchResult.FormattedUrl = searchResultItem.FormattedUrl;
+    //    searchResult.HtmlSnippet = searchResultItem.HtmlSnippet;
+    //    searchResult.HtmlTitle = searchResultItem.HtmlTitle;
+    //    searchResult.HtmlTitle = searchResultItem.Title;
+
+    //    searchResults.Add(searchResult);
+    //  }
+
+    //  searchViewModel.searchResults = searchResults;
+    //  searchViewModel.searchQuery = query;
+    //  searchViewModel.totalResuls = searchResultsList.SearchInformation.TotalResults;
+
+    //  return View(searchViewModel);
+    //}
 
     private CustomsearchService GetSearchService()
     {
@@ -58,18 +84,25 @@ namespace Pack239LakeGeneva.Controllers
       return service;
     }
 
-    private async Task<IList<Result>> GetSearchResultsList(string query)
+    private async Task<Search> GetSearchResultsList(string query, int pageNumber)
     {
-      IList<Result> results;
+      Search searchResults;
 
       var searchRequest = GetSearchService().Cse.List(query);
       searchRequest.Cx = "011808698875197557344:utxixcu6ama";
 
-      var searchResults = await searchRequest.ExecuteAsync();
+      if (pageNumber == 0)
+      {
+        searchRequest.Start = 1;
+      }
+      else
+      {
+        searchRequest.Start = pageNumber * 10 - 9;
+      }
 
-      results = searchResults.Items;
+      searchResults = await searchRequest.ExecuteAsync();
 
-      return results;
+      return searchResults;
     }
   }
 }

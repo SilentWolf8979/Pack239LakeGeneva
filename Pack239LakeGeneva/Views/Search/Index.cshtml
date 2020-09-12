@@ -5,3 +5,25 @@
 }
 <h2>@ViewData["Title"]</h2>
 
+<div class="gcse-searchresults-only"></div>
+
+@* This is commented out as we're using the Google-provided search box and search results
+
+@model SearchViewModel
+
+<div class="searchResults">
+  @foreach (var searchResult in Model.searchResults)
+  {
+    <div class="row">
+      <div class="col-12 searchResult">
+        <h6><a href="@searchResult.FormattedUrl" title="@searchResult.Title">@searchResult.HtmlTitle</a></h6>
+        <p>@Html.Raw(@searchResult.HtmlSnippet)</p>
+      </div>
+    </div>
+  }
+
+  @for (int i = 1; (i * 10) <= (Model.totalResuls + 10); i++)
+  {
+    <a href="/Search/@Model.searchQuery/@i">@i</a>
+  }
+</div>*@

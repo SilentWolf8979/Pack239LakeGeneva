@@ -15,6 +15,15 @@
     transform: translateX(-50%);
     white-space: nowrap;
   }
+
+  .justify-content-center .searchBox {
+    left: auto;
+    width: 250px;
+
+    .gsc-input-box {
+      width: 150px !important;
+    }
+  }
 }
 
 .calendarEvent {

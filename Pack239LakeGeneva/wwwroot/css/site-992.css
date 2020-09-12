@@ -27,6 +27,12 @@
   transform: translateX(-50%);
   white-space: nowrap; }
 
+.navbar .justify-content-center .searchBox {
+  left: auto;
+  width: 250px; }
+  .navbar .justify-content-center .searchBox .gsc-input-box {
+    width: 150px !important; }
+
 .calendarEvent .eventDescription .summary {
   display: flex !important;
   white-space: nowrap; }

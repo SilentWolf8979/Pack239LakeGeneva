@@ -952,6 +952,35 @@ address {
 
 
 
+.searchResults {
+  margin-top: 2.5rem;
+
+  .searchResult {
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+.gsc-input {
+  font-family: "Roboto Slab", serif !important;
+}
+
+.gsc-wrapper {
+  font-family: "Roboto Slab", serif !important;
+}
+
+.gsc-adBlock {
+  display: none !important;
+}
+
+.gs-no-results-result .gs-snippet {
+  background-color: unset !important;
+  border: unset !important;
+}
+
+
+
 .error {
   text-align: center;
 
