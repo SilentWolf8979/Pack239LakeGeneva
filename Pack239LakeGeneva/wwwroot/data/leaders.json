@@ -11,9 +11,9 @@
         },
         {
           "position": "Committee Chair",
-          "name": "Nicole Zinkowich",
-          "phone": "262-203-2328",
-          "email": "nicolezinkowich@gmail.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         },
         {
           "position": "Cubmaster",
@@ -23,9 +23,9 @@
         },
         {
           "position": "Asst. Cubmaster",
-          "name": "Anthony Nellessen",
-          "phone": "262-758-1660",
-          "email": "t.nellessen27@gmail.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         },
         {
           "position": "Secretary",
@@ -53,9 +53,9 @@
         },
         {
           "position": "Member",
-          "name": "Phil Zinkowich",
-          "phone": "262-348-0401",
-          "email": "pzinkowich@gmail.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         },
         {
           "position": "Member",
@@ -87,6 +87,23 @@
       "members": [
         {
           "position": "Den Leader",
+          "name": "Tim Chamberlin",
+          "phone": "847-812-3116",
+          "email": "tchamberlin@advmech.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "Jessica Pokorny",
+          "phone": "952-200-5049",
+          "email": "pokorny3@live.com"
+        }
+      ]
+    },
+    {
+      "title": "Wolves",
+      "members": [
+        {
+          "position": "Den Leader",
           "name": "Erin Koepke",
           "phone": "847-284-0770",
           "email": "elkoepke@gmail.com"
@@ -100,47 +117,13 @@
       ]
     },
     {
-      "title": "Wolves",
-      "members": [
-        {
-          "position": "Den Leader",
-          "name": "Mark Pinner",
-          "phone": "815-345-1674",
-          "email": "markpinner@rocketmail.com"
-        },
-        {
-          "position": "Asst. Den Leader",
-          "name": "Joel Hayes",
-          "phone": "815-482-4342",
-          "email": "mcfly214@gmail.com"
-        }
-      ]
-    },
-    {
       "title": "Bears",
       "members": [
         {
           "position": "Den Leader",
-          "name": "Lynn Koepke",
-          "phone": "847-284-0770",
-          "email": "koepke.lynn@gmail.com"
-        },
-        {
-          "position": "Asst. Den Leader",
-          "name": "Anthony Nellessen",
-          "phone": "262-758-1660",
-          "email": "t.nellessen27@gmail.com"
-        }
-      ]
-    },
-    {
-      "title": "Webelos",
-      "members": [
-        {
-          "position": "Den Leader",
-          "name": "Cheryl Chamberlin",
-          "phone": "847-812-3116",
-          "email": "tim.cheryl3@gmail.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         },
         {
           "position": "Asst. Den Leader",
@@ -151,13 +134,30 @@
       ]
     },
     {
+      "title": "Webelos",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "Lynn Koepke",
+          "phone": "847-284-0770",
+          "email": "koepke.lynn@gmail.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "Barb Welch",
+          "phone": "262-215-3686",
+          "email": "grapejuice23@yahoo.com"
+        }
+      ]
+    },
+    {
       "title": "Arrow of Light",
       "members": [
         {
           "position": "Den Leader",
-          "name": "Jessica Pokorny",
-          "phone": "952-200-5049",
-          "email": "pokorny3@live.com"
+          "name": "Cheryl Chamberlin",
+          "phone": "847-812-3116",
+          "email": "tim.cheryl3@gmail.com"
         },
         {
           "position": "Asst. Den Leader",
