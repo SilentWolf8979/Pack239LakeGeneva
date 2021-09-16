@@ -74,21 +74,24 @@ namespace Pack239LakeGeneva.Controllers
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=NW9rcmoxMm0ydjdnN2poZHNram0ydXI3M2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
           case "1-Lions":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZmcxdWMyaWphNHAxYnZ2dmk5ZWVmYjFtdWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=bmN1ZThqY2UzZGFlbTlidmRhMGx2dGtsaXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
           case "2-Tigers":
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZmcxdWMyaWphNHAxYnZ2dmk5ZWVmYjFtdWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            break;
+          case "3-Wolves":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZGlkaW0wcG1jNnE5aDZ1amdkcHA1M3ExNzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
-          case "3-Wolvves":
+          case "4-Bears":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=NDBvdDQ2bzh1bjFqM211OWRxbm1va2N0dGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
-          case "4-Bears":
+          case "5-Webelos":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=czN0ZmNvdXFvMmVhNzhzY2FrdmY1c3FxbzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
-          case "5-Webelos":
+          case "6-Arrow of Light":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=amJlbHJkaGQxNWdlbGMyNjcxMXNjNnQxaDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
-          case "6-Arrow of Light":
+          case "7-OldAOL":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=dHQxbTM0dnJpZXNhNXNocWZhNmc1bDNoY3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
           case "Committee":
