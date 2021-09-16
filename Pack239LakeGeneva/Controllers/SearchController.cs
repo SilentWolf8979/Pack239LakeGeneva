@@ -88,13 +88,15 @@ namespace Pack239LakeGeneva.Controllers
     {
       Search searchResults;
 
-      var searchRequest = GetSearchService().Cse.List(query);
+      var searchRequest = GetSearchService().Cse.List();
       searchRequest.Cx = "011808698875197557344:utxixcu6ama";
+      searchRequest.Q = query;
 
       if (pageNumber == 0)
       {
         searchRequest.Start = 1;
       }
+
       else
       {
         searchRequest.Start = pageNumber * 10 - 9;
