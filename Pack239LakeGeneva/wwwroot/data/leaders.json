@@ -53,6 +53,12 @@
         },
         {
           "position": "Member",
+          "name": "Tim Chamberlin",
+          "phone": "847-812-3116",
+          "email": "tchamberlin@advmech.com"
+        },
+        {
+          "position": "Member",
           "name": "",
           "phone": "",
           "email": ""
@@ -93,9 +99,9 @@
         },
         {
           "position": "Asst. Den Leader",
-          "name": "Tim Chamberlin",
-          "phone": "847-812-3116",
-          "email": "tchamberlin@advmech.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         }
       ]
     },
