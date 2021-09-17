@@ -321,7 +321,7 @@ namespace Pack239LakeGeneva.Controllers
     {
       CalendarListEntry cle = new CalendarListEntry();
       // This is the ID of a new calendar that we want to show on the site
-      cle.Id = "fg1uc2ija4p1bvvvi9eefb1mug@group.calendar.google.com";
+      cle.Id = "ncue8jce3daem9bvda0lvtklis@group.calendar.google.com";//"fg1uc2ija4p1bvvvi9eefb1mug@group.calendar.google.com";
       CalendarListEntry cleNew = GetCalendarService().CalendarList.Insert(cle).Execute();
     }
   }
