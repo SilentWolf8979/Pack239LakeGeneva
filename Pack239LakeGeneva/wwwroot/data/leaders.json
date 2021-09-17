@@ -86,16 +86,16 @@
       "title": "Tigers",
       "members": [
         {
-          "position": "Den Leader",
-          "name": "Tim Chamberlin",
-          "phone": "847-812-3116",
-          "email": "tchamberlin@advmech.com"
-        },
-        {
-          "position": "Asst. Den Leader",
+          "position": "en Leader",
           "name": "Jessica Pokorny",
           "phone": "952-200-5049",
           "email": "pokorny3@live.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "Tim Chamberlin",
+          "phone": "847-812-3116",
+          "email": "tchamberlin@advmech.com"
         }
       ]
     },
