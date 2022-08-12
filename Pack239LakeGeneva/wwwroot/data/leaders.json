@@ -11,15 +11,15 @@
         },
         {
           "position": "Committee Chair",
-          "name": "",
-          "phone": "",
-          "email": ""
+          "name": "John O'Laughlin",
+          "phone": "773-710-1725",
+          "email": "johnaaronolaughlin@gmail.com"
         },
         {
           "position": "Cubmaster",
-          "name": "Neil Doebler",
-          "phone": "262-716-6233",
-          "email": "NeilDoebler@outlook.com"
+          "name": "Jessica Pokorny",
+          "phone": "952-200-5049",
+          "email": "pokorny3@live.com"
         },
         {
           "position": "Asst. Cubmaster",
@@ -35,21 +35,16 @@
         },
         {
           "position": "Treasurer",
-          "name": "Jessica Pokorny",
-          "phone": "952-200-5049",
-          "email": "pokorny3@live.com"
+          "name": "Dawn Nei",
+          "phone": "219-577-7705",
+          "email": "rnei15@wi.rr.com"
+        },
         },
         {
           "position": "Member",
-          "name": "Brian Schuessler",
-          "phone": "262-249-8686",
-          "email": "bpslgw@gmail.com"
-        },
-        {
-          "position": "Member",
-          "name": "Heidi Schuessler",
-          "phone": "262-745-1917",
-          "email": "heidiroo22@gmail.com"
+          "name": "Neil Doebler",
+          "phone": "262-716-6233",
+          "email": "NeilDoebler@outlook.com"
         },
         {
           "position": "Member",
@@ -70,6 +65,23 @@
       "members": [
         {
           "position": "Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Tigers",
+      "members": [
+        {
+          "position": "Den Leader",
           "name": "Laura Hachmeister",
           "phone": "262-745-2088",
           "email": "stackpool7@gmail.com"
@@ -83,24 +95,24 @@
       ]
     },
     {
-      "title": "Tigers",
+      "title": "Wolves",
       "members": [
         {
-          "position": "en Leader",
-          "name": "Jessica Pokorny",
-          "phone": "952-200-5049",
-          "email": "pokorny3@live.com"
+          "position": "Den Leader",
+          "name": "Anthony Tomaso",
+          "phone": "",
+          "email": "phattony82@yahoo.com"
         },
         {
           "position": "Asst. Den Leader",
-          "name": "Tim Chamberlin",
-          "phone": "847-812-3116",
-          "email": "tchamberlin@advmech.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         }
       ]
     },
     {
-      "title": "Wolves",
+      "title": "Bears",
       "members": [
         {
           "position": "Den Leader",
@@ -117,36 +129,19 @@
       ]
     },
     {
-      "title": "Bears",
-      "members": [
-        {
-          "position": "Den Leader",
-          "name": "",
-          "phone": "",
-          "email": ""
-        },
-        {
-          "position": "Asst. Den Leader",
-          "name": "",
-          "phone": "",
-          "email": ""
-        }
-      ]
-    },
-    {
       "title": "Webelos",
       "members": [
         {
           "position": "Den Leader",
-          "name": "Lynn Koepke",
-          "phone": "847-284-0770",
-          "email": "koepke.lynn@gmail.com"
+          "name": "Ian Halliday",
+          "phone": "708-699-3654",
+          "email": "ian@shin-go-beek.com"
         },
         {
           "position": "Asst. Den Leader",
-          "name": "Barb Welch",
-          "phone": "262-215-3686",
-          "email": "grapejuice23@yahoo.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         }
       ]
     },
@@ -155,15 +150,15 @@
       "members": [
         {
           "position": "Den Leader",
-          "name": "Cheryl Chamberlin",
-          "phone": "847-812-3116",
-          "email": "tim.cheryl3@gmail.com"
+          "name": "Barb Welch",
+          "phone": "262-215-3686",
+          "email": "grapejuice23@yahoo.com"
         },
         {
           "position": "Asst. Den Leader",
-          "name": "",
-          "phone": "",
-          "email": ""
+          "name": "Lynn Koepke",
+          "phone": "847-284-0770",
+          "email": "koepke.lynn@gmail.com"
         }
       ]
     }
