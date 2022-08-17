@@ -19,6 +19,10 @@ using Newtonsoft.Json.Linq;
 using Pack239LakeGeneva.Models;
 using static Google.Apis.Calendar.v3.EventsResource.ListRequest;
 
+// IMPORTANT: If you create a new calendar, you need to call the RegisterCalendar method and update the ID in it to
+// the ID of the new calendar that you created.  The Calendar ID is shown in Google Calendar at the bottom of the
+// calendar setting page.
+
 namespace Pack239LakeGeneva.Controllers
 {
   public class CalendarController : Controller
@@ -90,12 +94,6 @@ namespace Pack239LakeGeneva.Controllers
             break;
           case "6-Arrow of Light":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=czN0ZmNvdXFvMmVhNzhzY2FrdmY1c3FxbzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
-            break;
-          case "7-OldAOL":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=amJlbHJkaGQxNWdlbGMyNjcxMXNjNnQxaDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
-            break;
-          case "8-OldOldAOL":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=dHQxbTM0dnJpZXNhNXNocWZhNmc1bDNoY3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
           case "Committee":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=dnBmcHU0bW5sdTRtdWJscWgxdHZlOXE2ZzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
@@ -324,7 +322,7 @@ namespace Pack239LakeGeneva.Controllers
     {
       CalendarListEntry cle = new CalendarListEntry();
       // This is the ID of a new calendar that we want to show on the site
-      cle.Id = "ncue8jce3daem9bvda0lvtklis@group.calendar.google.com";//"fg1uc2ija4p1bvvvi9eefb1mug@group.calendar.google.com";
+      cle.Id = "srjskgmhgbbrgbn99ebh9bcp7k@group.calendar.google.com";
       CalendarListEntry cleNew = GetCalendarService().CalendarList.Insert(cle).Execute();
     }
   }
