@@ -3,12 +3,12 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
-    "bootstrap": "4.5.2",
-    "gulp": "4.0.2",
+    "bootstrap": "5.2.0",
+    "gulp": "^4.0.2",
     "gulp-clean-css": "4.3.0",
-    "gulp-sourcemaps": "2.6.5",
-    "gulp-uglify-es": "2.0.0",
-    "jquery": "3.5.1",
+    "gulp-sourcemaps": "3.0.0",
+    "gulp-uglify-es": "3.0.0",
+    "jquery": "3.6.0",
     "popper.js": "1.16.1"
   }
 }

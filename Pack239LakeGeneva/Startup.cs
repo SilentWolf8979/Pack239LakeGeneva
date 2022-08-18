@@ -102,8 +102,6 @@ namespace Pack239LakeGeneva
 
       services.AddMemoryCache();
 
-      services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
       services.AddApplicationInsightsTelemetry(Configuration);
     }
 
@@ -118,7 +116,6 @@ namespace Pack239LakeGeneva
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
-        app.UseDatabaseErrorPage();
       }
       else
       {
