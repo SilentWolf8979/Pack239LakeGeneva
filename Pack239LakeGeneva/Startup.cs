@@ -37,6 +37,9 @@ namespace Pack239LakeGeneva
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddHealthChecks();
+      
+      // Can be removed once UseMvc is updated to use endpoint routing
+      services.AddMvc(options => options.EnableEndpointRouting = false);
 
       if (!_env.IsDevelopment())//(_env.IsStaging() || _env.IsProduction())
       {
