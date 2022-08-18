@@ -1,42 +1,46 @@
-﻿@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab");
 @font-face {
   font-display: swap;
-  font-family: 'Roboto Slab';
-  src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"), url(https://fonts.gstatic.com/s/robotoslab/v9/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format("woff2"); }
-
+  font-family: "Roboto Slab";
+  src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"), url(https://fonts.gstatic.com/s/robotoslab/v9/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format("woff2");
+}
 @font-face {
   font-display: swap;
-  font-family: 'Roboto Condensed';
-  src: local("Roboto Condensed"), local("RobotoCondensed-Regular"), url(https://fonts.gstatic.com/s/robotocondensed/v18/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2) format("woff2"); }
-
+  font-family: "Roboto Condensed";
+  src: local("Roboto Condensed"), local("RobotoCondensed-Regular"), url(https://fonts.gstatic.com/s/robotocondensed/v18/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2) format("woff2");
+}
 @font-face {
   font-display: swap;
-  font-family: 'Roboto Condensed';
-  src: local("Roboto Condensed"), local("RobotoCondensed-Regular"), url(https://fonts.gstatic.com/s/robotocondensed/v18/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2) format("woff2"); }
-
+  font-family: "Roboto Condensed";
+  src: local("Roboto Condensed"), local("RobotoCondensed-Regular"), url(https://fonts.gstatic.com/s/robotocondensed/v18/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2) format("woff2");
+}
 .header-ribbon .textLinks a {
   float: left;
-  padding-right: 15px; }
+  padding-right: 15px;
+}
 
 .calendarEvent .eventDescription .location {
-  display: block; }
-
+  display: block;
+}
 .calendarEvent .eventDescription .location.short {
-  display: none; }
+  display: none;
+}
 
 .leaders a {
   color: #FFFFFF;
-  padding-left: 20px; }
-
+  padding-left: 20px;
+}
 .leaders a:hover {
-  color: #FDC116; }
-
+  color: #FDC116;
+}
 .leaders .phone {
-  display: none; }
-
+  display: none;
+}
 .leaders .name:hover .contactBox .fa-envelope {
-  top: 15px; }
+  top: 15px;
+}
 
 .uniforms img {
   height: auto;
-  width: auto; }
+  width: auto;
+}/*# sourceMappingURL=site-576.css.map */

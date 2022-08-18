@@ -63,8 +63,13 @@ a:hover {
     color: $sctg-white;
   }
 
-  .contact-icons a {
-    top: 2px;
+  .contact-icons {
+    position: relative;
+    top: -7px;
+
+    a {
+      top: 2px;
+    }
   }
 
   a.fluer-de-lis {
@@ -88,10 +93,10 @@ a:hover {
     border-left: 14px solid transparent;
     border-right: 14px solid transparent;
     border-top: 7px solid $sctg-blue-pale;
-    display: inline;
-    left: 32px;
+    display: flex;
+    left: 4px;
     position: relative;
-    top: 30px;
+    top: 32px;
     width: 25px;
     z-index: 100;
   }
