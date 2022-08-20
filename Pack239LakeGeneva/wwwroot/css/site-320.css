@@ -83,7 +83,7 @@ a:hover {
 }
 .header-ribbon a.fluer-de-lis {
   background-color: #9AB3D5;
-  background-image: url("../images/bsa/logos/fleur de lis_blue_transparent.png");
+  background-image: url("../images/BSA/Logos/Fleur_de_lis_Blue_Transparent.png");
   background-size: 100% 100%;
   display: inline-block;
   height: 25px;
@@ -93,7 +93,7 @@ a:hover {
   width: 1.75rem;
 }
 .header-ribbon a.fluer-de-lis:hover {
-  background-image: url("../images/bsa/logos/fleur de lis_white_transparent.png");
+  background-image: url("../images/BSA/Logos/Fleur_de_lis_White_Transparent.png");
   text-decoration: none;
 }
 .header-ribbon .arrow {
@@ -200,7 +200,7 @@ footer a:hover {
 }
 footer a.fluer-de-lis {
   background-color: #9AB3D5;
-  background-image: url("../images/bsa/logos/fleur de lis_blue_transparent.png");
+  background-image: url("../images/BSA/Logos/Fleur_de_lis_Blue_Transparent.png");
   background-size: 100% 100%;
   display: inline-block;
   height: 25px;
@@ -210,7 +210,7 @@ footer a.fluer-de-lis {
   width: 25px;
 }
 footer a.fluer-de-lis:hover {
-  background-image: url("../images/bsa/logos/fleur de lis_gold_transparent.png");
+  background-image: url("../images/BSA/Logos/Fleur_de_lis_Gold_Transparent.png");
   text-decoration: none;
 }
 footer .svg-inline--fa {
@@ -828,7 +828,7 @@ address a:hover {
   padding: 3rem 0;
 }
 .error div:after {
-  background-image: url("/images/BSA/Logos/Fleur de lis_White_Transparent.png");
+  background-image: url("/images/BSA/Logos/Fleur_de_lis_White_Transparent.png");
   background-position: center;
   background-repeat: no-repeat;
   bottom: 0;
