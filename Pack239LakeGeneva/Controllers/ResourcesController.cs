@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 
 using Google.Apis.Auth.OAuth2;
@@ -64,7 +65,7 @@ namespace Pack239LakeGeneva.Controllers
     {
       List<Leader> leaders = new List<Leader>();
 
-      string leaderData = System.IO.File.ReadAllText(@"wwwroot\data\leaders.json");
+      string leaderData = System.IO.File.ReadAllText(Path.Combine("wwwroot", "data", "leaders.json"));
       JToken token = JObject.Parse(leaderData);
 
       foreach (JToken group in token.SelectToken("groups").Children())

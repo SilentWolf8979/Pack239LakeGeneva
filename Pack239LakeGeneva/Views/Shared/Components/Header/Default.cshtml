@@ -1,11 +1,11 @@
 ﻿<div class="header-ribbon">
   <div class="container">
-    <p class="float-left textLinks">
+    <p class="float-start textLinks">
       <a href="https://www.scouting.org" title="scouting.org Website" target="_blank" rel="noopener noreferrer">scouting.org</a>
       <a href="http://www.glaciersedge.org" title="Glacier's Edge Council Website" target="_blank" rel="noopener noreferrer" class="d-none d-sm-flex">glaciersedge.org</a>
     </p>
 
-    <div class="float-right contact-icons">
+    <div class="float-end contact-icons">
       <div class="arrow"></div>
       <a href="/" title="Home Page" aria-label="Home Page" class="fluer-de-lis">&nbsp;</a>
       <a href="mailto:Pack239LakeGeneva@gmail.com" title="Email Pack 239"><em class="fas fa-envelope"></em></a>
@@ -17,12 +17,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-dark navbar-expand-lg">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <em class="fa fa-bars"></em>
       </button>
-      <a asp-area="" asp-controller="Home" asp-action="Index" title="Home Page" aria-label="Home Page" class="navbar-brand float-right float-lg-left">
-        <img data-src="/images/BSA/Logos/BSA_Logo_Transparent.png" asp-append-version="true" alt="Boy Scouts of America Logo" />
+      <a asp-area="" asp-controller="Home" asp-action="Index" title="Home Page" aria-label="Home Page" class="navbar-brand float-end float-lg-left">
+        <img data-bs-src="/images/BSA/Logos/BSA_Logo_Transparent.png" asp-append-version="true" alt="Boy Scouts of America Logo" />
         <p>Pack 239 - Lake Geneva, WI</p>
       </a>
     </div>
@@ -31,7 +31,7 @@
         <li><a asp-area="" asp-controller="Home" asp-action="Join" title="Join Page">Join Us!</a></li>
         <li><a asp-area="" asp-controller="Calendar" asp-action="Index" title="Calendar Page">Calendar</a></li>
         <li class="dropdown justify-content-center">
-          <a class="dropdown-toggle" href="#" title="Resources Dropdown" id="navbarResources" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+          <a class="dropdown-toggle" href="#" title="Resources Dropdown" id="navbarResources" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
           <ul class="dropdown-menu" aria-labelledby="navbarResources">
             <li><a href="https://scoutbook.scouting.org" title="Scoutbook" target="_blank" rel="noopener noreferrer">Scoutbook</a></li>
             <li><a asp-area="" asp-controller="Resources" asp-action="Leaders" title="Leaders Page">Leaders</a></li>
@@ -40,7 +40,7 @@
           </ul>
         </li>
         <li class="dropdown justify-content-center">
-          <a class="dropdown-toggle" href="#" title="Campfire Dropdown" id="navbarCampfire" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Campfire</a>
+          <a class="dropdown-toggle" href="#" title="Campfire Dropdown" id="navbarCampfire" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Campfire</a>
           <ul class="dropdown-menu" aria-labelledby="navbarCampfire">
             <li><a asp-area="" asp-controller="Campfire" asp-action="Skits" asp-route-skitName="" title="Skits Page">Skits</a></li>
             <li><a asp-area="" asp-controller="Campfire" asp-action="Songs" asp-route-songName="" title="Songs Page">Songs</a></li>
@@ -50,9 +50,9 @@
         <li><a asp-area="" asp-controller="Home" asp-action="Contact" title="Contact Page">Contact</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="About" title="About Page">About</a></li>
         <li class="dropdown justify-content-center">
-          <a class="dropdown-toggle" href="#" title="Search Dropdown" id="navbarSearch" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
+          <a class="dropdown-toggle" href="#" title="Search Dropdown" id="navbarSearch" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
           <ul class="dropdown-menu searchBox" aria-labelledby="navbarSearch">
-            <li><div class="gcse-searchbox-only" data-resultsUrl="/Search"></div></li>
+            <li><div class="gcse-searchbox-only" data-bs-resultsUrl="/Search"></div></li>
           </ul>
         </li>
       </ul>
