@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Pack239LakeGeneva/bin/Debug/netcoreapp3.1/Pack239LakeGeneva.dll",
+            "program": "${workspaceFolder}/Pack239LakeGeneva/bin/Debug/netcoreapp6/Pack239LakeGeneva.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Pack239LakeGeneva",
             "stopAtEntry": false,

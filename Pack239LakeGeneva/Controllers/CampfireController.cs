@@ -110,10 +110,12 @@ namespace Pack239LakeGeneva.Controllers
     {
       List<string> skits = new List<string>();
 
-      foreach (var file in Directory.EnumerateFiles($@"wwwroot\data\{itemType}\", "*.txt"))
+      foreach (var file in Directory.EnumerateFiles(Path.Combine("wwwroot", "data", itemType), "*.txt"))
       {
-        skits.Add(file.Substring(file.LastIndexOf(@"\") + 1).Replace(".txt", "", StringComparison.OrdinalIgnoreCase));
+        skits.Add(file.Substring(file.LastIndexOf(Path.DirectorySeparatorChar) + 1).Replace(".txt", "", StringComparison.OrdinalIgnoreCase));
       }
+
+      skits.Sort();
 
       return skits;
     }
@@ -122,9 +124,9 @@ namespace Pack239LakeGeneva.Controllers
     {
       List<string> lines = new List<string>();
 
-      if (System.IO.File.Exists($@"wwwroot\data\{itemType}\{skitName}.txt"))
+      if (System.IO.File.Exists(Path.Combine("wwwroot", "data", itemType, $"{skitName}.txt")))
       {
-        using (StreamReader reader = new StreamReader($@"wwwroot\data\{itemType}\{skitName}.txt"))
+        using (StreamReader reader = new StreamReader(Path.Combine("wwwroot", "data", itemType, $"{skitName}.txt")))
         {
           while (reader.Peek() >= 0)
           {

@@ -10,8 +10,8 @@
     }
 
     <div class="calendarEvent d-flex @calendarEvent.Calendar.Replace(" ", "")">
-      <div class="eventDate text-center float-left align-content-center">
-        <span class="month w-100 float-left">@calendarEvent.Start.ToString("MMM")</span>
+      <div class="eventDate text-center float-start align-content-center">
+        <span class="month w-100 float-start">@calendarEvent.Start.ToString("MMM")</span>
         <span class="day">@calendarEvent.Start.ToString("dd")</span>
       </div>
       <div class="eventDescription">
@@ -30,8 +30,8 @@
         }
         <span class="time d-flex">@calendarEvent.Start.ToString("h:mm")@(calendarEvent.End != null ? " - " + @calendarEvent.End.ToString("h:mm") : "")</span>
         <a href="@calendarEvent.MapUrl" target="_blank" rel="noopener noreferrer">
-          <span class="location short float-left">@calendarEvent.ShortLocation</span>
-          <span class="location float-left">@calendarEvent.Location</span>
+          <span class="location short float-start">@calendarEvent.ShortLocation</span>
+          <span class="location float-start">@calendarEvent.Location</span>
         </a>
       </div>
       <span class="calendar @calendarEvent.EventColor" tooltip="@calendarEvent.Calendar" onclick="void (0);"></span>
