@@ -685,10 +685,9 @@ address {
     content: attr(tooltip);
     float: right;
     font-size: 0.8rem;
-    margin-top: -130px;
-    position: absolute;
+    margin-top: -115px;
+    position: absolute !important;
     transition: opacity 0.25s ease-out;
-    top: 2.5rem;
     white-space: nowrap;
     width: 125px;
     z-index: 100;
