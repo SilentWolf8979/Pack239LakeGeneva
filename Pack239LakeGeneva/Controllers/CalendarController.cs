@@ -52,6 +52,8 @@ namespace Pack239LakeGeneva.Controllers
 
     public async Task<IActionResult> GetCalendars()
     {
+      //RegisterCalendars();
+    
       var calendarViewModel = new CalendarViewModel();
       var calendarList = new List<Models.Calendar>();
 
@@ -78,22 +80,34 @@ namespace Pack239LakeGeneva.Controllers
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=NW9rcmoxMm0ydjdnN2poZHNram0ydXI3M2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             break;
           case "1-Lions":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=c3Jqc2tnbWhnYmJyZ2JuOTllYmg5YmNwN2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+          case "Lions - Cub Scout Pack 239 Lake Geneva":
+            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=c3Jqc2tnbWhnYmJyZ2JuOTllYmg5YmNwN2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=OHI2dGNiZnR2dmRkZmQ3amNkOGJvOHVmMWdmaGg2MGhAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "2-Tigers":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=bmN1ZThqY2UzZGFlbTlidmRhMGx2dGtsaXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+          case "Tigers - Cub Scout Pack 239 Lake Geneva":
+            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=bmN1ZThqY2UzZGFlbTlidmRhMGx2dGtsaXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=bDZzcThqcTJ1b2FvaGdoZ2o5dHRjMW8xdWV0cjA3cmhAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "3-Wolves":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZmcxdWMyaWphNHAxYnZ2dmk5ZWVmYjFtdWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+          case "Wolves - Cub Scout Pack 239 Lake Geneva":
+            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZmcxdWMyaWphNHAxYnZ2dmk5ZWVmYjFtdWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=Y21rb3IxY2c2dWM5M2Z2Z24xMnFlMXVpOHVlcDNxNmpAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "4-Bears":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZGlkaW0wcG1jNnE5aDZ1amdkcHA1M3ExNzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+          case "Bears - Cub Scout Pack 239 Lake Geneva":
+            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZGlkaW0wcG1jNnE5aDZ1amdkcHA1M3ExNzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=aXNma2Uydm1tc3IwcDBiazE4OG9tYmExYnVyYnZpM2ZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "5-Webelos":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=NDBvdDQ2bzh1bjFqM211OWRxbm1va2N0dGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+          case "Webelos  - Cub Scout Pack 239 Lake Geneva":
+            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=NDBvdDQ2bzh1bjFqM211OWRxbm1va2N0dGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=MGk3MWRxcmNlbDF1dHVvYmZ0b2ViNWE3YjBvaHVtam9AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "6-Arrow of Light":
-            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=czN0ZmNvdXFvMmVhNzhzY2FrdmY1c3FxbzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+          case "AOLs - Cub Scout Pack 239 Lake Geneva":
+            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=czN0ZmNvdXFvMmVhNzhzY2FrdmY1c3FxbzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
+            currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=cXA5ZjRjc2x0aTZ1dnRuN3JsNXJkMDJtY2wwNGsxa3VAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "Committee":
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=dnBmcHU0bW5sdTRtdWJscWgxdHZlOXE2ZzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
@@ -102,8 +116,16 @@ namespace Pack239LakeGeneva.Controllers
         
         if (calendar.Summary.IndexOf("-") >= 0)
         {
-          currentCal.Sequence = Int32.Parse(calendar.Summary.Substring(0, calendar.Summary.IndexOf("-")));
-          currentCal.Summary = calendar.Summary.Substring(calendar.Summary.IndexOf("-") + 1);
+          int sequence;
+
+          if (Int32.TryParse(calendar.Summary.Substring(0, calendar.Summary.IndexOf("-")), out sequence)) {
+            currentCal.Sequence = sequence;
+            currentCal.Summary = calendar.Summary.Substring(calendar.Summary.IndexOf("-") + 1);
+          }
+          else {
+            currentCal.Sequence = GetCalendarSortOrder(calendar.Summary);
+            currentCal.Summary = calendar.Summary.Substring(0, calendar.Summary.IndexOf("-") - 1).Trim();
+          }
         }
         else if (calendar.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
         {
@@ -210,8 +232,9 @@ namespace Pack239LakeGeneva.Controllers
           {
             if (calendar.Summary.Contains("-"))
             {
-              calendarEvent.Calendar = calendar.Summary.Substring(calendar.Summary.IndexOf("-") + 1);
-              calendarEvent.CalendarSort = Int32.Parse(calendar.Summary.Substring(0, calendar.Summary.IndexOf("-")));
+              
+              calendarEvent.Calendar = calendar.Summary.Substring(0, calendar.Summary.IndexOf("-") - 1).Trim();
+              calendarEvent.CalendarSort = GetCalendarSortOrder(calendar.Summary);
             }
             else
             {
@@ -318,12 +341,46 @@ namespace Pack239LakeGeneva.Controllers
       return events;
     }
 
-    private void RegisterCalendar()
+    private int GetCalendarSortOrder(String calendarSummary) {
+      switch (calendarSummary.Substring(0, calendarSummary.IndexOf("-")).Trim())
+      {
+        case "Lions":
+          return 1;
+        case "Tigers":
+          return 2;
+        case "Wolves":
+          return 3;
+        case "Bears":
+          return 4;
+        case "Webelos":
+          return 5;
+        case "AOLs":
+          return 6;
+      }
+
+      return 0;
+    }
+    private void RegisterCalendars()
     {
-      CalendarListEntry cle = new CalendarListEntry();
+       var calendarIdList = new List<String>();
+
       // This is the ID of a new calendar that we want to show on the site
-      cle.Id = "srjskgmhgbbrgbn99ebh9bcp7k@group.calendar.google.com";
-      CalendarListEntry cleNew = GetCalendarService().CalendarList.Insert(cle).Execute();
+      // The below IDs are the 2023-24 calendar IDs
+      calendarIdList.Add("8r6tcbftvvddfd7jcd8bo8uf1gfhh60h@import.calendar.google.com"); // Lions
+      calendarIdList.Add("l6sq8jq2uoaohghgj9ttc1o1uetr07rh@import.calendar.google.com"); // Tigers
+      calendarIdList.Add("cmkor1cg6uc93fvgn12qe1ui8uep3q6j@import.calendar.google.com"); // Wolves
+      calendarIdList.Add("isfke2vmmsr0p0bk188omba1burbvi3f@import.calendar.google.com"); // Bears
+      calendarIdList.Add("0i71dqrcel1utuobftoeb5a7b0ohumjo@import.calendar.google.com"); // Webelos
+      calendarIdList.Add("qp9f4cslti6uvtn7rl5rd02mcl04k1ku@import.calendar.google.com"); // Arrow of Light
+
+      // Loop through calendar IDs and register them with our account
+      foreach(String calendarId in calendarIdList) {
+        CalendarListEntry cle = new CalendarListEntry();
+
+        cle.Id = calendarId;
+
+        CalendarListEntry cleNew = GetCalendarService().CalendarList.Insert(cle).Execute();
+      }
     }
   }
 }
