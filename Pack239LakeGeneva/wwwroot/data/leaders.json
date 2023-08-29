@@ -70,6 +70,23 @@
       "members": [
         {
           "position": "Den Leader",
+          "name": "Erik Welch",
+          "phone": "262-215-7810",
+          "email": "erikwelch85@gmail.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Tigers",
+      "members": [
+        {
+          "position": "Den Leader",
           "name": "",
           "phone": "",
           "email": ""
@@ -83,7 +100,7 @@
       ]
     },
     {
-      "title": "Tigers",
+      "title": "Wolves",
       "members": [
         {
           "position": "Den Leader",
@@ -100,7 +117,7 @@
       ]
     },
     {
-      "title": "Wolves",
+      "title": "Bears",
       "members": [
         {
           "position": "Den Leader",
@@ -117,13 +134,13 @@
       ]
     },
     {
-      "title": "Bears",
+      "title": "Webelos",
       "members": [
         {
           "position": "Den Leader",
-          "name": "Erin Koepke",
+          "name": "Lynn Koepke",
           "phone": "847-284-0770",
-          "email": "elkoepke@gmail.com"
+          "email": "koepke.lynn@gmail.com"
         },
         {
           "position": "Asst. Den Leader",
@@ -134,7 +151,7 @@
       ]
     },
     {
-      "title": "Webelos",
+      "title": "Arrow of Light",
       "members": [
         {
           "position": "Den Leader",
@@ -144,26 +161,9 @@
         },
         {
           "position": "Asst. Den Leader",
-          "name": "Ian Halliday",
-          "phone": "708-699-3654",
-          "email": "ian@shin-go-beek.com"
-        }
-      ]
-    },
-    {
-      "title": "Arrow of Light",
-      "members": [
-        {
-          "position": "Den Leader",
-          "name": "Barb Welch",
-          "phone": "262-215-3686",
-          "email": "grapejuice23@yahoo.com"
-        },
-        {
-          "position": "Asst. Den Leader",
-          "name": "Lynn Koepke",
-          "phone": "847-284-0770",
-          "email": "koepke.lynn@gmail.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         }
       ]
     }
