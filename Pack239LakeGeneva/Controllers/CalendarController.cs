@@ -81,32 +81,26 @@ namespace Pack239LakeGeneva.Controllers
             break;
           case "1-Lions":
           case "Lions - Cub Scout Pack 239 Lake Geneva":
-            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=c3Jqc2tnbWhnYmJyZ2JuOTllYmg5YmNwN2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=OHI2dGNiZnR2dmRkZmQ3amNkOGJvOHVmMWdmaGg2MGhAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "2-Tigers":
           case "Tigers - Cub Scout Pack 239 Lake Geneva":
-            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=bmN1ZThqY2UzZGFlbTlidmRhMGx2dGtsaXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=bDZzcThqcTJ1b2FvaGdoZ2o5dHRjMW8xdWV0cjA3cmhAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "3-Wolves":
           case "Wolves - Cub Scout Pack 239 Lake Geneva":
-            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZmcxdWMyaWphNHAxYnZ2dmk5ZWVmYjFtdWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=Y21rb3IxY2c2dWM5M2Z2Z24xMnFlMXVpOHVlcDNxNmpAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "4-Bears":
           case "Bears - Cub Scout Pack 239 Lake Geneva":
-            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=ZGlkaW0wcG1jNnE5aDZ1amdkcHA1M3ExNzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=aXNma2Uydm1tc3IwcDBiazE4OG9tYmExYnVyYnZpM2ZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "5-Webelos":
           case "Webelos  - Cub Scout Pack 239 Lake Geneva":
-            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=NDBvdDQ2bzh1bjFqM211OWRxbm1va2N0dGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=MGk3MWRxcmNlbDF1dHVvYmZ0b2ViNWE3YjBvaHVtam9AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "6-Arrow of Light":
           case "AOLs - Cub Scout Pack 239 Lake Geneva":
-            //currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=czN0ZmNvdXFvMmVhNzhzY2FrdmY1c3FxbzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
             currentCal.ShareUrl = "https://calendar.google.com/calendar?cid=cXA5ZjRjc2x0aTZ1dnRuN3JsNXJkMDJtY2wwNGsxa3VAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20";
             break;
           case "Committee":
@@ -125,6 +119,10 @@ namespace Pack239LakeGeneva.Controllers
           else {
             currentCal.Sequence = GetCalendarSortOrder(calendar.Summary);
             currentCal.Summary = calendar.Summary.Substring(0, calendar.Summary.IndexOf("-") - 1).Trim();
+          }
+
+          if (currentCal.Summary.Equals("AOLs")){
+            currentCal.Summary = "Arrow of Light";
           }
         }
         else if (calendar.Summary.Equals("Pack239LakeGeneva@gmail.com", StringComparison.OrdinalIgnoreCase))
@@ -232,13 +230,16 @@ namespace Pack239LakeGeneva.Controllers
           {
             if (calendar.Summary.Contains("-"))
             {
-              
               calendarEvent.Calendar = calendar.Summary.Substring(0, calendar.Summary.IndexOf("-") - 1).Trim();
               calendarEvent.CalendarSort = GetCalendarSortOrder(calendar.Summary);
             }
             else
             {
               calendarEvent.Calendar = calendar.Summary;
+            }
+
+            if (calendarEvent.Calendar.Equals("AOLs")){
+              calendarEvent.Calendar = "Arrow of Light";
             }
           }
 
