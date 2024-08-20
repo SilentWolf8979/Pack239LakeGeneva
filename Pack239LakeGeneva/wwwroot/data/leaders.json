@@ -35,9 +35,9 @@
         },
         {
           "position": "Treasurer",
-          "name": "Dawn Nei",
-          "phone": "219-577-7705",
-          "email": "rnei15@wi.rr.com"
+          "name": "Brandy York",
+          "phone": "",
+          "email": ""
         },
         {
           "position": "Member",
@@ -70,9 +70,9 @@
       "members": [
         {
           "position": "Den Leader",
-          "name": "Erik Welch",
-          "phone": "262-215-7810",
-          "email": "erikwelch85@gmail.com"
+          "name": "",
+          "phone": "",
+          "email": ""
         },
         {
           "position": "Asst. Den Leader",
@@ -87,9 +87,9 @@
       "members": [
         {
           "position": "Den Leader",
-          "name": "",
-          "phone": "",
-          "email": ""
+          "name": "Erik Welch",
+          "phone": "262-215-7810",
+          "email": "erikwelch85@gmail.com"
         },
         {
           "position": "Asst. Den Leader",
@@ -101,6 +101,23 @@
     },
     {
       "title": "Wolves",
+      "members": [
+        {
+          "position": "Den Leader",
+          "name": "Michael Desecki",
+          "phone": "262-745-3425",
+          "email": "mdesecki20@gmail.com"
+        },
+        {
+          "position": "Asst. Den Leader",
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      ]
+    },
+    {
+      "title": "Bears",
       "members": [
         {
           "position": "Den Leader",
@@ -117,7 +134,7 @@
       ]
     },
     {
-      "title": "Bears",
+      "title": "Webelos",
       "members": [
         {
           "position": "Den Leader",
@@ -134,30 +151,13 @@
       ]
     },
     {
-      "title": "Webelos",
+      "title": "Arrow of Light",
       "members": [
         {
           "position": "Den Leader",
           "name": "Lynn Koepke",
           "phone": "847-284-0770",
           "email": "koepke.lynn@gmail.com"
-        },
-        {
-          "position": "Asst. Den Leader",
-          "name": "",
-          "phone": "",
-          "email": ""
-        }
-      ]
-    },
-    {
-      "title": "Arrow of Light",
-      "members": [
-        {
-          "position": "Den Leader",
-          "name": "Cheryl Chamberlin",
-          "phone": "847-812-3116",
-          "email": "tim.cheryl3@gmail.com"
         },
         {
           "position": "Asst. Den Leader",

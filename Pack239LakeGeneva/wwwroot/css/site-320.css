@@ -248,7 +248,19 @@ footer .svg-inline--fa {
   margin-bottom: 0;
 }
 .home .hero {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
   text-align: center;
+  width: 100%;
+}
+.home .hero iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .home .homeImage {
   margin-bottom: 1rem;
